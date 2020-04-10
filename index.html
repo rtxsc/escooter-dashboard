@@ -8,11 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" /> -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
 
-  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+
   <title>eScooter Tracking</title>
 
   <!-- Custom fonts for this template-->
@@ -24,11 +27,33 @@
   <style>
   	body { margin: 0; padding: 0; }
   	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    .marker {
+    background-image: url('mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    }
 
   button {
     margin: 10px;
   }
 
+  /* .geocoder {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  top: 0px;
+  }
+  .mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+  }
+  #map {
+  margin-top: 40px;
+  } */
   </style>
 
 </head>
@@ -44,9 +69,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-biking"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">ECM702<sup>Project</sup></div>
       </a>
 
       <!-- Divider -->
@@ -380,11 +405,11 @@
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
+              <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Scooter 2 Status</div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Status</div>
                       <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
 
                       <a href="#" id="s2-btn" class="btn btn-success btn-icon-split">
@@ -405,26 +430,28 @@
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
+              <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Scooter 1 Alarm</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Alarm</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div id="s1-alert-bg" class="icon-circle bg-warning">
                           <i id="s1-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
                           </div>
                         </div>
-                        <!-- <div class="col">
-                          <div class="progress progress-sm mr-2">
+
+                        <div class="col">
+                          <h4 class="small font-weight-bold">Scooter 1 Last Seen: <span id="s1-last-seen" class="float-right">Locating...</span></h4>
+                          <!-- <div class="progress progress-sm mr-2">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div> -->
+                          </div> -->
+                        </div>
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <!-- <i class="fas fa-clipboard-list fa-2x text-gray-300"></i> -->
                     </div>
                   </div>
                 </div>
@@ -433,18 +460,27 @@
 
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
+              <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Scooter 2 Alarm</div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Alarm</div>
                       <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">Inactive</div> -->
+                      <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
                       <div id="s2-alert-bg" class="icon-circle bg-warning">
                       <i id="s2-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
                     </div>
                     </div>
+
+                  <div class="col">
+                    <h4 class="small font-weight-bold">Scooter 2 Last Seen: <span id="s2-last-seen" class="float-right">Locating...</span></h4>
+                  </div>
+                </div>
+              </div>
                       <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      <!-- <i class="fas fa-comments fa-2x text-gray-300"></i> -->
+
                     </div>
                   </div>
                 </div>
@@ -480,6 +516,8 @@
                   <div class="chart-area">
                     <!-- <canvas id="myAreaChart"></canvas> -->
                     <div id="map"></div>
+                    <div id="geocoder" class="geocoder"></div>
+
                   </div>
                 </div>
               </div>
@@ -507,11 +545,11 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <!-- <canvas id="myPieChart"></canvas> -->
-                    <button id="b1">Button #1</button>
+                    <canvas id="myPieChart"></canvas>
+                    <!-- <button id="b1">Button #1</button>
                     <button id="b2">Button #2</button>
                     <div><span id="v1">0</span> button #1 clicks.</div>
-                    <div><span id="v2">0</span> button #2 clicks.</div>
+                    <div><span id="v2">0</span> button #2 clicks.</div> -->
 
                   </div>
                   <div class="mt-4 text-center small">
@@ -567,7 +605,7 @@
                   </div>
 
 
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                  <h4 class="small font-weight-bold">Console Area <span id="console" class="float-right">Waiting for input</span></h4>
                   <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
@@ -637,7 +675,8 @@
                 </div>
                 <div class="card-body">
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_scooter_aia8.svg" alt="">
+                    <canvas id="myAreaChart"></canvas>
+                    <!-- <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_scooter_aia8.svg" alt=""> -->
                   </div>
                   <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
                   <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
@@ -724,14 +763,15 @@
   <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.23.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 
   <script>
 
   var s1_battery =12;
-  var s1_range= 15; // Xiaomi Mijia M365 Range 30KM
+  var s1_range= 30; // Xiaomi Mijia M365 Range 30KM
 
   var s2_battery = 50;
-  var s2_range= 60; // Xiaomi Mijia M365 Range 30KM
+  var s2_range= 30; // Xiaomi Mijia M365 Range 30KM
 
   $("#s1-battery-level").text("FULL");
   $("#s1-batt").text(s1_battery+"%");
@@ -757,13 +797,18 @@
     });
 
     // Initialize longitude latitude to default coordinates after load
-    var longitude = 110.38;
-    var latitude = 1.58;
+    // lat : 1.5832216299999995
+    // lon : 110.38827859999998
+    var longitude = 110.38827859999998;
+    var latitude = 1.5832216299999995;
     var scooter1_activated = null;
     var scooter2_activated = null;
 
     var longitude_s2 = 110.389;
     var latitude_s2 = 1.582;
+
+
+
 
     scooter1_activation(scooter1_activated);
     scooter2_activation(scooter2_activated);
@@ -790,7 +835,7 @@
       else {
         $( "#s1-btn" ).addClass("btn btn-light btn-icon-split");
         $( "#s1-logo" ).addClass("fas fa-exclamation-triangle");
-        $("#s1-status").text("Initializing");
+        $("#s1-status").text("Disconnected");
       }
     }
 
@@ -808,10 +853,18 @@
         else {
           $( "#s2-btn" ).addClass("btn btn-light btn-icon-split");
           $( "#s2-logo" ).addClass("fas fa-exclamation-triangle");
-          $("#s2-status").text("Initializing")
+          $("#s2-status").text("Disconnected")
         }
       }
 
+
+// reverse geocoding
+/*
+lat : 1.5832216299999995
+lon : 110.38827859999998
+curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.5832216299999995.json?access_token=pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA"
+
+*/
     pubnub.addListener({
         message: function(m) {
             // handle message
@@ -828,14 +881,8 @@
             console.log(scooter1_activated);
             scooter1_activation(scooter1_activated);
             scooter2_activation(scooter2_activated);
-
-
             var publisher = m.publisher; //The Publisher
-
-      console.log(publisher,msg);
-
-
-
+            console.log(publisher,msg);
         },
         presence: function(p) {
             // handle presence
@@ -868,11 +915,18 @@
       var map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [110.388503,1.583304],
+          center: [110.38827859999998,1.5832216299999995],
           zoom: 15
 
       });
 
+      var radius = 0.001; // rotate radius for circle and marker3/scooter3
+      // 3.069638,101.503772 uitm shah alam
+      // var southWest = new mapboxgl.LngLat(110.327979, 1.429448); // 1.429448,110.327979 padawan
+      // var northEast = new mapboxgl.LngLat(110.4717407, 1.606540); // 1.606540,110.471740 sungai sarawak
+      // var boundingBox = new mapboxgl.LngLatBounds(southWest, northEast);
+      // arrayBound = boundingBox.toArray()
+      // console.log(arrayBound);
 
   		// Add geolocate control to the map.
   		map.addControl(
@@ -882,156 +936,263 @@
   				},
   				trackUserLocation: true
         })
-
   		);
+      // forward geocoding - user enter name of places
+      map.addControl(
+        new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        zoom: 15,
+        placeholder: 'Landmark: UiTM Samrahan',
+        // limit results to Malaysia
+        countries: 'my',
+        // further limit results to the geographic bounds representing the region of
+        bbox: [110.327979,1.429448,110.471740,1.606540],
+        // localGeocoder: coordinatesGeocoder,
+        // apply a client side filter to further limit results to those strictly within
+        // the Sarawak
+        filter: function(item) {
+        // returns true if item contains Sarawak
+        return item.context
+        .map(function(i) {
+        return (
+          i.id.split('.').shift() === 'region' &&
+          i.text === 'Sarawak'
+          );
+        })
+        .reduce(function(acc, cur) {
+          return acc || cur;
+          });
+        },
+        mapboxgl: mapboxgl
+        })
+        );
+
+        // reverse geocoding - user enter coordinate longitude,latitude
+        // NOTE_: The MapboxGeocoder plugin for Mapbox GL JS is to
+        // provide an out of the box search box interface (GUI search),
+        // not for calling the API directly (script search).
+
+
+        map.addControl(
+          geocoder = new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          // limit results to Malaysia
+          countries: 'my',
+          // localGeocoder: coordinatesGeocoder,
+          zoom: 15,
+          limit:1,
+          placeholder: 'Lon/Lat: 110.38,1.588',
+          // limit results to Malaysia
+          countries: 'my',
+          // further limit results to the geographic bounds representing the region of
+          bbox: [110.327979,1.429448,110.471740,1.606540],
+          // localGeocoder: coordinatesGeocoder,
+          // apply a client side filter to further limit results to those strictly within
+          // the Sarawak
+
+          filter: function(item) {
+          // returns true if item contains Sarawak
+          return item.context
+          .map(function(i) {
+          return (i.id.split('.').shift() === 'region' && i.text === 'Sarawak');
+          })
+          .reduce(function(acc, cur) {
+            return acc || cur;
+            });
+          },
+          mapboxgl: mapboxgl
+          })
+          );
+          // document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+          // var response = geocoder.query("110.38,1.588");
+          // console.log(response);
+          // Promise.resolve(geocoder.query("110.38,1.588")).then(function(e)
+          // {
+          //   console.log(e._typeahead.text)
+          // });
+
+          var s1_last_seen="";
+
+          // API to perform reverse Geocoding in JavaScript
+          var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+            mapboxClient.geocoding
+              .reverseGeocode({
+                query: [110.38,1.588]
+              })
+              .send()
+              .then(function(response) {
+                if (
+                  response &&
+                  response.body &&
+                  response.body.features &&
+                  response.body.features.length
+                ) {
+                  var feature = response.body.features[0];
+                  s1_last_seen = feature.place_name;
+                  console.log(response);
+                  $("#s1-last-seen").text(s1_last_seen);
+
+                }
+              });
+
+          // $("#console").text(response);
+  /*
+    toString(longitude),toString(latitude)
+      lat : 1.5832216299999995
+      lon : 110.38827859999998
+      curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.5832216299999995.json?access_token=pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA"
+      */
+
+    // geocoder.query({
+    //   query: [-95.4431142, 33.6875431]
+    // })
+    //   .send()
+    //   .then(response => {
+    //     // GeoJSON document with geocoding matches
+    //     const match = response.body;
+    //   });
+
+    //
+    //   var coordinatesGeocoder = function(query) {
+    //    var matches = query.match(/^[ ]*(-?\d+\.?\d*)[, ]+(-?\d+\.?\d*)[ ]*$/);
+    //    if (!matches) {
+    //      return [];
+    //    }
+    //
+    //    function coordinateFeature(lng, lat) {
+    //      var lng = Number(lng);
+    //      var lat = Number(lat);
+    //      return {
+    //        center: [lng, lat],
+    //        geometry: {
+    //         type: 'Point',
+    //         coordinates: [lng, lat]
+    //       },
+    //       place_name: 'Lat: ' + lat + ', Lng: ' + lng,
+    //       place_type: ['coordinate'],
+    //       properties: {},
+    //       type: 'Feature'
+    //     };
+    //   }
+    //   var coord1 = matches[1];
+    //   var coord2 = matches[2];
+    //   var geocodes = [];
+    //   if (coord1 < -90 || coord1 > 90) {
+    //     // must be lng, lat
+    //     geocodes.push(coordinateFeature(coord1, coord2));
+    //   }
+    //   if (coord2 < -90 || coord2 > 90) {
+    //     // must be lat, lng
+    //     geocodes.push(coordinateFeature(coord2, coord1));
+    //   }
+    //   if (geocodes.length == 0) {
+    //     // else could be either
+    //     geocodes.push(coordinateFeature(coord1, coord2));
+    //     geocodes.push(coordinateFeature(coord2, coord1));
+    //   }
+    //   return geocodes;
+    // };
 
       var scooter1 = new mapboxgl.Marker();
       var scooter2 = new mapboxgl.Marker();
       var scooter3 = new mapboxgl.Marker();
 
       var change = 0.001;
+      var i; // count newMarkers
+      var previousMarkers=[];
+      var newMarkers;
+      var run_lon ;
+      var run_lat ;
 
       function animateMarker(timestamp) {
-        // console.log(timestamp/1000);
-          var radius = 20;
-
-          // Update the data to a new position based on the animation timestamp. The
-          // divisor in the expression `timestamp / 1000` controls the animation speed.
-          // format: lon,lat
-          // Math.cos(timestamp / 1000) * radius,
-          // Math.sin(timestamp / 1000) * radius
+          run_lon = radius* Math.sin(timestamp / 5000) + longitude-change;
+          run_lat = radius* Math.cos(timestamp / 5000) + latitude-change;
 
           scooter1.setLngLat([longitude,latitude]);
-          scooter2.setLngLat([longitude+change,latitude+change]);
-          scooter3.setLngLat([longitude+change*2,latitude+change*2]);
-
+          scooter2.setLngLat([longitude-change,latitude-change]);
+          scooter3.setLngLat([run_lon,run_lat]);
           // Request the next frame of the animation.
           requestAnimationFrame(animateMarker);
 
-
-          var geojson = {
-                          'type': 'FeatureCollection',
-                          'features': [
-                          {
-                          'type': 'Feature',
-                          'properties': {
-                          'message': 'Scooter1',
-                          'iconSize': [50, 50]
-                          },
-                          'geometry': {
-                          'type': 'Point',
-                          'coordinates': [longitude,latitude]
-                          }
-                          },
-                          {
-                          'type': 'Feature',
-                          'properties': {
-                          'message': 'Scooter2',
-                          'iconSize': [50, 50]
-                          },
-                          'geometry': {
-                          'type': 'Point',
-                          'coordinates': [longitude+0.001, latitude+0.001]
-                          }
-                          }
-                          ]
-          };
-          // add marker to map
-      geojson.features.forEach(function(marker) {
-          // create a DOM element for the marker
-          var el = document.createElement('div');
-          el.className = 'marker';
-          el.style.backgroundImage ='url(https://img.icons8.com/color/48/000000/kick-scooter.png';
-          el.style.width = marker.properties.iconSize[0] + 'px';
-          el.style.height = marker.properties.iconSize[1] + 'px';
-
-          el.addEventListener('click', function() {
-            window.alert(marker.properties.message);
-      });
-      new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map);
-
-
-      });
           // Ensure it's added to the map. This is safe to call if it's already added.
           scooter1.addTo(map);
           scooter2.addTo(map);
           scooter3.addTo(map);
-      }
+
+          // var geojson = {
+          //                 'type': 'FeatureCollection',
+          //                 'features': [
+          //                 {
+          //                   'type': 'Feature',
+          //                   'properties': {
+          //                   'message': 'Scooter1',
+          //                   'iconSize': [50, 50],
+          //                   'title': 'Scooter1',
+          //                   'description': 'San Francisco, California'
+          //                   },
+          //                   'geometry': {
+          //                   'type': 'Point',
+          //                   'coordinates': [longitude,latitude]
+          //                 }
+          //                 },
+          //                 {
+          //                   'type': 'Feature',
+          //                   'properties': {
+          //                   'message': 'Scooter2',
+          //                   'iconSize': [50, 50],
+          //                   'title': 'Scooter2',
+          //                   'description': 'San Francisco, California'
+          //                   },
+          //                   'geometry': {
+          //                   'type': 'Point',
+          //                   'coordinates': [longitude+0.001, latitude+0.001]
+          //                   }
+          //                 },
+          //                 {
+          //                   'type': 'Feature',
+          //                   'properties': {
+          //                   'message': 'Scooter3',
+          //                   'iconSize': [50, 50]
+          //                   },
+          //                   'geometry': {
+          //                   'type': 'Point',
+          //                   'coordinates': [run_lon, run_lat]
+          //                   }
+          //                 }
+          //                 ]
+          // };
+
+
+          // geojson.features.forEach(function(marker) {
+          //   // create a HTML element for each feature
+          //   var el = document.createElement('div');
+          //   el.className = 'marker';
+          //
+          //   // create markers and add them to map
+          //   newMarkers =  new mapboxgl.Marker(el)
+          //                .setLngLat(marker.geometry.coordinates)
+          //                .addTo(map);
+          //     // save newMarkers into previousMarkers array
+          //     previousMarkers.push(newMarkers); // 3 markers in total
+          //     // console.log(previousMarkers.length);
+          //     $("#console").text(previousMarkers.length);
+          //     if(previousMarkers!=null){
+          //       // create markers and add them to map
+          //       newMarkers =  new mapboxgl.Marker(el)
+          //                    .setLngLat(marker.geometry.coordinates)
+          //                    .addTo(map);
+          //       for(var i = previousMarkers.length-1;i>=0;i--){
+          //         previousMarkers[i].remove();
+          //       }
+          //     }
+          //
+          // });
+
+      } // end of animateMarker
       // Start the animation.
       requestAnimationFrame(animateMarker);
 
   </script>
 
-
-
-
-
-
-  <!-- <script>
-  $( "#b1" ).first().click(function() {
-    update( $( "#v1" ).first() );
-  });
-
-  $( "#b2" ).last().click(function() {
-    $( "#b1" ).first().trigger( "click" );
-    update( $( "#v2" ).last() );
-  });
-
-  function update( j ) {
-    // console.log(j.text())
-    var n = parseInt( j.text(), 10 );
-    var num=n+1;
-    // console.log(num);
-    j.text( num );
-    // scooter 1 activation
-    if(num % 2 == 0){
-    // if(scooter_activated == 0){
-
-      $( "#s1-btn" ).removeClass("btn btn-success btn-icon-split").addClass("btn btn-danger btn-icon-split");
-      $( "#s1-logo" ).removeClass("fas fa-check").addClass("fas fa-flag");
-      $("#s1-status").text("Deactivated")
-    }
-    else {
-      $( "#s1-btn" ).removeClass("btn btn-danger btn-icon-split").addClass("btn btn-success btn-icon-split");
-      $( "#s1-logo" ).removeClass("fas fa-flag").addClass("fas fa-check");
-      $("#s1-status").text("Activated")
-    }
-
-    // scooter 1 alarm
-    // if(num % 2 == 0){
-    if(scooter_moved == 0){
-      $( "#s1-alert-bg" ).removeClass("icon-circle bg-warning").addClass("icon-circle bg-info");
-      $( "#s1-alert-logo" ).removeClass("fas fa-exclamation-triangle text-white").addClass("fas fa-info");
-    }
-    else {
-      $( "#s1-alert-bg" ).removeClass("icon-circle bg-info").addClass("icon-circle bg-warning");
-      $( "#s1-alert-logo" ).removeClass("fas fa-info").addClass("fas fa-exclamation-triangle text-white");
-    }
-
-    // scooter 2 activation
-
-    if(num % 2 != 0){
-      $( "#s2-btn" ).removeClass("btn btn-success btn-icon-split").addClass("btn btn-danger btn-icon-split");
-      $( "#s2-logo" ).removeClass("fas fa-check").addClass("fas fa-flag");
-      $("#s2-status").text("Deactivated")
-    }
-    else {
-      $( "#s2-btn" ).removeClass("btn btn-danger btn-icon-split").addClass("btn btn-success btn-icon-split");
-      $( "#s2-logo" ).removeClass("fas fa-flag").addClass("fas fa-check");
-      $("#s2-status").text("Activated")
-    }
-
-    // scooter 2 alarm
-    if(num % 2 == 0){
-      $( "#s2-alert-bg" ).removeClass("icon-circle bg-warning").addClass("icon-circle bg-info");
-      $( "#s2-alert-logo" ).removeClass("fas fa-exclamation-triangle text-white").addClass("fas fa-info");
-    }
-    else {
-      $( "#s2-alert-bg" ).removeClass("icon-circle bg-info").addClass("icon-circle bg-warning");
-      $( "#s2-alert-logo" ).removeClass("fas fa-info").addClass("fas fa-exclamation-triangle text-white");
-    }
-
-  }
-  </script> -->
 </body>
 </html>
