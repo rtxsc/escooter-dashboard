@@ -40,20 +40,112 @@
     margin: 10px;
   }
 
-  /* .geocoder {
-  position: absolute;
-  z-index: 1;
-  width: 50%;
-  left: 50%;
-  margin-left: -25%;
-  top: 0px;
+/* animating gauge CSS */
+  html {
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
   }
-  .mapboxgl-ctrl-geocoder {
-  min-width: 100%;
-  }
-  #map {
-  margin-top: 40px;
-  } */
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+main.container {
+  max-width: 960px;
+  padding-top: 80px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
+.card-deck .card {
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+/* ------ Default Style ---------- */
+.gauge-container {
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.gauge-container > .gauge > .dial {
+  stroke: rgb(47, 227, 255);
+  stroke-width: 2;
+  fill: rgba(0, 0, 0, 0);
+}
+.gauge-container > .gauge > .value {
+  stroke: #03a9f4;
+  stroke-width: 4;
+  fill: rgba(0, 0, 0, 0);
+}
+.gauge-container > .gauge > .value-text {
+  fill: rgb(47, 227, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.bg-gradient {
+  color: #ffffff !important;
+  background: #07a7e3;
+  background: -moz-linear-gradient(-45deg, #07a7e3 0%, #32dac3 100%);
+  background: -webkit-linear-gradient(-45deg, #07a7e3 0%, #32dac3 100%);
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr=$qp-color-1,
+      endColorstr=$qp-color-2,
+      GradientType=1
+    );
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+.card.bg-gradient > .gauge-container > .gauge > .dial {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 2;
+}
+.card.bg-gradient > .gauge-container > .gauge > .value {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 4;
+}
+
+.card.bg-gradient > .gauge-container > .gauge > .value-text {
+  fill: #ffffff;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
   </style>
 
 </head>
@@ -336,8 +428,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mohd Yazid</span>
+                <img class="img-profile rounded-circle" src="https://images.unsplash.com/photo-1573126324222-6600c9c21274?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2249&q=80">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -395,9 +487,9 @@
                       </a>
 
                     </div>
-                    <div class="col-auto">
+                    <!-- <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -420,9 +512,9 @@
                       </a>
 
                     </div>
-                    <div class="col-auto">
+                    <!-- <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -434,7 +526,117 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Alarm</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 User</div>
+                      <h4 class="small font-weight-bold">Yazid<span id="s1-usage-timer" class="float-right">0%</span></h4>
+
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Usage Duration</div>
+                      <h4 class="small font-weight-bold">000<span id="s1-usage-timer" class="float-right">0%</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s1-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 2 User</div>
+                      <h4 class="small font-weight-bold">Farah<span id="s2-usage-timer" class="float-right">0%</span></h4>
+
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 2 Usage Duration</div>
+                      <h4 class="small font-weight-bold">000<span id="s2-usage-timer" class="float-right">0%</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s2-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
+                      </div>
+                      </div>
+                      <!-- <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+  <!-- Content Row 1 -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Speed Over Ground</div>
+                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
+
+                      <div class="card-deck text-center">
+                      <div class="card mb-4 box-shadow bg-gradient">
+                           <div class="card-body gauge-container" id="gauge1">
+                           </div>
+                         </div>
+                       </div>
+
+                      <!-- <a href="#" id="s1-btn_" class="btn btn-success btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i id="s1-logo_" class="fas fa-check"></i>
+                        </span>
+                        <span id="s1-status_" class="text">Activated</span>
+                      </a> -->
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Speed Over Ground</div>
+                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
+
+                      <div class="card mb-4 box-shadow">
+                       <div class="card-body gauge-container" id="gauge2">
+                       </div>
+                     </div>
+
+                      <!-- <a href="#" id="s2-btn_" class="btn btn-success btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i id="s2-logo_" class="fas fa-check"></i>
+                        </span>
+                        <span id="s2-status_" class="text">Activated</span>
+                      </a> -->
+
+                    </div>
+                    <!-- <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Tracker</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div id="s1-alert-bg" class="icon-circle bg-warning">
@@ -444,9 +646,6 @@
 
                         <div class="col">
                           <h4 class="small font-weight-bold">Scooter 1 Last Seen: <span id="s1-last-seen" class="float-right">Locating...</span></h4>
-                          <!-- <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -464,8 +663,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Alarm</div>
-                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">Inactive</div> -->
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Tracker</div>
                       <div class="row no-gutters align-items-center">
                           <div class="col-auto">
                       <div id="s2-alert-bg" class="icon-circle bg-warning">
@@ -487,8 +685,8 @@
               </div>
             </div>
           </div>
+  <!-- Content Row 1 -->
 
-          <!-- Content Row -->
 
           <div class="row">
 
@@ -527,41 +725,45 @@
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
+
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                    <!-- <button id="b1">Button #1</button>
-                    <button id="b2">Button #2</button>
-                    <div><span id="v1">0</span> button #1 clicks.</div>
-                    <div><span id="v2">0</span> button #2 clicks.</div> -->
 
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
+
+                  <!-- <div class="card shadow mb-4"> -->
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">eScooter Health</h6>
+                    </div>
+                    <div class="card-body">
+
+                      <h4 class="small font-weight-bold">Scooter 1 Battery <span id="s1-battery-level" class="float-right">0%</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s1-battery-inside" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"><span id="s1-batt" class="float-right">0%</span></div>
+                      </div>
+                      <h4 class="small font-weight-bold">Scooter 1 Range <span id="s1-range-level" class="float-right">0KM</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s1-range-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
+                      </div>
+
+
+                      <h4 class="small font-weight-bold">Scooter 2 Battery <span id="s2-battery-level" class="float-right">0%</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s2-battery-inside" class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:0%"><span id="s2-batt" class="float-right">0%</span></div>
+
+                        <!-- <div id="s2-battery-bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div> -->
+                      </div>
+                      <h4 class="small font-weight-bold">Scooter 2 Range <span id="s2-range-level" class="float-right">0KM</span></h4>
+                      <div class="progress mb-4">
+                        <div  id="s2-range-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
+                      </div>
+
+
+                      <h4 class="small font-weight-bold">Console Area <span id="console" class="float-right">Waiting for input</span></h4>
+                      <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  <!-- </div> -->
                   </div>
                 </div>
               </div>
@@ -576,41 +778,41 @@
 
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">eScooter Health</h6>
-                </div>
+
                 <div class="card-body">
 
-                  <h4 class="small font-weight-bold">Scooter 1 Battery <span id="s1-battery-level" class="float-right">0%</span></h4>
-                  <div class="progress mb-4">
-                    <div id="s1-battery-inside" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"><span id="s1-batt" class="float-right">0%</span></div>
-
-                    <!-- <div id="s1-battery-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div> -->
-                  </div>
-                  <h4 class="small font-weight-bold">Scooter 1 Range <span id="s1-range-level" class="float-right">0KM</span></h4>
-                  <div class="progress mb-4">
-                    <div id="s1-range-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
-                  </div>
-
-
-                  <h4 class="small font-weight-bold">Scooter 2 Battery <span id="s2-battery-level" class="float-right">0%</span></h4>
-                  <div class="progress mb-4">
-                    <div id="s2-battery-inside" class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:0%"><span id="s2-batt" class="float-right">0%</span></div>
-
-                    <!-- <div id="s2-battery-bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div> -->
-                  </div>
-                  <h4 class="small font-weight-bold">Scooter 2 Range <span id="s2-range-level" class="float-right">0KM</span></h4>
-                  <div class="progress mb-4">
-                    <div  id="s2-range-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <div class="dropdown no-arrow">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Dropdown Header:</div>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div>
                   </div>
 
-
-                  <h4 class="small font-weight-bold">Console Area <span id="console" class="float-right">Waiting for input</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                  <!-- </div> -->
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
               <!-- Color System -->
               <div class="row">
@@ -708,7 +910,6 @@
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; eScooter Tracking 2020</span>
-
           </div>
         </div>
       </footer>
@@ -767,11 +968,15 @@
 
   <script>
 
-  var s1_battery =12;
+  var s1_battery =50;
   var s1_range= 30; // Xiaomi Mijia M365 Range 30KM
 
-  var s2_battery = 50;
+  var s2_battery = 100;
   var s2_range= 30; // Xiaomi Mijia M365 Range 30KM
+
+
+  s1_range = s1_battery/100*30;
+  s2_range = s2_battery/100*30;
 
   $("#s1-battery-level").text("FULL");
   $("#s1-batt").text(s1_battery+"%");
@@ -780,7 +985,7 @@
   document.getElementById("s1-battery-inside").style.width = s1_battery+"%";
 
   $("#s1-range-level").text(s1_range+"%");
-  document.getElementById("s1-range-bar").style.width = s1_range+"%";
+  document.getElementById("s1-range-bar").style.width = (s1_range/30*100)+"%";
 
   $("#s2-battery-level").text("FULL");
   $("#s2-batt").text(s2_battery+"%");
@@ -789,26 +994,35 @@
   document.getElementById("s2-battery-inside").style.width = s2_battery+"%";
 
   $("#s2-range-level").text(s2_range+"%");
-  document.getElementById("s2-range-bar").style.width = s2_range+"%";
+  document.getElementById("s2-range-bar").style.width = (s2_range/30*100)+"%";
 
     var pubnub = new PubNub({
-      subscribeKey: "sub-c-528ce956-c01c-11e9-9b2b-52096338bc98",
+      subscribeKey: "sub-c-cf845704-8def-11ea-8e98-72774568d584",
       ssl: true
     });
 
     // Initialize longitude latitude to default coordinates after load
     // lat : 1.5832216299999995
     // lon : 110.38827859999998
-    var longitude = 110.38827859999998;
-    var latitude = 1.5832216299999995;
+    var longitude = 110.382395;
+    var latitude = 1.581623; // 1.581623,110.382395
+    var s1_lat = 0.0;
+    var s1_lon = 0.0;
+    var s1_last_seen; // default to uitm samaraham
+    var default_location = [110.4451,1.4489];
+    var s1_tracked = "";
+
+
+    // var s1_last_lat = 0.0;
+    // var s1_last_lon = 0.0;
+
+    var s2_lat = 0.0;
+    var s2_lon = 0.0;
     var scooter1_activated = null;
     var scooter2_activated = null;
 
     var longitude_s2 = 110.389;
     var latitude_s2 = 1.582;
-
-
-
 
     scooter1_activation(scooter1_activated);
     scooter2_activation(scooter2_activated);
@@ -841,19 +1055,27 @@
 
     function scooter2_activation(scooter2_activated){
         if(scooter2_activated==true){
-          $( "#s2-btn" ).removeClass("btn btn-danger btn-icon-split").addClass("btn btn-success btn-icon-split");
-          $( "#s2-logo" ).removeClass("fas fa-flag").addClass("fas fa-check");
-          $("#s2-status").text("Activated")
+          $( "#s2-btn" ).removeClass("btn btn-danger btn-icon-split");
+          $( "#s2-btn" ).removeClass("btn btn-light btn-icon-split");
+          $( "#s2-btn" ).addClass("btn btn-success btn-icon-split");
+          $( "#s2-logo" ).removeClass("fas fa-flag");
+          $( "#s2-logo" ).removeClass("fas fa-exclamation-triangle");
+          $( "#s2-logo" ).addClass("fas fa-check");
+          $("#s2-status").text("Activated");
         }
         else if(scooter2_activated==false){
-          $( "#s2-btn" ).removeClass("btn btn-success btn-icon-split").addClass("btn btn-danger btn-icon-split");
-          $( "#s2-logo" ).removeClass("fas fa-check").addClass("fas fa-flag");
-          $("#s2-status").text("Deactivated")
+          $( "#s2-btn" ).removeClass("btn btn-success btn-icon-split");
+          $( "#s2-btn" ).removeClass("btn btn-light btn-icon-split");
+          $( "#s2-btn" ).addClass("btn btn-danger btn-icon-split");
+          $( "#s2-logo" ).removeClass("fas fa-check");
+          $( "#s2-logo" ).removeClass("fas fa-exclamation-triangle");
+          $( "#s2-logo" ).addClass("fas fa-flag");
+          $("#s2-status").text("Deactivated");
         }
         else {
           $( "#s2-btn" ).addClass("btn btn-light btn-icon-split");
           $( "#s2-logo" ).addClass("fas fa-exclamation-triangle");
-          $("#s2-status").text("Disconnected")
+          $("#s2-status").text("Disconnected");
         }
       }
 
@@ -872,17 +1094,43 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             var channelGroup = m.subscription; // The channel group or wildcard subscription match (if exists)
             var pubTT = m.timetoken; // Publish timetoken
             var msg = m.message; // The Payload
-            longitude = msg.s1_longitude;
-            latitude = msg.s1_latitude;
+            s1_lon = msg.s1_longitude;
+            s1_lat = msg.s1_latitude;
+            scooter1_activated = msg.s1_activated;
+            scooter2_activated = msg.s2_activated;
+            s1_last_seen = msg.s1_last_known;
+            s1_groundSpeed = msg.s1_speed;
 
-            scooter1_activated = msg.s1_activated
-            scooter2_activated = msg.s2_activated
-            console.log(scooter1_activated);
-            console.log(scooter1_activated);
+            if(s1_last_seen != "")
+              locateS1(s1_last_seen);
+            else
+              {
+                $("#s1-last-seen").text("Performing real-time tracking...");
+                  if(s1_groundSpeed!=0){
+                    $("#s1-alert-bg").removeClass("icon-circle bg-warning");
+                    $("#s1-alert-bg").addClass("icon-circle bg-info");
+                  }
+                  else {
+                    $("#s1-alert-bg").removeClass("icon-circle bg-info");
+                    $("#s1-alert-bg").addClass("icon-circle bg-warning");
+
+                  }
+
+              }
+
+/*
+
+<div id="s1-alert-bg" class="icon-circle bg-warning">
+<i id="s1-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
+*/
+
+
             scooter1_activation(scooter1_activated);
-            scooter2_activation(scooter2_activated);
+            scooter2_activation(!(scooter1_activated));
             var publisher = m.publisher; //The Publisher
-            console.log(publisher,msg);
+            // console.log(scooter1_activated);
+            // console.log(publisher,msg);
+            console.log("Tracking last known location: "+s1_last_seen)
         },
         presence: function(p) {
             // handle presence
@@ -906,16 +1154,446 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
         }
     });
 
+    var CHANNEL_ID = "Robotronix";
     pubnub.subscribe({
-        channels: ['scooter1'],
+        channels: [CHANNEL_ID],
     });
 
 
+function animatingGauge(){
+  /* global window, define, module */
+(function(global, factory) {
+  var Gauge = factory(global);
+  if (typeof define === "function" && define.amd) {
+    // AMD support
+    define(function() {
+      return Gauge;
+    });
+  } else if (typeof module === "object" && module.exports) {
+    // CommonJS support
+    module.exports = Gauge;
+  } else {
+    // We are probably running in the browser
+    global.Gauge = Gauge;
+  }
+})(typeof window === "undefined" ? this : window, function(global, undefined) {
+  var document = global.document,
+    slice = Array.prototype.slice,
+    requestAnimationFrame =
+      global.requestAnimationFrame ||
+      global.mozRequestAnimationFrame ||
+      global.webkitRequestAnimationFrame ||
+      global.msRequestAnimationFrame ||
+      function(cb) {
+        return setTimeout(cb, 1000 / 60);
+      };
+
+  // EXPERIMENTAL!!
+  /**
+   * Simplistic animation function for animating the gauge. That's all!
+   * Options are:
+   * {
+   *  duration: 1,    // In seconds
+   *  start: 0,       // The start value
+   *  end: 100,       // The end value
+   *  step: function, // REQUIRED! The step function that will be passed the value and does something
+   *  easing: function // The easing function. Default is easeInOutCubic
+   * }
+   */
+  function Animation(options) {
+    var duration = options.duration,
+      currentIteration = 1,
+      iterations = 60 * duration,
+      start = options.start || 0,
+      end = options.end,
+      change = end - start,
+      step = options.step,
+      easing =
+        options.easing ||
+        function easeInOutCubic(pos) {
+          // https://github.com/danro/easing-js/blob/master/easing.js
+          if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 3);
+          return 0.5 * (Math.pow(pos - 2, 3) + 2);
+        };
+
+    function animate() {
+      var progress = currentIteration / iterations,
+        value = change * easing(progress) + start;
+      // console.log(progress + ", " + value);
+      step(value, currentIteration);
+      currentIteration += 1;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    }
+    // start!
+    requestAnimationFrame(animate);
+  }
+
+  var Gauge = (function() {
+    var SVG_NS = "http://www.w3.org/2000/svg";
+
+    var GaugeDefaults = {
+      centerX: 50,
+      centerY: 50
+    };
+
+    var defaultOptions = {
+      dialRadius: 40,
+      dialStartAngle: 135,
+      dialEndAngle: 45,
+      value: 0,
+      max: 100,
+      min: 0,
+      valueDialClass: "value",
+      valueClass: "value-text",
+      dialClass: "dial",
+      gaugeClass: "gauge",
+      showValue: true,
+      gaugeColor: null,
+      label: function(val) {
+        return Math.round(val);
+      }
+    };
+
+    function shallowCopy(/* source, ...targets*/) {
+      var target = arguments[0],
+        sources = slice.call(arguments, 1);
+      sources.forEach(function(s) {
+        for (k in s) {
+          if (s.hasOwnProperty(k)) {
+            target[k] = s[k];
+          }
+        }
+      });
+      return target;
+    }
+
+    /**
+     * A utility function to create SVG dom tree
+     * @param {String} name The SVG element name
+     * @param {Object} attrs The attributes as they appear in DOM e.g. stroke-width and not strokeWidth
+     * @param {Array} children An array of children (can be created by this same function)
+     * @return The SVG element
+     */
+    function svg(name, attrs, children) {
+      var elem = document.createElementNS(SVG_NS, name);
+      for (var attrName in attrs) {
+        elem.setAttribute(attrName, attrs[attrName]);
+      }
+
+      if (children) {
+        children.forEach(function(c) {
+          elem.appendChild(c);
+        });
+      }
+      return elem;
+    }
+
+    /**
+     * Translates percentage value to angle. e.g. If gauge span angle is 180deg, then 50%
+     * will be 90deg
+     */
+    function getAngle(percentage, gaugeSpanAngle) {
+      return percentage * gaugeSpanAngle / 100;
+    }
+
+    function normalize(value, min, limit) {
+      var val = Number(value);
+      if (val > limit) return limit;
+      if (val < min) return min;
+      return val;
+    }
+
+    function getValueInPercentage(value, min, max) {
+      const newMax = max - min,
+        newVal = value - min;
+      return 100 * newVal / newMax;
+      // var absMin = Math.abs(min);
+      // return 100 * (absMin + value) / (max + absMin);
+    }
+
+    /**
+     * Gets cartesian co-ordinates for a specified radius and angle (in degrees)
+     * @param cx {Number} The center x co-oriinate
+     * @param cy {Number} The center y co-ordinate
+     * @param radius {Number} The radius of the circle
+     * @param angle {Number} The angle in degrees
+     * @return An object with x,y co-ordinates
+     */
+    function getCartesian(cx, cy, radius, angle) {
+      var rad = angle * Math.PI / 180;
+      return {
+        x: Math.round((cx + radius * Math.cos(rad)) * 1000) / 1000,
+        y: Math.round((cy + radius * Math.sin(rad)) * 1000) / 1000
+      };
+    }
+
+    // Returns start and end points for dial
+    // i.e. starts at 135deg ends at 45deg with large arc flag
+    // REMEMBER!! angle=0 starts on X axis and then increases clockwise
+    function getDialCoords(radius, startAngle, endAngle) {
+      var cx = GaugeDefaults.centerX,
+        cy = GaugeDefaults.centerY;
+      return {
+        end: getCartesian(cx, cy, radius, endAngle),
+        start: getCartesian(cx, cy, radius, startAngle)
+      };
+    }
+
+    /**
+     * Creates a Gauge object. This should be called without the 'new' operator. Various options
+     * can be passed for the gauge:
+     * {
+     *    dialStartAngle: The angle to start the dial. MUST be greater than dialEndAngle. Default 135deg
+     *    dialEndAngle: The angle to end the dial. Default 45deg
+     *    radius: The gauge's radius. Default 400
+     *    max: The maximum value of the gauge. Default 100
+     *    value: The starting value of the gauge. Default 0
+     *    label: The function on how to render the center label (Should return a value)
+     * }
+     * @param {Element} elem The DOM into which to render the gauge
+     * @param {Object} opts The gauge options
+     * @return a Gauge object
+     */
+    return function Gauge(elem, opts) {
+      opts = shallowCopy({}, defaultOptions, opts);
+      var gaugeContainer = elem,
+        limit = opts.max,
+        min = opts.min,
+        value = normalize(opts.value, min, limit),
+        radius = opts.dialRadius,
+        displayValue = opts.showValue,
+        startAngle = opts.dialStartAngle,
+        endAngle = opts.dialEndAngle,
+        valueDialClass = opts.valueDialClass,
+        valueTextClass = opts.valueClass,
+        valueLabelClass = opts.valueLabelClass,
+        dialClass = opts.dialClass,
+        gaugeClass = opts.gaugeClass,
+        gaugeColor = opts.color,
+        gaugeValueElem,
+        gaugeValuePath,
+        label = opts.label,
+        instance;
+
+      if (startAngle < endAngle) {
+        console.log("WARN! startAngle < endAngle, Swapping");
+        var tmp = startAngle;
+        startAngle = endAngle;
+        endAngle = tmp;
+      }
+
+      function pathString(radius, startAngle, endAngle, largeArc) {
+        var coords = getDialCoords(radius, startAngle, endAngle),
+          start = coords.start,
+          end = coords.end,
+          largeArcFlag = typeof largeArc === "undefined" ? 1 : largeArc;
+
+        return [
+          "M",
+          start.x,
+          start.y,
+          "A",
+          radius,
+          radius,
+          0,
+          largeArcFlag,
+          1,
+          end.x,
+          end.y
+        ].join(" ");
+      }
+
+      function initializeGauge(elem) {
+        gaugeValueElem = svg("text", {
+          x: 50,
+          y: 50,
+          fill: "#999",
+          class: valueTextClass,
+          "font-size": "100%",
+          "font-family": "sans-serif",
+          "font-weight": "normal",
+          "text-anchor": "middle"
+        });
+
+        gaugeValuePath = svg("path", {
+          class: valueDialClass,
+          fill: "none",
+          stroke: "#666",
+          "stroke-width": 2.5,
+          d: pathString(radius, startAngle, startAngle) // value of 0
+        });
+
+        var angle = getAngle(100, 360 - Math.abs(startAngle - endAngle));
+        var flag = angle <= 180 ? 0 : 1;
+        var gaugeElement = svg(
+          "svg",
+          { viewBox: "0 0 100 100", class: gaugeClass },
+          [
+            svg("path", {
+              class: dialClass,
+              fill: "none",
+              stroke: "#eee",
+              "stroke-width": 2,
+              d: pathString(radius, startAngle, endAngle, flag)
+            }),
+            gaugeValueElem,
+            gaugeValuePath
+          ]
+        );
+        elem.appendChild(gaugeElement);
+      }
+
+      function updateGauge(theValue, frame) {
+        var val = getValueInPercentage(theValue, min, limit),
+          // angle = getAngle(val, 360 - Math.abs(endAngle - startAngle)),
+          angle = getAngle(val, 360 - Math.abs(startAngle - endAngle)),
+          // this is because we are using arc greater than 180deg
+          flag = angle <= 180 ? 0 : 1;
+        if (displayValue) {
+          if (label.length === 1) {
+            gaugeValueElem.textContent = label.call(opts, theValue);
+          } else {
+            label.call(opts, gaugeValueElem, theValue);
+          }
+        }
+        gaugeValuePath.setAttribute(
+          "d",
+          pathString(radius, startAngle, angle + startAngle, flag)
+        );
+      }
+
+      function setGaugeColor(value, duration) {
+        var c = gaugeColor(value),
+          dur = duration * 1000,
+          pathTransition = "stroke " + dur + "ms ease";
+        // textTransition = "fill " + dur + "ms ease";
+
+        gaugeValuePath.style = [
+          "stroke: " + c,
+          "-webkit-transition: " + pathTransition,
+          "-moz-transition: " + pathTransition,
+          "transition: " + pathTransition
+        ].join(";");
+        /*
+        gaugeValueElem.style = [
+          "fill: " + c,
+          "-webkit-transition: " + textTransition,
+          "-moz-transition: " + textTransition,
+          "transition: " + textTransition,
+        ].join(";");
+        */
+      }
+
+      instance = {
+        setMaxValue: function(max) {
+          limit = max;
+        },
+        setValue: function(val) {
+          value = normalize(val, min, limit);
+          if (gaugeColor) {
+            setGaugeColor(value, 0);
+          }
+          updateGauge(value);
+        },
+        setValueAnimated: function(val, duration) {
+          var oldVal = value;
+          value = normalize(val, min, limit);
+          if (oldVal === value) {
+            return;
+          }
+
+          if (gaugeColor) {
+            setGaugeColor(value, duration);
+          }
+          Animation({
+            start: oldVal || 0,
+            end: value,
+            duration: duration || 1,
+            step: function(val, frame) {
+              updateGauge(val, frame);
+            }
+          });
+        },
+        getValue: function() {
+          return value;
+        }
+      };
+
+      initializeGauge(gaugeContainer);
+      instance.setValue(value);
+      return instance;
+    };
+  })();
+
+  return Gauge;
+});
+
+var gauge1 = Gauge(document.getElementById("gauge1"), {
+  max: 100,
+  dialStartAngle: -90,
+  dialEndAngle: -90.001,
+  value: 20.5,
+  label: function(item, value) {
+    while (item.firstChild) {
+      item.removeChild(item.firstChild);
+    }
+    var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    tspan1.textContent=Math.round(value * 100) / 100;
+    tspan1.setAttribute('x',50);
+    tspan1.setAttribute('y',48);
+    item.appendChild(tspan1);
+
+    var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    tspan2.textContent="km/h";
+    tspan2.setAttribute('x',50);
+    tspan2.setAttribute('y',62);
+    item.appendChild(tspan2);
+  }
+});
+var gauge2 = Gauge(document.getElementById("gauge2"), {
+  max: 100,
+  dialStartAngle: -90,
+  dialEndAngle: -90.001,
+  value: 50,
+  label: function(item,value) {
+    while (item.firstChild) {
+      item.removeChild(item.firstChild);
+    }
+    var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    tspan1.textContent=Math.round(value * 100) / 100;
+    tspan1.setAttribute('x',50);
+    tspan1.setAttribute('y',48);
+    item.appendChild(tspan1);
+    var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    tspan2.textContent="km/h";
+    tspan2.setAttribute('x',50);
+    tspan2.setAttribute('y',62);
+    item.appendChild(tspan2);
+    // return Math.round(value * 100) / 100;
+  }
+});
+
+(function loop() {
+  var value1 = Math.random() * 100,
+    value2 = Math.random() * 100;
+
+  // setValueAnimated(value, durationInSecs);
+  gauge1.setValueAnimated(value1, 5);
+  gauge2.setValueAnimated(value2, 5);
+
+  window.setTimeout(loop, 5000);
+})();
+}//end of animatingGauge
+
+animatingGauge();
   	mapboxgl.accessToken = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
       var map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [110.38827859999998,1.5832216299999995],
+          center: [longitude,latitude],
           zoom: 15
 
       });
@@ -1011,13 +1689,15 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           //   console.log(e._typeahead.text)
           // });
 
-          var s1_last_seen="";
 
           // API to perform reverse Geocoding in JavaScript
           var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+
+
+          function locateS1(s1_last_seen){
             mapboxClient.geocoding
               .reverseGeocode({
-                query: [110.38,1.588]
+                query: s1_last_seen //[110.38,1.588]
               })
               .send()
               .then(function(response) {
@@ -1028,70 +1708,36 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                   response.body.features.length
                 ) {
                   var feature = response.body.features[0];
-                  s1_last_seen = feature.place_name;
+                  s1_tracked = feature.place_name;
                   console.log(response);
-                  $("#s1-last-seen").text(s1_last_seen);
-
+                  $("#s1-last-seen").text(s1_tracked);
                 }
               });
+          }
 
-          // $("#console").text(response);
-  /*
-    toString(longitude),toString(latitude)
-      lat : 1.5832216299999995
-      lon : 110.38827859999998
-      curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.5832216299999995.json?access_token=pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA"
-      */
+          function locateS2(){
+            mapboxClient.geocoding
+              .reverseGeocode({
+                query: [110.3581,1.5906] //stadium
+              })
+              .send()
+              .then(function(response) {
+                if (
+                  response &&
+                  response.body &&
+                  response.body.features &&
+                  response.body.features.length
+                ) {
+                  var feature = response.body.features[0];
+                  s2_last_seen = feature.place_name;
+                  console.log(response);
+                  $("#s2-last-seen").text(s2_last_seen);
+                }
+              });
+          }
 
-    // geocoder.query({
-    //   query: [-95.4431142, 33.6875431]
-    // })
-    //   .send()
-    //   .then(response => {
-    //     // GeoJSON document with geocoding matches
-    //     const match = response.body;
-    //   });
+          locateS1(default_location); // initial preset last seen
 
-    //
-    //   var coordinatesGeocoder = function(query) {
-    //    var matches = query.match(/^[ ]*(-?\d+\.?\d*)[, ]+(-?\d+\.?\d*)[ ]*$/);
-    //    if (!matches) {
-    //      return [];
-    //    }
-    //
-    //    function coordinateFeature(lng, lat) {
-    //      var lng = Number(lng);
-    //      var lat = Number(lat);
-    //      return {
-    //        center: [lng, lat],
-    //        geometry: {
-    //         type: 'Point',
-    //         coordinates: [lng, lat]
-    //       },
-    //       place_name: 'Lat: ' + lat + ', Lng: ' + lng,
-    //       place_type: ['coordinate'],
-    //       properties: {},
-    //       type: 'Feature'
-    //     };
-    //   }
-    //   var coord1 = matches[1];
-    //   var coord2 = matches[2];
-    //   var geocodes = [];
-    //   if (coord1 < -90 || coord1 > 90) {
-    //     // must be lng, lat
-    //     geocodes.push(coordinateFeature(coord1, coord2));
-    //   }
-    //   if (coord2 < -90 || coord2 > 90) {
-    //     // must be lat, lng
-    //     geocodes.push(coordinateFeature(coord2, coord1));
-    //   }
-    //   if (geocodes.length == 0) {
-    //     // else could be either
-    //     geocodes.push(coordinateFeature(coord1, coord2));
-    //     geocodes.push(coordinateFeature(coord2, coord1));
-    //   }
-    //   return geocodes;
-    // };
 
       var scooter1 = new mapboxgl.Marker();
       var scooter2 = new mapboxgl.Marker();
@@ -1107,9 +1753,11 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
       function animateMarker(timestamp) {
           run_lon = radius* Math.sin(timestamp / 5000) + longitude-change;
           run_lat = radius* Math.cos(timestamp / 5000) + latitude-change;
+          s2_run_lon = radius* Math.sin(timestamp / 5000);
+          s2_run_lat = radius* Math.cos(timestamp / 5000);
 
-          scooter1.setLngLat([longitude,latitude]);
-          scooter2.setLngLat([longitude-change,latitude-change]);
+          scooter1.setLngLat([s1_lon,s1_lat]);
+          scooter2.setLngLat([s1_lon+s2_run_lon,s1_lat+s2_run_lat]);
           scooter3.setLngLat([run_lon,run_lat]);
           // Request the next frame of the animation.
           requestAnimationFrame(animateMarker);
@@ -1118,75 +1766,6 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           scooter1.addTo(map);
           scooter2.addTo(map);
           scooter3.addTo(map);
-
-          // var geojson = {
-          //                 'type': 'FeatureCollection',
-          //                 'features': [
-          //                 {
-          //                   'type': 'Feature',
-          //                   'properties': {
-          //                   'message': 'Scooter1',
-          //                   'iconSize': [50, 50],
-          //                   'title': 'Scooter1',
-          //                   'description': 'San Francisco, California'
-          //                   },
-          //                   'geometry': {
-          //                   'type': 'Point',
-          //                   'coordinates': [longitude,latitude]
-          //                 }
-          //                 },
-          //                 {
-          //                   'type': 'Feature',
-          //                   'properties': {
-          //                   'message': 'Scooter2',
-          //                   'iconSize': [50, 50],
-          //                   'title': 'Scooter2',
-          //                   'description': 'San Francisco, California'
-          //                   },
-          //                   'geometry': {
-          //                   'type': 'Point',
-          //                   'coordinates': [longitude+0.001, latitude+0.001]
-          //                   }
-          //                 },
-          //                 {
-          //                   'type': 'Feature',
-          //                   'properties': {
-          //                   'message': 'Scooter3',
-          //                   'iconSize': [50, 50]
-          //                   },
-          //                   'geometry': {
-          //                   'type': 'Point',
-          //                   'coordinates': [run_lon, run_lat]
-          //                   }
-          //                 }
-          //                 ]
-          // };
-
-
-          // geojson.features.forEach(function(marker) {
-          //   // create a HTML element for each feature
-          //   var el = document.createElement('div');
-          //   el.className = 'marker';
-          //
-          //   // create markers and add them to map
-          //   newMarkers =  new mapboxgl.Marker(el)
-          //                .setLngLat(marker.geometry.coordinates)
-          //                .addTo(map);
-          //     // save newMarkers into previousMarkers array
-          //     previousMarkers.push(newMarkers); // 3 markers in total
-          //     // console.log(previousMarkers.length);
-          //     $("#console").text(previousMarkers.length);
-          //     if(previousMarkers!=null){
-          //       // create markers and add them to map
-          //       newMarkers =  new mapboxgl.Marker(el)
-          //                    .setLngLat(marker.geometry.coordinates)
-          //                    .addTo(map);
-          //       for(var i = previousMarkers.length-1;i>=0;i--){
-          //         previousMarkers[i].remove();
-          //       }
-          //     }
-          //
-          // });
 
       } // end of animateMarker
       // Start the animation.
