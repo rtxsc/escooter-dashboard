@@ -8,33 +8,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" /> -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
-
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
-
   <title>eScooter Tracking</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+
   <style>
   	body { margin: 0; padding: 0; }
   	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
-    .marker {
-    background-image: url('mapbox-icon.png');
+    .map_s1 {
+      width: 100%;
+      height:200px;
+    }
+    .map_s2 {
+      width: 100%;
+      height:200px;
+    }
+    #marker {
+    /* background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg'); */
     background-size: cover;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
     }
+    .mapboxgl-popup {
+max-width: 200px;
+}
 
   button {
     margin: 10px;
@@ -151,7 +157,6 @@ main.container {
 </head>
 
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -276,14 +281,14 @@ main.container {
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
+          Sidebar Toggle (Topbar)
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
+          Topbar Search
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -295,16 +300,16 @@ main.container {
             </div>
           </form>
 
-          <!-- Topbar Navbar -->
+          Topbar Navbar
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            Nav Item - Search Dropdown (Visible Only XS)
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+              Dropdown - Messages
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animatedgrow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -318,15 +323,15 @@ main.container {
               </div>
             </li>
 
-            <!-- Nav Item - Alerts -->
+            Nav Item - Alerts
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
+                Counter - Alerts
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              Dropdown - Alerts
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animatedgrow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
@@ -367,15 +372,15 @@ main.container {
               </div>
             </li>
 
-            <!-- Nav Item - Messages -->
+            Nav Item - Messages
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
+                Counter - Messages
                 <span class="badge badge-danger badge-counter">7</span>
               </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+              Dropdown - Messages
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animatedgrow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
@@ -425,14 +430,14 @@ main.container {
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
-            <!-- Nav Item - User Information -->
+            Nav Item - User Information
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mohd Yazid</span>
                 <img class="img-profile rounded-circle" src="https://images.unsplash.com/photo-1573126324222-6600c9c21274?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2249&q=80">
               </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              Dropdown - User Information
+              <div class="dropdown-menu dropdown-menu-right shadow animatedgrow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
@@ -455,17 +460,17 @@ main.container {
 
           </ul>
 
-        </nav>
+        </nav> -->
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
+          </div> -->
 
           <!-- Content Row -->
           <div class="row">
@@ -478,12 +483,18 @@ main.container {
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Status</div>
                       <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
-
                       <a href="#" id="s1-btn" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
                           <i id="s1-logo" class="fas fa-check"></i>
                         </span>
                         <span id="s1-status" class="text">Activated</span>
+                      </a>
+
+                      <a href="#" id="s1-btn-override" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i id="s1-logo-override" class="fas fa-info"></i>
+                        </span>
+                        <span id="s1-status-override" class="text">Override</span>
                       </a>
 
                     </div>
@@ -511,6 +522,13 @@ main.container {
                         <span id="s2-status" class="text">Activated</span>
                       </a>
 
+                      <a href="#" id="s2-btn-override" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i id="s2-logo-override" class="fas fa-info"></i>
+                        </span>
+                        <span id="s2-status-override" class="text">Override</span>
+                      </a>
+
                     </div>
                     <!-- <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -531,9 +549,9 @@ main.container {
 
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Usage Duration</div>
                       <h4 class="small font-weight-bold">000<span id="s1-usage-timer" class="float-right">0%</span></h4>
-                      <div class="progress mb-4">
+                      <!-- <div class="progress mb-4">
                         <div id="s1-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -551,9 +569,9 @@ main.container {
 
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 2 Usage Duration</div>
                       <h4 class="small font-weight-bold">000<span id="s2-usage-timer" class="float-right">0%</span></h4>
-                      <div class="progress mb-4">
+                      <!-- <div class="progress mb-4">
                         <div id="s2-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
-                      </div>
+                      </div> -->
                       </div>
                       <!-- <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -645,7 +663,16 @@ main.container {
                         </div>
 
                         <div class="col">
-                          <h4 class="small font-weight-bold">Scooter 1 Last Seen: <span id="s1-last-seen" class="float-right">Locating...</span></h4>
+                          <h4 class="small font-weight-bold">Scooter 1 Last Seen Location:
+                            <div id="map_s1" class="map_s1"><div id="popup"></div></div>
+                            <br><b> <span id="s1-last-seen" class="float-right">Locating...</b></span></h4>
+                          <br><br>
+                          <h4 class="small font-weight-bold">Time:<br>
+                            <b> <span id="s1-last-seen-time" class="float-left">HH:MM</b></span></h4>
+                            <br>
+                          <h4 class="small font-weight-bold">Date:<br>
+                            <b> <span id="s1-last-seen-date" class="float-left">DD:MM:YYYY</b></span></h4>
+
                         </div>
                       </div>
                     </div>
@@ -672,7 +699,16 @@ main.container {
                     </div>
 
                   <div class="col">
-                    <h4 class="small font-weight-bold">Scooter 2 Last Seen: <span id="s2-last-seen" class="float-right">Locating...</span></h4>
+                    <h4 class="small font-weight-bold">Scooter 2 Last Seen Location:
+                      <div id="map_s2" class="map_s2"><div id="popup2"></div></div>
+                      <br><b> <span id="s2-last-seen" class="float-right">Locating...</b></span></h4>
+                    <br><br>
+                    <h4 class="small font-weight-bold">Time:<br>
+                      <b> <span id="s2-last-seen-time" class="float-left">HH:MM</b></span></h4>
+                      <br>
+                    <h4 class="small font-weight-bold">Date:<br>
+                      <b> <span id="s2-last-seen-date" class="float-left">DD:MM:YYYY</b></span></h4>
+                    <div id="map-s2-tracked"></div>
                   </div>
                 </div>
               </div>
@@ -946,6 +982,7 @@ main.container {
   </div>
 
   <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -958,13 +995,157 @@ main.container {
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
+  <!-- ALLJS Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+
   <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.23.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
+  type="text/css"
+  />
+
+  <script type="text/javascript">
+
+    var iconFeature = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([110.4451, 1.4489])),
+      name: 'sc1',
+      population: 4000,
+      rainfall: 500
+    });
+    var iconFeature2 = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([110.358, 1.5906])),
+      name: 'sc2',
+      population: 4000,
+      rainfall: 500
+    });
+
+    var iconStyle = new ol.style.Style({
+      image: new ol.style.Icon({
+        anchor: [0, 0],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'img/icon.png'
+      })
+    });
+
+    var iconStyle2 = new ol.style.Style({
+      image: new ol.style.Icon({
+        anchor: [10, 10],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'img/icon2.png'
+      })
+    });
+
+    iconFeature.setStyle(iconStyle);
+    iconFeature2.setStyle(iconStyle2);
+
+    var vectorSource = new ol.source.Vector({
+      features: [iconFeature]
+    });
+    var vectorSource2 = new ol.source.Vector({
+      features: [iconFeature2]
+    });
+
+    var vectorLayer = new ol.layer.Vector({
+      source: vectorSource
+    });
+
+    var vectorLayer2 = new ol.layer.Vector({
+      source: vectorSource2
+    });
+
+    var rasterLayer = new ol.layer.Tile({
+      source: new ol.source.TileJSON({
+        url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json',
+        crossOrigin: ''
+      })
+    });
+
+    var map_s1 = new ol.Map({
+      target: document.getElementById('map_s1'),
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        }),
+        vectorLayer
+      ],
+      view: new ol.View({
+        //1.4489° N, 110.4451° E - UiTM samarahan
+        center: ol.proj.fromLonLat([110.4451, 1.4489]),
+        zoom: 15
+      })
+    });
+
+    var map_s2 = new ol.Map({
+      target: document.getElementById('map_s2'),
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        }),
+        vectorLayer2
+      ],
+      view: new ol.View({
+        //1  query: [110.3581,1.5906] //stadium
+        center: ol.proj.fromLonLat([110.358, 1.5906]),
+        zoom: 15
+      })
+    });
+
+    // var element = document.getElementById('popup');
+    //
+    // var popup = new ol.Overlay({
+    //   element: element,
+    //   positioning: 'bottom-center',
+    //   stopEvent: false,
+    //   offset: [0, 0]
+    // });
+    // map_s1.addOverlay(popup);
+    //
+    // // display popup on click
+    // map_s1.on('click', function(evt) {
+    //   var feature = map_s1.forEachFeatureAtPixel(evt.pixel,
+    //     function(feature) {
+    //       return feature;
+    //     });
+    //   if (feature) {
+    //     var coordinates = feature.getGeometry().getCoordinates();
+    //     popup.setPosition(coordinates);
+    //     $(element).popover({
+    //       placement: 'top',
+    //       html: true,
+    //       content: feature.get('name')
+    //     });
+    //     $(element).popover('show');
+    //   } else {
+    //     $(element).popover('destroy');
+    //   }
+    // });
+
+    // // change mouse cursor when over marker
+    // map_s1.on('pointermove', function(e) {
+    //   if (e.dragging) {
+    //     $(element).popover('destroy');
+    //     return;
+    //   }
+    //   var pixel = map_s1.getEventPixel(e.originalEvent);
+    //   var hit = map_s1.hasFeatureAtPixel(pixel);
+    //   map_s1.getTarget().style.cursor = hit ? 'pointer' : '';
+    // });
+  </script>
 
   <script>
 
@@ -973,7 +1154,6 @@ main.container {
 
   var s2_battery = 100;
   var s2_range= 30; // Xiaomi Mijia M365 Range 30KM
-
 
   s1_range = s1_battery/100*30;
   s2_range = s2_battery/100*30;
@@ -1023,6 +1203,25 @@ main.container {
 
     var longitude_s2 = 110.389;
     var latitude_s2 = 1.582;
+
+    function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+    }
+
+    var d = new Date();
+    var h = addZero(d.getHours());
+    var m = addZero(d.getMinutes());
+    var s = addZero(d.getSeconds());
+
+    $("#s1-last-seen-time").text(h+":"+m+":"+s);
+    $("#s2-last-seen-time").text(h+":"+m+":"+s);
+
+    $("#s1-last-seen-date").text(d);
+    $("#s2-last-seen-date").text(d);
+
 
     scooter1_activation(scooter1_activated);
     scooter2_activation(scooter2_activated);
@@ -1102,7 +1301,9 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             s1_groundSpeed = msg.s1_speed;
 
             if(s1_last_seen != "")
+            {
               locateS1(s1_last_seen);
+            }
             else
               {
                 $("#s1-last-seen").text("Performing real-time tracking...");
@@ -1154,473 +1355,36 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
         }
     });
 
-    var CHANNEL_ID = "Robotronix";
+    var CHANNEL_ID = "robotronix";
     pubnub.subscribe({
         channels: [CHANNEL_ID],
     });
 
-
-function animatingGauge(){
-  /* global window, define, module */
-(function(global, factory) {
-  var Gauge = factory(global);
-  if (typeof define === "function" && define.amd) {
-    // AMD support
-    define(function() {
-      return Gauge;
-    });
-  } else if (typeof module === "object" && module.exports) {
-    // CommonJS support
-    module.exports = Gauge;
-  } else {
-    // We are probably running in the browser
-    global.Gauge = Gauge;
-  }
-})(typeof window === "undefined" ? this : window, function(global, undefined) {
-  var document = global.document,
-    slice = Array.prototype.slice,
-    requestAnimationFrame =
-      global.requestAnimationFrame ||
-      global.mozRequestAnimationFrame ||
-      global.webkitRequestAnimationFrame ||
-      global.msRequestAnimationFrame ||
-      function(cb) {
-        return setTimeout(cb, 1000 / 60);
-      };
-
-  // EXPERIMENTAL!!
-  /**
-   * Simplistic animation function for animating the gauge. That's all!
-   * Options are:
-   * {
-   *  duration: 1,    // In seconds
-   *  start: 0,       // The start value
-   *  end: 100,       // The end value
-   *  step: function, // REQUIRED! The step function that will be passed the value and does something
-   *  easing: function // The easing function. Default is easeInOutCubic
-   * }
-   */
-  function Animation(options) {
-    var duration = options.duration,
-      currentIteration = 1,
-      iterations = 60 * duration,
-      start = options.start || 0,
-      end = options.end,
-      change = end - start,
-      step = options.step,
-      easing =
-        options.easing ||
-        function easeInOutCubic(pos) {
-          // https://github.com/danro/easing-js/blob/master/easing.js
-          if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 3);
-          return 0.5 * (Math.pow(pos - 2, 3) + 2);
-        };
-
-    function animate() {
-      var progress = currentIteration / iterations,
-        value = change * easing(progress) + start;
-      // console.log(progress + ", " + value);
-      step(value, currentIteration);
-      currentIteration += 1;
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    }
-    // start!
-    requestAnimationFrame(animate);
-  }
-
-  var Gauge = (function() {
-    var SVG_NS = "http://www.w3.org/2000/svg";
-
-    var GaugeDefaults = {
-      centerX: 50,
-      centerY: 50
-    };
-
-    var defaultOptions = {
-      dialRadius: 40,
-      dialStartAngle: 135,
-      dialEndAngle: 45,
-      value: 0,
-      max: 100,
-      min: 0,
-      valueDialClass: "value",
-      valueClass: "value-text",
-      dialClass: "dial",
-      gaugeClass: "gauge",
-      showValue: true,
-      gaugeColor: null,
-      label: function(val) {
-        return Math.round(val);
-      }
-    };
-
-    function shallowCopy(/* source, ...targets*/) {
-      var target = arguments[0],
-        sources = slice.call(arguments, 1);
-      sources.forEach(function(s) {
-        for (k in s) {
-          if (s.hasOwnProperty(k)) {
-            target[k] = s[k];
-          }
-        }
-      });
-      return target;
-    }
-
-    /**
-     * A utility function to create SVG dom tree
-     * @param {String} name The SVG element name
-     * @param {Object} attrs The attributes as they appear in DOM e.g. stroke-width and not strokeWidth
-     * @param {Array} children An array of children (can be created by this same function)
-     * @return The SVG element
-     */
-    function svg(name, attrs, children) {
-      var elem = document.createElementNS(SVG_NS, name);
-      for (var attrName in attrs) {
-        elem.setAttribute(attrName, attrs[attrName]);
-      }
-
-      if (children) {
-        children.forEach(function(c) {
-          elem.appendChild(c);
-        });
-      }
-      return elem;
-    }
-
-    /**
-     * Translates percentage value to angle. e.g. If gauge span angle is 180deg, then 50%
-     * will be 90deg
-     */
-    function getAngle(percentage, gaugeSpanAngle) {
-      return percentage * gaugeSpanAngle / 100;
-    }
-
-    function normalize(value, min, limit) {
-      var val = Number(value);
-      if (val > limit) return limit;
-      if (val < min) return min;
-      return val;
-    }
-
-    function getValueInPercentage(value, min, max) {
-      const newMax = max - min,
-        newVal = value - min;
-      return 100 * newVal / newMax;
-      // var absMin = Math.abs(min);
-      // return 100 * (absMin + value) / (max + absMin);
-    }
-
-    /**
-     * Gets cartesian co-ordinates for a specified radius and angle (in degrees)
-     * @param cx {Number} The center x co-oriinate
-     * @param cy {Number} The center y co-ordinate
-     * @param radius {Number} The radius of the circle
-     * @param angle {Number} The angle in degrees
-     * @return An object with x,y co-ordinates
-     */
-    function getCartesian(cx, cy, radius, angle) {
-      var rad = angle * Math.PI / 180;
-      return {
-        x: Math.round((cx + radius * Math.cos(rad)) * 1000) / 1000,
-        y: Math.round((cy + radius * Math.sin(rad)) * 1000) / 1000
-      };
-    }
-
-    // Returns start and end points for dial
-    // i.e. starts at 135deg ends at 45deg with large arc flag
-    // REMEMBER!! angle=0 starts on X axis and then increases clockwise
-    function getDialCoords(radius, startAngle, endAngle) {
-      var cx = GaugeDefaults.centerX,
-        cy = GaugeDefaults.centerY;
-      return {
-        end: getCartesian(cx, cy, radius, endAngle),
-        start: getCartesian(cx, cy, radius, startAngle)
-      };
-    }
-
-    /**
-     * Creates a Gauge object. This should be called without the 'new' operator. Various options
-     * can be passed for the gauge:
-     * {
-     *    dialStartAngle: The angle to start the dial. MUST be greater than dialEndAngle. Default 135deg
-     *    dialEndAngle: The angle to end the dial. Default 45deg
-     *    radius: The gauge's radius. Default 400
-     *    max: The maximum value of the gauge. Default 100
-     *    value: The starting value of the gauge. Default 0
-     *    label: The function on how to render the center label (Should return a value)
-     * }
-     * @param {Element} elem The DOM into which to render the gauge
-     * @param {Object} opts The gauge options
-     * @return a Gauge object
-     */
-    return function Gauge(elem, opts) {
-      opts = shallowCopy({}, defaultOptions, opts);
-      var gaugeContainer = elem,
-        limit = opts.max,
-        min = opts.min,
-        value = normalize(opts.value, min, limit),
-        radius = opts.dialRadius,
-        displayValue = opts.showValue,
-        startAngle = opts.dialStartAngle,
-        endAngle = opts.dialEndAngle,
-        valueDialClass = opts.valueDialClass,
-        valueTextClass = opts.valueClass,
-        valueLabelClass = opts.valueLabelClass,
-        dialClass = opts.dialClass,
-        gaugeClass = opts.gaugeClass,
-        gaugeColor = opts.color,
-        gaugeValueElem,
-        gaugeValuePath,
-        label = opts.label,
-        instance;
-
-      if (startAngle < endAngle) {
-        console.log("WARN! startAngle < endAngle, Swapping");
-        var tmp = startAngle;
-        startAngle = endAngle;
-        endAngle = tmp;
-      }
-
-      function pathString(radius, startAngle, endAngle, largeArc) {
-        var coords = getDialCoords(radius, startAngle, endAngle),
-          start = coords.start,
-          end = coords.end,
-          largeArcFlag = typeof largeArc === "undefined" ? 1 : largeArc;
-
-        return [
-          "M",
-          start.x,
-          start.y,
-          "A",
-          radius,
-          radius,
-          0,
-          largeArcFlag,
-          1,
-          end.x,
-          end.y
-        ].join(" ");
-      }
-
-      function initializeGauge(elem) {
-        gaugeValueElem = svg("text", {
-          x: 50,
-          y: 50,
-          fill: "#999",
-          class: valueTextClass,
-          "font-size": "100%",
-          "font-family": "sans-serif",
-          "font-weight": "normal",
-          "text-anchor": "middle"
-        });
-
-        gaugeValuePath = svg("path", {
-          class: valueDialClass,
-          fill: "none",
-          stroke: "#666",
-          "stroke-width": 2.5,
-          d: pathString(radius, startAngle, startAngle) // value of 0
-        });
-
-        var angle = getAngle(100, 360 - Math.abs(startAngle - endAngle));
-        var flag = angle <= 180 ? 0 : 1;
-        var gaugeElement = svg(
-          "svg",
-          { viewBox: "0 0 100 100", class: gaugeClass },
-          [
-            svg("path", {
-              class: dialClass,
-              fill: "none",
-              stroke: "#eee",
-              "stroke-width": 2,
-              d: pathString(radius, startAngle, endAngle, flag)
-            }),
-            gaugeValueElem,
-            gaugeValuePath
-          ]
-        );
-        elem.appendChild(gaugeElement);
-      }
-
-      function updateGauge(theValue, frame) {
-        var val = getValueInPercentage(theValue, min, limit),
-          // angle = getAngle(val, 360 - Math.abs(endAngle - startAngle)),
-          angle = getAngle(val, 360 - Math.abs(startAngle - endAngle)),
-          // this is because we are using arc greater than 180deg
-          flag = angle <= 180 ? 0 : 1;
-        if (displayValue) {
-          if (label.length === 1) {
-            gaugeValueElem.textContent = label.call(opts, theValue);
-          } else {
-            label.call(opts, gaugeValueElem, theValue);
-          }
-        }
-        gaugeValuePath.setAttribute(
-          "d",
-          pathString(radius, startAngle, angle + startAngle, flag)
-        );
-      }
-
-      function setGaugeColor(value, duration) {
-        var c = gaugeColor(value),
-          dur = duration * 1000,
-          pathTransition = "stroke " + dur + "ms ease";
-        // textTransition = "fill " + dur + "ms ease";
-
-        gaugeValuePath.style = [
-          "stroke: " + c,
-          "-webkit-transition: " + pathTransition,
-          "-moz-transition: " + pathTransition,
-          "transition: " + pathTransition
-        ].join(";");
-        /*
-        gaugeValueElem.style = [
-          "fill: " + c,
-          "-webkit-transition: " + textTransition,
-          "-moz-transition: " + textTransition,
-          "transition: " + textTransition,
-        ].join(";");
-        */
-      }
-
-      instance = {
-        setMaxValue: function(max) {
-          limit = max;
-        },
-        setValue: function(val) {
-          value = normalize(val, min, limit);
-          if (gaugeColor) {
-            setGaugeColor(value, 0);
-          }
-          updateGauge(value);
-        },
-        setValueAnimated: function(val, duration) {
-          var oldVal = value;
-          value = normalize(val, min, limit);
-          if (oldVal === value) {
-            return;
-          }
-
-          if (gaugeColor) {
-            setGaugeColor(value, duration);
-          }
-          Animation({
-            start: oldVal || 0,
-            end: value,
-            duration: duration || 1,
-            step: function(val, frame) {
-              updateGauge(val, frame);
-            }
-          });
-        },
-        getValue: function() {
-          return value;
-        }
-      };
-
-      initializeGauge(gaugeContainer);
-      instance.setValue(value);
-      return instance;
-    };
-  })();
-
-  return Gauge;
-});
-
-var gauge1 = Gauge(document.getElementById("gauge1"), {
-  max: 100,
-  dialStartAngle: -90,
-  dialEndAngle: -90.001,
-  value: 20.5,
-  label: function(item, value) {
-    while (item.firstChild) {
-      item.removeChild(item.firstChild);
-    }
-    var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    tspan1.textContent=Math.round(value * 100) / 100;
-    tspan1.setAttribute('x',50);
-    tspan1.setAttribute('y',48);
-    item.appendChild(tspan1);
-
-    var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    tspan2.textContent="km/h";
-    tspan2.setAttribute('x',50);
-    tspan2.setAttribute('y',62);
-    item.appendChild(tspan2);
-  }
-});
-var gauge2 = Gauge(document.getElementById("gauge2"), {
-  max: 100,
-  dialStartAngle: -90,
-  dialEndAngle: -90.001,
-  value: 50,
-  label: function(item,value) {
-    while (item.firstChild) {
-      item.removeChild(item.firstChild);
-    }
-    var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    tspan1.textContent=Math.round(value * 100) / 100;
-    tspan1.setAttribute('x',50);
-    tspan1.setAttribute('y',48);
-    item.appendChild(tspan1);
-    var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    tspan2.textContent="km/h";
-    tspan2.setAttribute('x',50);
-    tspan2.setAttribute('y',62);
-    item.appendChild(tspan2);
-    // return Math.round(value * 100) / 100;
-  }
-});
-
-(function loop() {
-  var value1 = Math.random() * 100,
-    value2 = Math.random() * 100;
-
-  // setValueAnimated(value, durationInSecs);
-  gauge1.setValueAnimated(value1, 5);
-  gauge2.setValueAnimated(value2, 5);
-
-  window.setTimeout(loop, 5000);
-})();
-}//end of animatingGauge
-
-animatingGauge();
-  	mapboxgl.accessToken = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
+    var accessTokenGlobal = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
+  	mapboxgl.accessToken = accessTokenGlobal;
       var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v11',
+          container: "map",
+          style: 'mapbox://styles/mapbox/dark-v10', //dark-v10 or streets-v11
           center: [longitude,latitude],
           zoom: 15
-
       });
 
-      var radius = 0.001; // rotate radius for circle and marker3/scooter3
-      // 3.069638,101.503772 uitm shah alam
-      // var southWest = new mapboxgl.LngLat(110.327979, 1.429448); // 1.429448,110.327979 padawan
-      // var northEast = new mapboxgl.LngLat(110.4717407, 1.606540); // 1.606540,110.471740 sungai sarawak
-      // var boundingBox = new mapboxgl.LngLatBounds(southWest, northEast);
-      // arrayBound = boundingBox.toArray()
-      // console.log(arrayBound);
 
-  		// Add geolocate control to the map.
-  		map.addControl(
-  				new mapboxgl.GeolocateControl({
-  				positionOptions: {
-  				enableHighAccuracy: true
-  				},
-  				trackUserLocation: true
-        })
-  		);
+      var radius = 0.001; // rotate radius for circle and marker3/scooter3
+      /*
+      3.069638,101.503772 uitm shah alam
+      var southWest = new mapboxgl.LngLat(110.327979, 1.429448); // 1.429448,110.327979 padawan
+      var northEast = new mapboxgl.LngLat(110.4717407, 1.606540); // 1.606540,110.471740 sungai sarawak
+      var boundingBox = new mapboxgl.LngLatBounds(southWest, northEast);
+      arrayBound = boundingBox.toArray()
+      console.log(arrayBound);
+      */
       // forward geocoding - user enter name of places
       map.addControl(
         new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         zoom: 15,
-        placeholder: 'Landmark: UiTM Samrahan',
+        placeholder: 'UiTM Samrahan',
         // limit results to Malaysia
         countries: 'my',
         // further limit results to the geographic bounds representing the region of
@@ -1649,7 +1413,6 @@ animatingGauge();
         // NOTE_: The MapboxGeocoder plugin for Mapbox GL JS is to
         // provide an out of the box search box interface (GUI search),
         // not for calling the API directly (script search).
-
 
         map.addControl(
           geocoder = new MapboxGeocoder({
@@ -1681,14 +1444,24 @@ animatingGauge();
           mapboxgl: mapboxgl
           })
           );
-          // document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-          // var response = geocoder.query("110.38,1.588");
-          // console.log(response);
-          // Promise.resolve(geocoder.query("110.38,1.588")).then(function(e)
-          // {
-          //   console.log(e._typeahead.text)
-          // });
 
+          map.addControl(
+          new MapboxDirections({
+          accessToken: mapboxgl.accessToken
+          }),
+          'top-left'
+          );
+
+          // Add geolocate control to the map.
+          map.addControl(
+              new mapboxgl.GeolocateControl({
+              positionOptions: {
+              enableHighAccuracy: true
+              },
+              trackUserLocation: true
+            }),
+              'bottom-right'
+          );
 
           // API to perform reverse Geocoding in JavaScript
           var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
@@ -1737,6 +1510,7 @@ animatingGauge();
           }
 
           locateS1(default_location); // initial preset last seen
+          locateS2(default_location); // initial preset last seen
 
 
       var scooter1 = new mapboxgl.Marker();
@@ -1749,6 +1523,15 @@ animatingGauge();
       var newMarkers;
       var run_lon ;
       var run_lat ;
+
+      // create the popup
+      var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+      'Construction on the Washington Monument began in 1848.'
+      );
+      // create DOM element for the marker
+      var el = document.createElement('div');
+      el.id = 'marker';
+
 
       function animateMarker(timestamp) {
           run_lon = radius* Math.sin(timestamp / 5000) + longitude-change;
@@ -1767,9 +1550,477 @@ animatingGauge();
           scooter2.addTo(map);
           scooter3.addTo(map);
 
+          // // create the marker
+          // new mapboxgl.Marker(el)
+          // .setLngLat([run_lon,run_lat])
+          // .setPopup(popup) // sets a popup on this marker
+          // .addTo(map);
+
+
       } // end of animateMarker
       // Start the animation.
       requestAnimationFrame(animateMarker);
+
+  </script>
+
+  <script type="text/javascript">
+
+  function animatingGauge(){
+    /* global window, define, module */
+  (function(global, factory) {
+    var Gauge = factory(global);
+    if (typeof define === "function" && define.amd) {
+      // AMD support
+      define(function() {
+        return Gauge;
+      });
+    } else if (typeof module === "object" && module.exports) {
+      // CommonJS support
+      module.exports = Gauge;
+    } else {
+      // We are probably running in the browser
+      global.Gauge = Gauge;
+    }
+  })(typeof window === "undefined" ? this : window, function(global, undefined) {
+    var document = global.document,
+      slice = Array.prototype.slice,
+      requestAnimationFrame =
+        global.requestAnimationFrame ||
+        global.mozRequestAnimationFrame ||
+        global.webkitRequestAnimationFrame ||
+        global.msRequestAnimationFrame ||
+        function(cb) {
+          return setTimeout(cb, 1000 / 60);
+        };
+
+    // EXPERIMENTAL!!
+    /**
+     * Simplistic animation function for animating the gauge. That's all!
+     * Options are:
+     * {
+     *  duration: 1,    // In seconds
+     *  start: 0,       // The start value
+     *  end: 100,       // The end value
+     *  step: function, // REQUIRED! The step function that will be passed the value and does something
+     *  easing: function // The easing function. Default is easeInOutCubic
+     * }
+     */
+    function Animation(options) {
+      var duration = options.duration,
+        currentIteration = 1,
+        iterations = 60 * duration,
+        start = options.start || 0,
+        end = options.end,
+        change = end - start,
+        step = options.step,
+        easing =
+          options.easing ||
+          function easeInOutCubic(pos) {
+            // https://github.com/danro/easing-js/blob/master/easing.js
+            if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 3);
+            return 0.5 * (Math.pow(pos - 2, 3) + 2);
+          };
+
+      function animate() {
+        var progress = currentIteration / iterations,
+          value = change * easing(progress) + start;
+        // console.log(progress + ", " + value);
+        step(value, currentIteration);
+        currentIteration += 1;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      }
+      // start!
+      requestAnimationFrame(animate);
+    }
+
+    var Gauge = (function() {
+      var SVG_NS = "http://www.w3.org/2000/svg";
+
+      var GaugeDefaults = {
+        centerX: 50,
+        centerY: 50
+      };
+
+      var defaultOptions = {
+        dialRadius: 40,
+        dialStartAngle: 135,
+        dialEndAngle: 45,
+        value: 0,
+        max: 100,
+        min: 0,
+        valueDialClass: "value",
+        valueClass: "value-text",
+        dialClass: "dial",
+        gaugeClass: "gauge",
+        showValue: true,
+        gaugeColor: null,
+        label: function(val) {
+          return Math.round(val);
+        }
+      };
+
+      function shallowCopy(/* source, ...targets*/) {
+        var target = arguments[0],
+          sources = slice.call(arguments, 1);
+        sources.forEach(function(s) {
+          for (k in s) {
+            if (s.hasOwnProperty(k)) {
+              target[k] = s[k];
+            }
+          }
+        });
+        return target;
+      }
+
+      /**
+       * A utility function to create SVG dom tree
+       * @param {String} name The SVG element name
+       * @param {Object} attrs The attributes as they appear in DOM e.g. stroke-width and not strokeWidth
+       * @param {Array} children An array of children (can be created by this same function)
+       * @return The SVG element
+       */
+      function svg(name, attrs, children) {
+        var elem = document.createElementNS(SVG_NS, name);
+        for (var attrName in attrs) {
+          elem.setAttribute(attrName, attrs[attrName]);
+        }
+
+        if (children) {
+          children.forEach(function(c) {
+            elem.appendChild(c);
+          });
+        }
+        return elem;
+      }
+
+      /**
+       * Translates percentage value to angle. e.g. If gauge span angle is 180deg, then 50%
+       * will be 90deg
+       */
+      function getAngle(percentage, gaugeSpanAngle) {
+        return percentage * gaugeSpanAngle / 100;
+      }
+
+      function normalize(value, min, limit) {
+        var val = Number(value);
+        if (val > limit) return limit;
+        if (val < min) return min;
+        return val;
+      }
+
+      function getValueInPercentage(value, min, max) {
+        const newMax = max - min,
+          newVal = value - min;
+        return 100 * newVal / newMax;
+        // var absMin = Math.abs(min);
+        // return 100 * (absMin + value) / (max + absMin);
+      }
+
+      /**
+       * Gets cartesian co-ordinates for a specified radius and angle (in degrees)
+       * @param cx {Number} The center x co-oriinate
+       * @param cy {Number} The center y co-ordinate
+       * @param radius {Number} The radius of the circle
+       * @param angle {Number} The angle in degrees
+       * @return An object with x,y co-ordinates
+       */
+      function getCartesian(cx, cy, radius, angle) {
+        var rad = angle * Math.PI / 180;
+        return {
+          x: Math.round((cx + radius * Math.cos(rad)) * 1000) / 1000,
+          y: Math.round((cy + radius * Math.sin(rad)) * 1000) / 1000
+        };
+      }
+
+      // Returns start and end points for dial
+      // i.e. starts at 135deg ends at 45deg with large arc flag
+      // REMEMBER!! angle=0 starts on X axis and then increases clockwise
+      function getDialCoords(radius, startAngle, endAngle) {
+        var cx = GaugeDefaults.centerX,
+          cy = GaugeDefaults.centerY;
+        return {
+          end: getCartesian(cx, cy, radius, endAngle),
+          start: getCartesian(cx, cy, radius, startAngle)
+        };
+      }
+
+      /**
+       * Creates a Gauge object. This should be called without the 'new' operator. Various options
+       * can be passed for the gauge:
+       * {
+       *    dialStartAngle: The angle to start the dial. MUST be greater than dialEndAngle. Default 135deg
+       *    dialEndAngle: The angle to end the dial. Default 45deg
+       *    radius: The gauge's radius. Default 400
+       *    max: The maximum value of the gauge. Default 100
+       *    value: The starting value of the gauge. Default 0
+       *    label: The function on how to render the center label (Should return a value)
+       * }
+       * @param {Element} elem The DOM into which to render the gauge
+       * @param {Object} opts The gauge options
+       * @return a Gauge object
+       */
+      return function Gauge(elem, opts) {
+        opts = shallowCopy({}, defaultOptions, opts);
+        var gaugeContainer = elem,
+          limit = opts.max,
+          min = opts.min,
+          value = normalize(opts.value, min, limit),
+          radius = opts.dialRadius,
+          displayValue = opts.showValue,
+          startAngle = opts.dialStartAngle,
+          endAngle = opts.dialEndAngle,
+          valueDialClass = opts.valueDialClass,
+          valueTextClass = opts.valueClass,
+          valueLabelClass = opts.valueLabelClass,
+          dialClass = opts.dialClass,
+          gaugeClass = opts.gaugeClass,
+          gaugeColor = opts.color,
+          gaugeValueElem,
+          gaugeValuePath,
+          label = opts.label,
+          instance;
+
+        if (startAngle < endAngle) {
+          console.log("WARN! startAngle < endAngle, Swapping");
+          var tmp = startAngle;
+          startAngle = endAngle;
+          endAngle = tmp;
+        }
+
+        function pathString(radius, startAngle, endAngle, largeArc) {
+          var coords = getDialCoords(radius, startAngle, endAngle),
+            start = coords.start,
+            end = coords.end,
+            largeArcFlag = typeof largeArc === "undefined" ? 1 : largeArc;
+
+          return [
+            "M",
+            start.x,
+            start.y,
+            "A",
+            radius,
+            radius,
+            0,
+            largeArcFlag,
+            1,
+            end.x,
+            end.y
+          ].join(" ");
+        }
+
+        function initializeGauge(elem) {
+          gaugeValueElem = svg("text", {
+            x: 50,
+            y: 50,
+            fill: "#999",
+            class: valueTextClass,
+            "font-size": "100%",
+            "font-family": "sans-serif",
+            "font-weight": "normal",
+            "text-anchor": "middle"
+          });
+
+          gaugeValuePath = svg("path", {
+            class: valueDialClass,
+            fill: "none",
+            stroke: "#666",
+            "stroke-width": 2.5,
+            d: pathString(radius, startAngle, startAngle) // value of 0
+          });
+
+          var angle = getAngle(100, 360 - Math.abs(startAngle - endAngle));
+          var flag = angle <= 180 ? 0 : 1;
+          var gaugeElement = svg(
+            "svg",
+            { viewBox: "0 0 100 100", class: gaugeClass },
+            [
+              svg("path", {
+                class: dialClass,
+                fill: "none",
+                stroke: "#eee",
+                "stroke-width": 2,
+                d: pathString(radius, startAngle, endAngle, flag)
+              }),
+              gaugeValueElem,
+              gaugeValuePath
+            ]
+          );
+          elem.appendChild(gaugeElement);
+        }
+
+        function updateGauge(theValue, frame) {
+          var val = getValueInPercentage(theValue, min, limit),
+            // angle = getAngle(val, 360 - Math.abs(endAngle - startAngle)),
+            angle = getAngle(val, 360 - Math.abs(startAngle - endAngle)),
+            // this is because we are using arc greater than 180deg
+            flag = angle <= 180 ? 0 : 1;
+          if (displayValue) {
+            if (label.length === 1) {
+              gaugeValueElem.textContent = label.call(opts, theValue);
+            } else {
+              label.call(opts, gaugeValueElem, theValue);
+            }
+          }
+          gaugeValuePath.setAttribute(
+            "d",
+            pathString(radius, startAngle, angle + startAngle, flag)
+          );
+        }
+
+        function setGaugeColor(value, duration) {
+          var c = gaugeColor(value),
+            dur = duration * 1000,
+            pathTransition = "stroke " + dur + "ms ease";
+          // textTransition = "fill " + dur + "ms ease";
+
+          gaugeValuePath.style = [
+            "stroke: " + c,
+            "-webkit-transition: " + pathTransition,
+            "-moz-transition: " + pathTransition,
+            "transition: " + pathTransition
+          ].join(";");
+          /*
+          gaugeValueElem.style = [
+            "fill: " + c,
+            "-webkit-transition: " + textTransition,
+            "-moz-transition: " + textTransition,
+            "transition: " + textTransition,
+          ].join(";");
+          */
+        }
+
+        instance = {
+          setMaxValue: function(max) {
+            limit = max;
+          },
+          setValue: function(val) {
+            value = normalize(val, min, limit);
+            if (gaugeColor) {
+              setGaugeColor(value, 0);
+            }
+            updateGauge(value);
+          },
+          setValueAnimated: function(val, duration) {
+            var oldVal = value;
+            value = normalize(val, min, limit);
+            if (oldVal === value) {
+              return;
+            }
+
+            if (gaugeColor) {
+              setGaugeColor(value, duration);
+            }
+            Animation({
+              start: oldVal || 0,
+              end: value,
+              duration: duration || 1,
+              step: function(val, frame) {
+                updateGauge(val, frame);
+              }
+            });
+          },
+          getValue: function() {
+            return value;
+          }
+        };
+
+        initializeGauge(gaugeContainer);
+        instance.setValue(value);
+        return instance;
+      };
+    })();
+
+    return Gauge;
+  });
+
+  var startAnglePoint = 30;
+  var endAnglePoint = 150;
+  var maxSpeed = 35;
+
+  var gauge1 = Gauge(document.getElementById("gauge1"), {
+    max: maxSpeed,
+    dialStartAngle: startAnglePoint,
+    dialEndAngle: endAnglePoint,
+    value: 0,
+    label: function(item, value) {
+      while (item.firstChild) {
+        item.removeChild(item.firstChild);
+      }
+      var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan1.textContent=Math.round(value * 100)/100; // speed value from sc1
+      tspan1.setAttribute('x',50);
+      tspan1.setAttribute('y',48);
+      item.appendChild(tspan1);
+
+      var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan2.textContent="km/h";
+      tspan2.setAttribute('x',50);
+      tspan2.setAttribute('y',62);
+      item.appendChild(tspan2);
+
+      var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan3.textContent="S1 SPEED";
+      tspan3.setAttribute('font-size',5);
+      tspan3.setAttribute('x',50);
+      tspan3.setAttribute('y',30);
+      item.appendChild(tspan3);
+    }
+  });
+
+
+  var gauge2 = Gauge(document.getElementById("gauge2"), {
+    max: maxSpeed,
+    dialStartAngle: startAnglePoint,
+    dialEndAngle: endAnglePoint,
+    value: 0,
+    label: function(item,value) {
+
+      while (item.firstChild) {
+        item.removeChild(item.firstChild);
+      }
+
+      // var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      // tspan3.textContent="SPEED";
+      // item.appendChild(tspan3);
+
+      var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan1.textContent=Math.round(value * 100) / 100; // speed value from sc2
+      tspan1.setAttribute('x',50);
+      tspan1.setAttribute('y',48);
+      item.appendChild(tspan1);
+
+      var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan2.textContent="km/h";
+      tspan2.setAttribute('x',50);
+      tspan2.setAttribute('y',62);
+      item.appendChild(tspan2);
+
+      var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan3.textContent="S2 SPEED";
+      tspan3.setAttribute('font-size',5);
+      tspan3.setAttribute('x',50);
+      tspan3.setAttribute('y',30);
+      item.appendChild(tspan3);
+
+      // return Math.round(value * 100) / 100;
+    }
+  });
+
+  (function loop() {
+    var value1 = Math.random() * 35,
+      value2 = Math.random() * 35;
+
+    // setValueAnimated(value, durationInSecs);
+    gauge1.setValueAnimated(value1, 1);
+    gauge2.setValueAnimated(value2, 1);
+
+    window.setTimeout(loop, 5000);
+  })();
+  }//end of animatingGauge
+  animatingGauge(); // start gauge
 
   </script>
 

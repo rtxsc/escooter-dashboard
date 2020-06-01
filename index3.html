@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Last Seen Locater</title>
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+
+    <style>
+      .map_s1 {
+        width: 100%;
+        height:400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map_s1" class="map_s1"><div id="popup"></div></div>
+
+  <script type="text/javascript">
+
+  // import 'ol/ol.css';
+  // import Feature from 'ol/Feature';
+  // import Map from 'ol/Map';
+  // import Overlay from 'ol/Overlay';
+  // import View from 'ol/View';
+  // import Point from 'ol/geom/Point';
+  // import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
+  // import TileJSON from 'ol/source/TileJSON';
+  // import VectorSource from 'ol/source/Vector';
+  // import {Icon, Style} from 'ol/style';
+
+  var iconFeature = new ol.Feature({
+    geometry: new ol.geom.Point(ol.proj.fromLonLat([110.4451, 1.4489])),
+    name: 'sc1',
+    population: 4000,
+    rainfall: 500
+  });
+
+  var iconStyle = new ol.style.Style({
+    image: new ol.style.Icon({
+      anchor: [0, 0],
+      anchorXUnits: 'fraction',
+      anchorYUnits: 'pixels',
+      src: 'img/icon.png'
+    })
+  });
+
+  iconFeature.setStyle(iconStyle);
+
+  var vectorSource = new ol.source.Vector({
+    features: [iconFeature]
+  });
+
+  var vectorLayer = new ol.layer.Vector({
+    source: vectorSource
+  });
+
+  var rasterLayer = new ol.layer.Tile({
+    source: new ol.source.TileJSON({
+      url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json',
+      crossOrigin: ''
+    })
+  });
+
+  var map_s1 = new ol.Map({
+    target: document.getElementById('map_s1'),
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM()
+      }),
+      vectorLayer
+    ],
+    view: new ol.View({
+      //1.4489° N, 110.4451° E - UiTM samarahan
+      center: ol.proj.fromLonLat([110.4451, 1.4489]),
+      zoom: 15
+    })
+  });
+
+  var element = document.getElementById('popup');
+
+  var popup = new ol.Overlay({
+    element: element,
+    positioning: 'bottom-center',
+    stopEvent: false,
+    offset: [0, 0]
+  });
+  map_s1.addOverlay(popup);
+
+  // display popup on click
+  map_s1.on('click', function(evt) {
+    var feature = map_s1.forEachFeatureAtPixel(evt.pixel,
+      function(feature) {
+        return feature;
+      });
+    if (feature) {
+      var coordinates = feature.getGeometry().getCoordinates();
+      popup.setPosition(coordinates);
+      $(element).popover({
+        placement: 'top',
+        html: true,
+        content: feature.get('name')
+      });
+      $(element).popover('show');
+    } else {
+      $(element).popover('destroy');
+    }
+  });
+
+  // change mouse cursor when over marker
+  map_s1.on('pointermove', function(e) {
+    if (e.dragging) {
+      $(element).popover('destroy');
+      return;
+    }
+    var pixel = map_s1.getEventPixel(e.originalEvent);
+    var hit = map_s1.hasFeatureAtPixel(pixel);
+    map_s1.getTarget().style.cursor = hit ? 'pointer' : '';
+  });
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+    <style>
+      .map_s1 {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+  </head>
+  <body>
+    <h2>S1 Last Seen Location</h2>
+    <div id="map_s1" class="map_s1"></div>
+    <script type="text/javascript">
+      var map_s1 = new ol.Map({
+        target: 'map_s1',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          //1.4489° N, 110.4451° E - UiTM samarahan
+          center: ol.proj.fromLonLat([110.4451, 1.4489]),
+          zoom: 15
+        })
+      });
+    </script>
+  </body>
+</html>
