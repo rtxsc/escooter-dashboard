@@ -5,7 +5,6 @@ from time import sleep,perf_counter
 import distutils.util
 from datetime import datetime
 import json
-from timer import Timer
 
 import pubnub
 from pubnub.pnconfiguration import PNConfiguration
@@ -16,10 +15,10 @@ from pubnub.enums import PNOperationType, PNStatusCategory
 pnconfig = PNConfiguration()
 pnconfig.subscribe_key = "sub-c-cf845704-8def-11ea-8e98-72774568d584"
 pnconfig.publish_key = "pub-c-8f52ff44-41bb-422c-a0c0-a63167077c6d"
-pnconfig.uuid = "Client-scooter1"
+pnconfig.uuid = "Client-S1"
 pnconfig.ssl = False
 pubnub = PubNub(pnconfig)
-CHANNEL_ID = "Robotronix"
+CHANNEL_ID = "robotronix"
 
 BAUDRATE = 115200
 SECONDS_BETWEEN_READS = 1
@@ -85,25 +84,43 @@ class MySubscribeCallback(SubscribeCallback):
         global serverActivation
         global userActivation
         receivedMessage = json.dumps(message.message)
-        if "s_act" and "u_act" in receivedMessage:
-            print(receivedMessage)
-            if "s1" in receivedMessage:
+        if "s_act" in receivedMessage:
+            # print(receivedMessage)
+            if "s_act_1" in receivedMessage:
                 serverActivation = True
             else:
                 serverActivation = False
-            print("server:{}".format(serverActivation))
 
-            if "u1" in receivedMessage:
+        if "u_act" in receivedMessage:
+            # logic for handshake
+
+            if "u_act_1" in receivedMessage:
                 userActivation = True
             else:
                 userActivation = False
-            print("user:{}".format(userActivation))
+
         pass  # handle incoming messages
 
     def signal(self, pubnub, signal):
         pass # handle incoming signals
 
-pubnub.add_listener(MySubscribeCallback())
+
+
+def here_now_callback(result, status):
+    if status.is_error():
+        # handle error
+        return
+
+    for channel_data in result.channels:
+        print("---")
+        print("channel: %s" % channel_data.channel_name)
+        print("occupancy: %s" % channel_data.occupancy)
+        print("occupants: %s" % channel_data.channel_name)
+
+    for occupant in channel_data.occupants:
+        print("uuid: %s, state: %s" % (occupant.uuid, occupant.state))
+
+
 
 def str2bool_util(inp):
     str2int = distutils.util.strtobool(inp)
@@ -294,8 +311,19 @@ def main_without_pppd():
 
     while True:
         # start listening to the channel from incoming messages
-        pubnub.subscribe().channels(CHANNEL_ID).execute()
+        pubnub.subscribe()\
+        .channels(CHANNEL_ID)\
+        .with_presence()\
+        .execute()
+
+        # pubnub.here_now()\
+        # .channels(CHANNEL_ID)\
+        # .include_uuids(True)\
+        # .pn_async(here_now_callback)
+
         print("\n\nStream index:{} \n".format(index))
+        print("server act payload:{}".format(serverActivation))
+        print("user act payload:{}".format(userActivation))
 
         # do the logic for anti-theft system here
         #  /__\  ( \( )(_  _)(_  _)    (_  _)( )_( )( ___)( ___)(_  _)
@@ -374,13 +402,14 @@ def main_without_pppd():
 
                 print("\nNext stream in:\n")
                 for c in range(STREAM_DELAY):
-                    print(STREAM_DELAY-c, end = ' ')
+                    # print(STREAM_DELAY-c, end = ' ')
                     # print ("{} second".format(STREAM_DELAY-c))
                     sleep(SECONDS_BETWEEN_READS)
 
 
 if __name__ == "__main__":
     try:
+        pubnub.add_listener(MySubscribeCallback())
         ser=serial.Serial('/dev/ttyS0', BAUDRATE, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=1)
         main_without_pppd()
     except KeyboardInterrupt:
