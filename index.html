@@ -490,12 +490,22 @@ main.container {
                         <span id="s1-status" class="text">Activated</span>
                       </a>
 
-                      <a href="#" id="s1-btn-override" class="btn btn-danger btn-icon-split">
+                      <label>
+                      <input id="s1-toggle" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                      Server Activation
+                      <span id="s1-status-override" class="text">None</span>
+                      </label>
+                      <label>
+                      <input id="s1-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                      User Activation
+                      <span id="s1-status-override-user" class="text">None</span>
+                      </label>
+                      <!-- <a href="#" id="s1-btn-override" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                           <i id="s1-logo-override" class="fas fa-info"></i>
                         </span>
-                        <span id="s1-status-override" class="text">Override</span>
-                      </a>
+                        <span id="s1-status-override" class="text">Disable</span>
+                      </a> -->
 
                     </div>
                     <!-- <div class="col-auto">
@@ -526,7 +536,7 @@ main.container {
                         <span class="icon text-white-50">
                           <i id="s2-logo-override" class="fas fa-info"></i>
                         </span>
-                        <span id="s2-status-override" class="text">Override</span>
+                        <span id="s2-status-override" class="text">Disable</span>
                       </a>
 
                     </div>
@@ -654,7 +664,9 @@ main.container {
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Tracker</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Tracker
+                      </div>
+
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div id="s1-alert-bg" class="icon-circle bg-warning">
@@ -665,7 +677,15 @@ main.container {
                         <div class="col">
                           <h4 class="small font-weight-bold">Scooter 1 Last Seen Location:
                             <div id="map_s1" class="map_s1"><div id="popup"></div></div>
-                            <br><b> <span id="s1-last-seen" class="float-right">Locating...</b></span></h4>
+                            <!-- <button id="track-s1" type="button" class="btn btn-info" autocomplete="off">Force Track</button> -->
+
+                            <div id="s1-track-btn">
+                               <button type="button" class="btn btn-danger"
+                               autocomplete="off">Track</button>
+                               <span id="s1-track" class="text">None</span>
+
+                              </div>
+                            <br><b> <span id="s1-last-seen-address" class="float-right">Locating...</b></span></h4>
                           <br><br>
                           <h4 class="small font-weight-bold">Time:<br>
                             <b> <span id="s1-last-seen-time" class="float-left">HH:MM</b></span></h4>
@@ -1015,138 +1035,13 @@ main.container {
   type="text/css"
   />
 
-  <script type="text/javascript">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-    var iconFeature = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat([110.4451, 1.4489])),
-      name: 'sc1',
-      population: 4000,
-      rainfall: 500
-    });
-    var iconFeature2 = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat([110.358, 1.5906])),
-      name: 'sc2',
-      population: 4000,
-      rainfall: 500
-    });
-
-    var iconStyle = new ol.style.Style({
-      image: new ol.style.Icon({
-        anchor: [0, 0],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: 'img/icon.png'
-      })
-    });
-
-    var iconStyle2 = new ol.style.Style({
-      image: new ol.style.Icon({
-        anchor: [10, 10],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: 'img/icon2.png'
-      })
-    });
-
-    iconFeature.setStyle(iconStyle);
-    iconFeature2.setStyle(iconStyle2);
-
-    var vectorSource = new ol.source.Vector({
-      features: [iconFeature]
-    });
-    var vectorSource2 = new ol.source.Vector({
-      features: [iconFeature2]
-    });
-
-    var vectorLayer = new ol.layer.Vector({
-      source: vectorSource
-    });
-
-    var vectorLayer2 = new ol.layer.Vector({
-      source: vectorSource2
-    });
-
-    var rasterLayer = new ol.layer.Tile({
-      source: new ol.source.TileJSON({
-        url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json',
-        crossOrigin: ''
-      })
-    });
-
-    var map_s1 = new ol.Map({
-      target: document.getElementById('map_s1'),
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        }),
-        vectorLayer
-      ],
-      view: new ol.View({
-        //1.4489° N, 110.4451° E - UiTM samarahan
-        center: ol.proj.fromLonLat([110.4451, 1.4489]),
-        zoom: 15
-      })
-    });
-
-    var map_s2 = new ol.Map({
-      target: document.getElementById('map_s2'),
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        }),
-        vectorLayer2
-      ],
-      view: new ol.View({
-        //1  query: [110.3581,1.5906] //stadium
-        center: ol.proj.fromLonLat([110.358, 1.5906]),
-        zoom: 15
-      })
-    });
-
-    // var element = document.getElementById('popup');
-    //
-    // var popup = new ol.Overlay({
-    //   element: element,
-    //   positioning: 'bottom-center',
-    //   stopEvent: false,
-    //   offset: [0, 0]
-    // });
-    // map_s1.addOverlay(popup);
-    //
-    // // display popup on click
-    // map_s1.on('click', function(evt) {
-    //   var feature = map_s1.forEachFeatureAtPixel(evt.pixel,
-    //     function(feature) {
-    //       return feature;
-    //     });
-    //   if (feature) {
-    //     var coordinates = feature.getGeometry().getCoordinates();
-    //     popup.setPosition(coordinates);
-    //     $(element).popover({
-    //       placement: 'top',
-    //       html: true,
-    //       content: feature.get('name')
-    //     });
-    //     $(element).popover('show');
-    //   } else {
-    //     $(element).popover('destroy');
-    //   }
-    // });
-
-    // // change mouse cursor when over marker
-    // map_s1.on('pointermove', function(e) {
-    //   if (e.dragging) {
-    //     $(element).popover('destroy');
-    //     return;
-    //   }
-    //   var pixel = map_s1.getEventPixel(e.originalEvent);
-    //   var hit = map_s1.hasFeatureAtPixel(pixel);
-    //   map_s1.getTarget().style.cursor = hit ? 'pointer' : '';
-    // });
-  </script>
 
   <script>
 
+  var CHANNEL_ID = "robotronix";
   var s1_battery =50;
   var s1_range= 30; // Xiaomi Mijia M365 Range 30KM
 
@@ -1176,8 +1071,15 @@ main.container {
 
     var pubnub = new PubNub({
       subscribeKey: "sub-c-cf845704-8def-11ea-8e98-72774568d584",
+      publishKey: "pub-c-8f52ff44-41bb-422c-a0c0-a63167077c6d",
+      uuid: "web-dashboard",
       ssl: true
     });
+
+    pubnub.subscribe({
+        channels: [CHANNEL_ID],
+    });
+
 
     // Initialize longitude latitude to default coordinates after load
     // lat : 1.5832216299999995
@@ -1186,16 +1088,18 @@ main.container {
     var latitude = 1.581623; // 1.581623,110.382395
     var s1_lat = 0.0;
     var s1_lon = 0.0;
-    var s1_last_seen; // default to uitm samaraham
-    var default_location = [110.4451,1.4489];
-    var s1_tracked = "";
-
-
-    // var s1_last_lat = 0.0;
-    // var s1_last_lon = 0.0;
-
     var s2_lat = 0.0;
     var s2_lon = 0.0;
+
+    var s1_last_seen// default to uitm samaraham
+    var s2_last_seen// default to uitm samaraham
+    var default_location = [0.0,0.0]; //110.4451,1.4489
+    var s1_tracked = "";
+    var s2_tracked = "";
+
+    s1_last_seen = default_location;
+    s2_last_seen = default_location;
+
     var scooter1_activated = null;
     var scooter2_activated = null;
 
@@ -1214,6 +1118,8 @@ main.container {
     var m = addZero(d.getMinutes());
     var s = addZero(d.getSeconds());
 
+
+    $("#s1-last-seen-address").text("Performing real-time tracking...");
     $("#s1-last-seen-time").text(h+":"+m+":"+s);
     $("#s2-last-seen-time").text(h+":"+m+":"+s);
 
@@ -1286,6 +1192,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 */
     pubnub.addListener({
         message: function(m) {
+
             // handle message
             var channelName = m.channel; // The channel for which the message belongs
             var channelGroup = m.subscription; // The channel group or wildcard subscription match (if exists)
@@ -1297,39 +1204,26 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             scooter2_activated = msg.s2_activated;
             s1_last_seen = msg.s1_last_known;
             s1_groundSpeed = msg.s1_speed;
-
-            if(s1_last_seen != "")
-            {
-              locateS1(s1_last_seen);
+            publisher = m.publisher; //The Publisher
+            if(s1_last_seen==null){
+              console.log("UNDEFINED DETECTED");
+              s1_last_seen = default_location
             }
-            else
-              {
-                $("#s1-last-seen").text("Performing real-time tracking...");
-                  if(s1_groundSpeed!=0){
-                    $("#s1-alert-bg").removeClass("icon-circle bg-warning");
-                    $("#s1-alert-bg").addClass("icon-circle bg-info");
-                  }
-                  else {
-                    $("#s1-alert-bg").removeClass("icon-circle bg-info");
-                    $("#s1-alert-bg").addClass("icon-circle bg-warning");
+            else {
+              s1_last_seen = msg.s1_last_known;
+            }
 
-                  }
-
-              }
-
-/*
-
-<div id="s1-alert-bg" class="icon-circle bg-warning">
-<i id="s1-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
-*/
-
+            s2_last_seen = s1_last_seen;
 
             scooter1_activation(scooter1_activated);
             scooter2_activation(!(scooter1_activated));
-            var publisher = m.publisher; //The Publisher
+
             // console.log(scooter1_activated);
-            // console.log(publisher,msg);
-            console.log("Tracking last known location: "+s1_last_seen)
+            console.log("Payload from: "+publisher);
+            console.log("s1 coordinate listened from "+publisher+" :"+msg.s1_last_known);
+            console.log("Tracking S1 last known location: "+s1_last_seen)
+            console.log("Tracking S2 last known location: "+s2_last_seen)
+
         },
         presence: function(p) {
             // handle presence
@@ -1353,10 +1247,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
         }
     });
 
-    var CHANNEL_ID = "robotronix";
-    pubnub.subscribe({
-        channels: [CHANNEL_ID],
-    });
+
 
     var accessTokenGlobal = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
   	mapboxgl.accessToken = accessTokenGlobal;
@@ -1461,35 +1352,55 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               'bottom-right'
           );
 
-          // API to perform reverse Geocoding in JavaScript
-          var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
 
 
-          function locateS1(s1_last_seen){
-            mapboxClient.geocoding
-              .reverseGeocode({
-                query: s1_last_seen //[110.38,1.588]
-              })
-              .send()
-              .then(function(response) {
-                if (
-                  response &&
-                  response.body &&
-                  response.body.features &&
-                  response.body.features.length
-                ) {
-                  var feature = response.body.features[0];
-                  s1_tracked = feature.place_name;
-                  console.log(response);
-                  $("#s1-last-seen").text(s1_tracked);
-                }
-              });
+    $(document).ready(function(){
+          $("#s1-track-btn").click(function(){
+          console.log("clicked!");
+          $('#s1-track').html("Tracking...")
+
+          // pubnub.publish({
+          //         message: "s_act_69",
+          //         channel: CHANNEL_ID
+          //       });
+          // s1_last_seen = [110.3581,1.5906];
+            $(this).button('loading').delay(1000).queue(function() {
+                locateS1(s1_last_seen);
+                $(this).dequeue();
+                $('#s1-track').html("Found!")
+            });
+        });
+    });
+
+    // API to perform reverse Geocoding in JavaScript
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+
+    function locateS1(s1_last_seen){
+      mapboxClient.geocoding
+        .reverseGeocode({
+          query: s1_last_seen //[110.38,1.588]
+        })
+        .send()
+        .then(function(response) {
+          if (
+            response &&
+            response.body &&
+            response.body.features &&
+            response.body.features.length
+          ) {
+            var feature = response.body.features[0];
+            s1_tracked = feature.place_name;
+            console.log(response);
+            $("#s1-last-seen-address").text(s1_tracked);
           }
+        });
+    }
+
 
           function locateS2(){
             mapboxClient.geocoding
               .reverseGeocode({
-                query: [110.3581,1.5906] //stadium
+                query: default_location //stadium 110.3581,1.5906
               })
               .send()
               .then(function(response) {
@@ -1500,15 +1411,82 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                   response.body.features.length
                 ) {
                   var feature = response.body.features[0];
-                  s2_last_seen = feature.place_name;
+                  s2_tracked = feature.place_name;
                   console.log(response);
-                  $("#s2-last-seen").text(s2_last_seen);
+                  $("#s2-last-seen").text(s2_tracked);
                 }
               });
           }
 
-          locateS1(default_location); // initial preset last seen
-          locateS2(default_location); // initial preset last seen
+
+          var s_act_payload;
+          var u_act_payload;
+
+          $(function() {
+            $('#s1-toggle').change(function() {
+              $('#s1-status-override').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                s_act_payload = "s_act_1"
+              }
+              else {
+                s_act_payload = "s_act_0"
+              }
+              if(s1_last_seen==null)
+                s1_last_seen = 45,45;
+
+              var serverPayload = {
+                s_act: s_act_payload,
+                s1_last_seen: s1_last_seen
+              }
+              pubnub.publish(
+                  {
+                      message: serverPayload,
+                      channel: CHANNEL_ID
+                  }
+                  // ,
+                  // function(status, response) {
+                  //     if (status.error) {
+                  //         console.log("publishing failed w/ status: ", status);
+                  //     } else {
+                  //         console.log("message published w/ server response: ", response);
+                  //     }
+                  // }
+              );// end publish
+
+            })
+          }) // end of server activation block
+
+          $(function() {
+            $('#s1-toggle-user').change(function() {
+              $('#s1-status-override-user').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                u_act_payload = "u_act_1"
+              }
+              else {
+                u_act_payload = "u_act_0"
+              }
+
+              var serverPayload = {
+                u_act: u_act_payload,
+                s2_last_seen: [110.388495,1.583235]
+              }
+              pubnub.publish(
+                  {
+                      message: serverPayload,
+                      channel: CHANNEL_ID
+                  },
+                  function(status, response) {
+                      if (status.error) {
+                          console.log("publishing failed w/ status: ", status);
+                      } else {
+                          console.log("message published w/ server response: ", response);
+                      }
+                  }
+              );
+
+            })
+          }) // end of user activation block
+
 
 
       var scooter1 = new mapboxgl.Marker();
@@ -1530,12 +1508,16 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
       var el = document.createElement('div');
       el.id = 'marker';
 
-
       function animateMarker(timestamp) {
           run_lon = radius* Math.sin(timestamp / 5000) + longitude-change;
           run_lat = radius* Math.cos(timestamp / 5000) + latitude-change;
           s2_run_lon = radius* Math.sin(timestamp / 5000);
           s2_run_lat = radius* Math.cos(timestamp / 5000);
+
+          if(s1_lon==null && s1_lat==null){
+            s1_lon= 0;
+            s1_lat= 0;
+          }
 
           scooter1.setLngLat([s1_lon,s1_lat]);
           scooter2.setLngLat([s1_lon+s2_run_lon,s1_lat+s2_run_lat]);
@@ -1545,7 +1527,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
           // Ensure it's added to the map. This is safe to call if it's already added.
           scooter1.addTo(map);
-          scooter2.addTo(map);
+          // scooter2.addTo(map);
           scooter3.addTo(map);
 
           // // create the marker
@@ -2020,6 +2002,137 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
   }//end of animatingGauge
   animatingGauge(); // start gauge
 
+
+    var iconFeature = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([110.4451, 1.4489])),
+      name: 'sc1',
+      population: 4000,
+      rainfall: 500
+    });
+    var iconFeature2 = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([110.358, 1.5906])),
+      name: 'sc2',
+      population: 4000,
+      rainfall: 500
+    });
+
+    var iconStyle = new ol.style.Style({
+      image: new ol.style.Icon({
+        anchor: [0, 0],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'img/icon.png'
+      })
+    });
+
+    var iconStyle2 = new ol.style.Style({
+      image: new ol.style.Icon({
+        anchor: [10, 10],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'img/icon2.png'
+      })
+    });
+
+    iconFeature.setStyle(iconStyle);
+    iconFeature2.setStyle(iconStyle2);
+
+    var vectorSource = new ol.source.Vector({
+      features: [iconFeature]
+    });
+    var vectorSource2 = new ol.source.Vector({
+      features: [iconFeature2]
+    });
+
+    var vectorLayer = new ol.layer.Vector({
+      source: vectorSource
+    });
+
+    var vectorLayer2 = new ol.layer.Vector({
+      source: vectorSource2
+    });
+
+    var rasterLayer = new ol.layer.Tile({
+      source: new ol.source.TileJSON({
+        url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json',
+        crossOrigin: ''
+      })
+    });
+
+    var map_s1 = new ol.Map({
+      target: document.getElementById('map_s1'),
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        }),
+        vectorLayer
+      ],
+      view: new ol.View({
+        //1.4489° N, 110.4451° E - UiTM samarahan
+        center: ol.proj.fromLonLat([110.4451, 1.4489]),
+        // center: ol.proj.fromLonLat(s1_last_seen),
+
+        zoom: 15
+      })
+    });
+
+    var map_s2 = new ol.Map({
+      target: document.getElementById('map_s2'),
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        }),
+        vectorLayer2
+      ],
+      view: new ol.View({
+        //1  query: [110.3581,1.5906] //stadium
+        center: ol.proj.fromLonLat([110.358, 1.5906]),
+        // center: ol.proj.fromLonLat(default_location),
+
+        zoom: 15
+      })
+    });
+
+    // var element = document.getElementById('popup');
+    //
+    // var popup = new ol.Overlay({
+    //   element: element,
+    //   positioning: 'bottom-center',
+    //   stopEvent: false,
+    //   offset: [0, 0]
+    // });
+    // map_s1.addOverlay(popup);
+    //
+    // // display popup on click
+    // map_s1.on('click', function(evt) {
+    //   var feature = map_s1.forEachFeatureAtPixel(evt.pixel,
+    //     function(feature) {
+    //       return feature;
+    //     });
+    //   if (feature) {
+    //     var coordinates = feature.getGeometry().getCoordinates();
+    //     popup.setPosition(coordinates);
+    //     $(element).popover({
+    //       placement: 'top',
+    //       html: true,
+    //       content: feature.get('name')
+    //     });
+    //     $(element).popover('show');
+    //   } else {
+    //     $(element).popover('destroy');
+    //   }
+    // });
+
+    // // change mouse cursor when over marker
+    // map_s1.on('pointermove', function(e) {
+    //   if (e.dragging) {
+    //     $(element).popover('destroy');
+    //     return;
+    //   }
+    //   var pixel = map_s1.getEventPixel(e.originalEvent);
+    //   var hit = map_s1.hasFeatureAtPixel(pixel);
+    //   map_s1.getTarget().style.cursor = hit ? 'pointer' : '';
+    // });
   </script>
 
 </body>
