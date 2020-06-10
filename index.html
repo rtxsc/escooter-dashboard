@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -478,10 +477,14 @@ main.container {
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
+                <div class="card-body " >
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Status</div>
+                      <!-- <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Status</div> -->
+
+                        <div class="px-2 py-0 bg-gradient-primary text-white">Scooter 1 Status</div>
+                        <!-- <div class="px-3 py-5 bg-gradient-danger text-white">.bg-gradient-danger</div> -->
+
                       <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
                       <a href="#" id="s1-btn" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
@@ -500,14 +503,14 @@ main.container {
                       User Activation
                       <span id="s1-status-override-user" class="text">None</span>
                       </label>
-                      <!-- <a href="#" id="s1-btn-override" class="btn btn-danger btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i id="s1-logo-override" class="fas fa-info"></i>
-                        </span>
-                        <span id="s1-status-override" class="text">Disable</span>
-                      </a> -->
-
                     </div>
+
+                    <!-- <a href="#" id="s1-btn-override" class="btn btn-danger btn-icon-split">
+                      <span class="icon text-white-50">
+                        <i id="s1-logo-override" class="fas fa-info"></i>
+                      </span>
+                      <span id="s1-status-override" class="text">Disable</span>
+                    </a> -->
                     <!-- <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
                     </div> -->
@@ -554,11 +557,13 @@ main.container {
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 User UUID</div>
-                      <h4 class="small font-weight-bold">Yazid<span id="s1-usage-timer" class="float-right">0%</span></h4>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client IP <span id="client-ip-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client MAC <span id="client-mac-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client UUID  <span id="client-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User UUID  <span id="user-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Idle Duration <span id="client-idle-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Use Duration <span id="client-active-tag" class="float-right">00 H : 00 M : 00 S</span></div>
 
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Usage Duration</div>
-                      <h4 class="small font-weight-bold">000<span id="s1-usage-timer" class="float-right">0%</span></h4>
                       <!-- <div class="progress mb-4">
                         <div id="s1-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
                       </div> -->
@@ -963,7 +968,7 @@ main.container {
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; eScooter Tracking 2020</span>
+            <span>Copyright &copy; eScooter Tracking 2020 | Universiti Teknologi MARA</span>
           </div>
         </div>
       </footer>
@@ -1036,7 +1041,7 @@ main.container {
   />
 
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 
   <script>
@@ -1084,8 +1089,8 @@ main.container {
     // Initialize longitude latitude to default coordinates after load
     // lat : 1.5832216299999995
     // lon : 110.38827859999998
-    var longitude = 110.382395;
-    var latitude = 1.581623; // 1.581623,110.382395
+    var latitude = 1.581206; // 1.581623,110.382395
+    var longitude = 110.377947;
     var s1_lat = 0.0;
     var s1_lon = 0.0;
     var s2_lat = 0.0;
@@ -1190,21 +1195,55 @@ lon : 110.38827859999998
 curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.5832216299999995.json?access_token=pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA"
 
 */
+   var convertSeconds = function(sec) {
+        var hrs = Math.floor(sec / 3600);
+        var min = Math.floor((sec - (hrs * 3600)) / 60);
+        var seconds = sec - (hrs * 3600) - (min * 60);
+        seconds = Math.round(seconds * 100) / 100
+
+        var result = (hrs < 10 ? "0" + hrs : hrs);
+        result += " H : " + (min < 10 ? "0" + min : min);
+        result += " M : " + (seconds < 10 ? "0" + seconds : seconds);
+        result += " S ";
+        return result;
+     }
+
     pubnub.addListener({
         message: function(m) {
-
             // handle message
             var channelName = m.channel; // The channel for which the message belongs
             var channelGroup = m.subscription; // The channel group or wildcard subscription match (if exists)
             var pubTT = m.timetoken; // Publish timetoken
+            var client_uuid = m.publisher; // client's uuid
             var msg = m.message; // The Payload
-            s1_lon = msg.s1_longitude;
-            s1_lat = msg.s1_latitude;
-            scooter1_activated = msg.s1_activated;
+            if(client_uuid == "client-s1"){
+              s1_mac = msg.s1_mac_address;
+              s1_ipv4 = msg.s1_public_ipv4;
+              s1_ipv6 = msg.s1_public_ipv6;
+              s1_uuid = msg.s1_uuid;
+              s1_groundSpeed = msg.s1_speed;
+              s1_lon = msg.s1_longitude;
+              s1_lat = msg.s1_latitude;
+              scooter1_activated = msg.s1_activated;
+              s1_moved = msg.s1_moved;
+              s1_last_seen = msg.s1_last_known;
+              s1_idle_time = msg.s1_idle_time;
+              s1_active_time = msg.s1_active_time;
+              var idle_duration = convertSeconds(Math.floor(s1_idle_time));
+              var active_duration = convertSeconds(Math.floor(s1_active_time));
+
+
+              $("#client-ip-tag").text(s1_ipv4);
+              $("#client-mac-tag").text(s1_mac);
+              $("#client-uuid-tag").text(s1_uuid);
+              $("#client-idle-tag").text(idle_duration);
+              $("#client-active-tag").text(active_duration);
+
+            }
+
+
             scooter2_activated = msg.s2_activated;
-            s1_last_seen = msg.s1_last_known;
-            s1_groundSpeed = msg.s1_speed;
-            publisher = m.publisher; //The Publisher
+
             if(s1_last_seen==null){
               console.log("UNDEFINED DETECTED");
               s1_last_seen = default_location
@@ -1217,12 +1256,9 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
             scooter1_activation(scooter1_activated);
             scooter2_activation(!(scooter1_activated));
-
-            // console.log(scooter1_activated);
-            console.log("Payload from: "+publisher);
-            console.log("s1 coordinate listened from "+publisher+" :"+msg.s1_last_known);
-            console.log("Tracking S1 last known location: "+s1_last_seen)
-            console.log("Tracking S2 last known location: "+s2_last_seen)
+            // console.log("s1 coordinate listened from "+client_uuid+" :"+msg.s1_last_known);
+            // console.log("S1 last known location: "+s1_last_seen)
+            // console.log("S2 last known location: "+s2_last_seen)
 
         },
         presence: function(p) {
@@ -1236,7 +1272,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             var timetoken = p.timetoken;  // Current timetoken
             var uuid = p.uuid; // UUIDs of users who are connected with the channel
 
-            console.log(uuid);
+            console.log("current-connected-client:"+uuid);
 
         },
         status: function(s) {
@@ -1418,7 +1454,6 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               });
           }
 
-
           var s_act_payload;
           var u_act_payload;
 
@@ -1431,27 +1466,28 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               else {
                 s_act_payload = "s_act_0"
               }
-              if(s1_last_seen==null)
-                s1_last_seen = 45,45;
+              // if(s1_last_seen==null)
+              //   s1_last_seen = 45,45;
 
-              var serverPayload = {
-                s_act: s_act_payload,
-                s1_last_seen: s1_last_seen
+              var metaOnlyPublishTo = {
+                "uuid": "client-s1"
+              }
+
+              var messagePayload = {
+                  s_act: s_act_payload
+              }
+
+              var onResponse = function(status,response){
+                // handle response here
               }
               pubnub.publish(
                   {
-                      message: serverPayload,
-                      channel: CHANNEL_ID
-                  }
-                  // ,
-                  // function(status, response) {
-                  //     if (status.error) {
-                  //         console.log("publishing failed w/ status: ", status);
-                  //     } else {
-                  //         console.log("message published w/ server response: ", response);
-                  //     }
-                  // }
-              );// end publish
+                      message: messagePayload,
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
+                  },
+                  onResponse
+              )// end publish
 
             })
           }) // end of server activation block
@@ -1466,27 +1502,28 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                 u_act_payload = "u_act_0"
               }
 
+              var metaOnlyPublishTo = {
+                "uuid": "client-s1"
+              }
+
               var serverPayload = {
                 u_act: u_act_payload,
                 s2_last_seen: [110.388495,1.583235]
               }
+              var onResponse = function(status,response){
+                // handle response here
+              }
               pubnub.publish(
                   {
                       message: serverPayload,
-                      channel: CHANNEL_ID
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
                   },
-                  function(status, response) {
-                      if (status.error) {
-                          console.log("publishing failed w/ status: ", status);
-                      } else {
-                          console.log("message published w/ server response: ", response);
-                      }
-                  }
-              );
+                  onResponse
+              )//end publish
 
             })
           }) // end of user activation block
-
 
 
       var scooter1 = new mapboxgl.Marker();
@@ -1509,8 +1546,10 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
       el.id = 'marker';
 
       function animateMarker(timestamp) {
-          run_lon = radius* Math.sin(timestamp / 5000) + longitude-change;
-          run_lat = radius* Math.cos(timestamp / 5000) + latitude-change;
+          run_lon = radius* Math.sin(timestamp / 5000) + longitude;
+          run_lat = radius* Math.cos(timestamp / 5000) + latitude;
+          // run_lon = radius* Math.sin(timestamp / 5000) + s1_lon;
+          // run_lat = radius* Math.cos(timestamp / 5000) + s1_lat;
           s2_run_lon = radius* Math.sin(timestamp / 5000);
           s2_run_lat = radius* Math.cos(timestamp / 5000);
 
