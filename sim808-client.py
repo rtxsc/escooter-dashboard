@@ -5,9 +5,6 @@ from time import sleep,perf_counter
 import distutils.util
 from datetime import datetime
 import json
-import socket
-from requests import get # to get Public IP address
-import uuid, re # to get MAC address
 
 import pubnub
 from pubnub.pnconfiguration import PNConfiguration
@@ -15,12 +12,10 @@ from pubnub.pubnub import PubNub
 from pubnub.callbacks import SubscribeCallback
 from pubnub.enums import PNOperationType, PNStatusCategory
 
-CLIENT_ID = "s1"
 pnconfig = PNConfiguration()
 pnconfig.subscribe_key = "sub-c-cf845704-8def-11ea-8e98-72774568d584"
 pnconfig.publish_key = "pub-c-8f52ff44-41bb-422c-a0c0-a63167077c6d"
-pnconfig.filter_expression = "uuid == 'client-s1'" # place the uuid to be ignored
-pnconfig.uuid = "client-"+CLIENT_ID
+pnconfig.uuid = "Client-S1"
 pnconfig.ssl = False
 pubnub = PubNub(pnconfig)
 CHANNEL_ID = "robotronix"
@@ -32,18 +27,11 @@ INIT_DELAY = 1
 index = 0
 stream_index = 0
 DATA_POINT = 2 # GPS lat/lgt recorded before transmission
-s1_activated = False
-s1_moved = False
+scooter1_activated = False
+scooter1_moved = False
 scooterAlarm = False
 serverActivation = False
 userActivation = False
-
-meta = {
-    'my': 'meta',
-    'name': 'PubNub'
-}
-
-pubnub.publish().channel(CHANNEL_ID).meta(meta).message("hello from client-"+CLIENT_ID).sync()
 
 class MySubscribeCallback(SubscribeCallback):
     def status(self, pubnub, status):
@@ -131,6 +119,7 @@ def here_now_callback(result, status):
 
     for occupant in channel_data.occupants:
         print("uuid: %s, state: %s" % (occupant.uuid, occupant.state))
+
 
 
 def str2bool_util(inp):
@@ -341,8 +330,8 @@ def main_without_pppd():
         # /(  )\  )  (   )(   _)(_       )(   ) _ (  )__)  )__)   )(
         #(__)(__)(_)\_) (__) (____)     (__) (_) (_)(____)(_)    (__)
 
-        s1_activated = (serverActivation and userActivation)
-        if s1_activated:
+        scooter1_activated = (serverActivation and userActivation)
+        if scooter1_activated:
             if not idle_flag:
                 idle_flag = True
                 idle_end = perf_counter()
@@ -368,59 +357,48 @@ def main_without_pppd():
                 active_flag = True
 
 
-        print("ACTIVATION_S1:{}".format(s1_activated))
+        print("ACTIVATION_S1:{}".format(scooter1_activated))
+        groundSpeed = getNavigationInfo()
+        gndSpeed = float(groundSpeed)
 
+        if gndSpeed is not 0.00:
+            scooter1_moved = True
+        else:
+            scooter1_moved = False
+
+        if not scooter1_activated and scooter1_moved:
+            scooterAlarm = True
+        else:
+            scooterAlarm = False
+
+        print("standby_alarm_S1:{}".format(scooterAlarm))
 
         # Make sure there's a GPS fix
         if checkForFix():
-
-            groundSpeed = getNavigationInfo()
-            gndSpeed = float(groundSpeed)
-
-            if gndSpeed is not 0.00:
-                s1_moved = False
-            else:
-                s1_moved = True
-
-            if not s1_activated and s1_moved:
-                scooterAlarm = True
-            else:
-                scooterAlarm = False
-
-            print("standby_alarm_S1:{}".format(scooterAlarm))
             # Get lat and long
             if getCoord():
                 index+=1
                 latitude, longitude = getCoord() # live coordinates
                 # in_activated = input("active-s1?:")
-                # s1_activated=str2bool_util(in_activated)
-                if not s1_activated:
+                # scooter1_activated=str2bool_util(in_activated)
+                if not scooter1_activated:
                     s1_last_seen = float(longitude),float(latitude)
                 else:
-                    s1_last_seen = 90,90 # default to 90,90 when moving
+                    s1_last_seen = ""
 
                 coord = "lat:" + str(latitude) + "," + "lng:" + str(longitude)
                 print (coord)
-                # create JSON dictionary (payload)
-                ipv4,ipv6 = getPublicIP()
-
-                payload =       {
-                                CLIENT_ID+"_index":         float(index),
-                                CLIENT_ID+"_mac_address":   getMAC(),
-                                CLIENT_ID+"_public_ipv4":   ipv4,
-                                CLIENT_ID+"_public_ipv6":   ipv6,
-                                CLIENT_ID+"_uuid":          pubnub.uuid,
-                                CLIENT_ID+"_speed":         float(gndSpeed),
-                                CLIENT_ID+"_latitude":      float(latitude),
-                                CLIENT_ID+"_longitude":     float(longitude),
-                                CLIENT_ID+"_activated":     bool(s1_activated),
-                                CLIENT_ID+"_moved":         bool(s1_moved),
-                                CLIENT_ID+"_last_known":    s1_last_seen,
-                                CLIENT_ID+"_idle_time":     idle_time,
-                                CLIENT_ID+"_active_time":   active_time
-
+                # create JSON dictionary
+                dictionary =    {
+                                "s1_index":         float(index),
+                                "s1_speed":         float(gndSpeed+30),
+                                "s1_latitude":      float(latitude),
+                                "s1_longitude":     float(longitude),
+                                "s1_activated":     bool(scooter1_activated),
+                                "s1_moved":         bool(scooter1_moved),
+                                "s1_last_known":    s1_last_seen
                                 }
-                pubnub.publish().channel(CHANNEL_ID).message(payload).pn_async(publish_callback)
+                pubnub.publish().channel(CHANNEL_ID).message(dictionary).pn_async(publish_callback)
 
                 print("\nNext stream in:\n")
                 for c in range(STREAM_DELAY):
@@ -428,22 +406,9 @@ def main_without_pppd():
                     # print ("{} second".format(STREAM_DELAY-c))
                     sleep(SECONDS_BETWEEN_READS)
 
-def getMAC():
-    return (':'.join(re.findall('..', '%012x' % uuid.getnode())))
-
-def getPublicIP():
-    ipv4 = get('https://api.ipify.org').text
-    ipv6 = get('https://api6.ipify.org').text
-    return ipv4,ipv6
 
 if __name__ == "__main__":
     try:
-        hostname = socket.gethostname()
-        ip_address = socket.gethostbyname(hostname)
-        print("hostname:{}".format(hostname))
-        print("IP address:{}".format(ip_address))
-        print("MAC address:{}".format(getMAC()))
-
         pubnub.add_listener(MySubscribeCallback())
         ser=serial.Serial('/dev/ttyS0', BAUDRATE, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=1)
         main_without_pppd()
