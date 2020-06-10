@@ -1,0 +1,6565 @@
+{
+  "payload": "[1,\"Subscribed\",\"Channel-j0fhffo7w\"]",
+  "DEBUG_0.47957983651072855": true
+}
+ {
+  "payload": "[1,\"Unsubscribed\",\"Channel-j0fhffo7w\"]",
+  "DEBUG_0.47957983651072855": true
+}
+ {
+  "payload": "[1,\"Publish To\",\"robotronix\"]",
+  "DEBUG_0.47957983651072855": true
+}
+ {
+  "payload": "[1,\"Subscribed\",\"robotronix\"]",
+  "DEBUG_0.47957983651072855": true
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    0,
+    0
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388464,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388464,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388464,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388464,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388464,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388464,
+    1.583257
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_uuid": "Client-S1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583254,
+  "s1_longitude": 110.388466,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388466,
+    1.583254
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_uuid": "Client-S1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583254,
+  "s1_longitude": 110.388467,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388467,
+    1.583254
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_uuid": "Client-S1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583254,
+  "s1_longitude": 110.388467,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388467,
+    1.583254
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_uuid": "Client-S1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388469,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388469,
+    1.583253
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_uuid": "Client-S1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388469,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388469,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_uuid": "Client-S1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.38847,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.38847,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388477,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388477,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388477,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388477,
+    1.583252
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388482,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388482,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388482,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388482,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 3,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388482,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388482,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 4,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388482,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388482,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 5,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388483,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388483,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 6,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388483,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388483,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 7,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388483,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388483,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 8,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583248,
+  "s1.longitude": 110.388483,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388483,
+    1.583248
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583243,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583243
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583243,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583243
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583235,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583235
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583235,
+  "s1.longitude": 110.388511,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388511,
+    1.583235
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583235,
+  "s1.longitude": 110.388511,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388511,
+    1.583235
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583236,
+  "s1.longitude": 110.388511,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388511,
+    1.583236
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583235,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583235
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583235,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583235
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583236,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583236
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583236,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583236
+  ]
+}
+ {
+  "s1.index": 3,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583236,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583236
+  ]
+}
+ {
+  "s1.index": 4,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583236,
+  "s1.longitude": 110.38851,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.38851,
+    1.583236
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583238,
+  "s1.longitude": 110.388511,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388511,
+    1.583238
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583238,
+  "s1.longitude": 110.388512,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388512,
+    1.583238
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ip": "14.192.213.75",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ip": "14.192.213.75",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ip": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 3,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 4,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 5,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.58324,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.58324
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 3,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 4,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 5,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 6,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 7,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 3,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 4,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 5,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 6,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 7,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 8,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 9,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 10,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s1.index": 11,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1.index": 12,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": true,
+  "s1.moved": true,
+  "s1.last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1.index": 13,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": true,
+  "s1.moved": true,
+  "s1.last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1.index": 14,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": true,
+  "s1.moved": true,
+  "s1.last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s1.index": 15,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 16,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 17,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 18,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 19,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388514,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388514,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 3,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388513,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388513,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 1,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388511,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1.index": 2,
+  "s1.mac_address": "b8:27:eb:a5:f8:a5",
+  "s1.public_ipv4": "14.192.213.75",
+  "s1.public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1.uuid": "client-s1",
+  "s1.speed": 30,
+  "s1.latitude": 1.583241,
+  "s1.longitude": 110.388511,
+  "s1.activated": false,
+  "s1.moved": true,
+  "s1.last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583241,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583241,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583241,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583241,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583241,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388508,
+    1.58324
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388508,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388532,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583265,
+  "s1_longitude": 110.388553,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388555,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388555,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388555,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388555,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388555,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388555,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 13,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388555,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388555,
+    1.583258
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 14,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388554,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 15,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388554,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388554,
+    1.583258
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388554,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 16,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388554,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388554,
+    1.583258
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 17,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388554,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388554,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 18,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388553,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 19,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388554,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388541,
+    1.583253
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388541,
+    1.583253
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388541,
+    1.583253
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388541,
+    1.583253
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388541,
+    1.583253
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388541,
+    1.583253
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583253,
+  "s1_longitude": 110.388541,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583242,
+  "s1_longitude": 110.388525,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388525,
+    1.583242
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388529,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388529,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583241,
+  "s1_longitude": 110.388529,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388529,
+    1.583241
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58324,
+  "s1_longitude": 110.388529,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388529,
+    1.58324
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583237,
+  "s1_longitude": 110.388526,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388526,
+    1.583237
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583237,
+  "s1_longitude": 110.388526,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388526,
+    1.583237
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388526,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388526,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388525,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388525,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388525,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388525,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388524,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388519,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.38852,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583239,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388522,
+    1.583239
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388522,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388522,
+    1.583238
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388522,
+    1.583236
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388522,
+    1.583236
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388522,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388522,
+    1.583236
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": [
+    110.388522,
+    1.583236
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": 45
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388522,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583237,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388521,
+    1.583237
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": [
+    110.388521,
+    1.583237
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388523,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388523,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388523,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388523,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388524,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388524,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388505,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388505,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388505,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388505,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388505,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388505,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388506,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 13,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 14,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 15,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388506,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": 45
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "s1_last_seen": 45
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "s1_last_seen": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583261,
+  "s1_longitude": 110.388514,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388514,
+    1.583261
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58326,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.58326
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58326,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.58326
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58326,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.58326
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58326,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.58326
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.58326,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.58326
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583259,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.583259
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583259,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388516,
+    1.583259
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583259,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.583259
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583259,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388515,
+    1.583259
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388514,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388514,
+    1.583257
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388514,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388514,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388514,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388513,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583257,
+  "s1_longitude": 110.388513,
+  "s1_activated": true,
+  "s1_moved": true,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388513,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388513,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388513,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388513,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388512,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 13,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388512,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 14,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388512,
+    1.583258
+  ]
+}
+ {
+  "s1_index": 15,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 30,
+  "s1_latitude": 1.583258,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388512,
+    1.583258
+  ]
+}
+
+
+{
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 5,
+  "s1_latitude": 1.583256,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388512,
+    1.583256
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 5,
+  "s1_latitude": 1.583256,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583256
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583256,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": true,
+  "s1_last_known": [
+    110.388511,
+    1.583256
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583256,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388511,
+    1.583256
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583256,
+  "s1_longitude": 110.388511,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388511,
+    1.583256
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388512,
+    1.583255
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388512,
+    1.583255
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388512,
+    1.583255
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388512,
+    1.583255
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388512,
+    1.583255
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583255,
+  "s1_longitude": 110.388512,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388512,
+    1.583255
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583251
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583251
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583251
+  ]
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583251
+  ]
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58325,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.58325
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58325,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.58325
+  ]
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58325,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.58325
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 13,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58325,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 14,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 15,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 16,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 17,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583251
+  ]
+}
+ {
+  "s1_index": 18,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583251
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 19,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583251
+  ]
+}
+ {
+  "s1_index": 20,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583251,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583252
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583252
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583252
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s_act": "s_act_0",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388515,
+    1.583252
+  ]
+}
+ {
+  "s_act": "s_act_1",
+  "uuid": "web-dashboard"
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583252,
+  "s1_longitude": 110.388515,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583219,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388524,
+    1.583219
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583219,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388524,
+    1.583219
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58322,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388524,
+    1.58322
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58322,
+  "s1_longitude": 110.388524,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583221,
+  "s1_longitude": 110.388524,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388524,
+    1.583221
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583221,
+  "s1_longitude": 110.388524,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583221,
+  "s1_longitude": 110.388524,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583221,
+  "s1_longitude": 110.388523,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ "hello"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388523,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388523,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388523,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388523,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583226
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388522,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388522,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388521,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388521,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388521,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.388521,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ "hello"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583226,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583226
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583227
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583227
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583227
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583227
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583227,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583227
+  ]
+}
+ "hello"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583229,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583229
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583229,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583229
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583229,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583229
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583229,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583229
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.58323
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.58323
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.58323
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.58323
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583231
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583231
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583231
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583231
+  ]
+}
+ "hello"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583232
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583232
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388519,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388519,
+    1.583232
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.388519,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ "hello"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583236
+  ]
+}
+ "hello froms1"
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583235,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583235,
+  "s1_longitude": 110.388522,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583235,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583235,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583235,
+  "s1_longitude": 110.388522,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388522,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583235,
+  "s1_longitude": 110.388521,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388521,
+    1.583235
+  ]
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583233
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583233
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.38852,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.38852,
+    1.583234
+  ]
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583233
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583233
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583232
+  ]
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583232
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583232
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583232
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583232
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583232
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583232,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583232
+  ]
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583231
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583231
+  ]
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388517,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ]
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.583231
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 22.08125765099976
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.58323
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 22.08125765099976
+}
+ {
+  "s1_index": 12,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.58323
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 22.08125765099976
+}
+ {
+  "s1_index": 13,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.58323,
+  "s1_longitude": 110.388516,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388516,
+    1.58323
+  ],
+  "s1_idle_time": 44.17317334799918,
+  "s1_active_time": 22.08125765099976
+}
+ "hello from client-s1"
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583231
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 0
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583231
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 21.91376937899986
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583231
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 21.91376937899986
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583231
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 21.91376937899986
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583231
+  ],
+  "s1_idle_time": 14.988289365001037,
+  "s1_active_time": 21.91376937899986
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 29.483817203999934,
+  "s1_active_time": 21.91376937899986
+}
+ {
+  "s1_index": 11,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583231,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 29.483817203999934,
+  "s1_active_time": 21.91376937899986
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583233
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583233,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583234
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 43.70115185800023
+}
+ {
+  "s1_index": 9,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583234
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 43.70115185800023
+}
+ {
+  "s1_index": 10,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583234,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583234
+  ],
+  "s1_idle_time": 7.395032144000652,
+  "s1_active_time": 43.70115185800023
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583236
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583236
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583236
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388517,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 23.07162946399876,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388517,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 23.07162946399876,
+  "s1_active_time": 0
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583236
+  ],
+  "s1_idle_time": 23.07162946399876,
+  "s1_active_time": 14.697767663999912
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583236
+  ],
+  "s1_idle_time": 23.07162946399876,
+  "s1_active_time": 14.697767663999912
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583236
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583236
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 14.902191441999094,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 14.902191441999094,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 14.902191441999094,
+  "s1_active_time": 0
+}
+ {
+  "u_act": "u_act_0",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583236
+  ],
+  "s1_idle_time": 14.902191441999094,
+  "s1_active_time": 22.129381089000162
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583236,
+  "s1_longitude": 110.388518,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388518,
+    1.583236
+  ],
+  "s1_idle_time": 14.902191441999094,
+  "s1_active_time": 22.129381089000162
+}
+ "hello from client-s1"
+ {
+  "s1_index": 1,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583238
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 2,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583238
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "u_act": "u_act_1",
+  "s2_last_seen": [
+    110.388495,
+    1.583235
+  ]
+}
+ {
+  "s1_index": 3,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583238
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_1"
+}
+ {
+  "s1_index": 4,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583238
+  ],
+  "s1_idle_time": 0,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 5,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 33.98328916100036,
+  "s1_active_time": 0
+}
+ {
+  "s1_index": 6,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": true,
+  "s1_moved": false,
+  "s1_last_known": [
+    90,
+    90
+  ],
+  "s1_idle_time": 33.98328916100036,
+  "s1_active_time": 0
+}
+ {
+  "s_act": "s_act_0"
+}
+ {
+  "s1_index": 7,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583238
+  ],
+  "s1_idle_time": 33.98328916100036,
+  "s1_active_time": 14.764028273999429
+}
+ {
+  "s1_index": 8,
+  "s1_mac_address": "b8:27:eb:a5:f8:a5",
+  "s1_public_ipv4": "14.192.213.75",
+  "s1_public_ipv6": "2001:d08:e2:775d:6e8e:8793:5641:ccb",
+  "s1_uuid": "client-s1",
+  "s1_speed": 0,
+  "s1_latitude": 1.583238,
+  "s1_longitude": 110.388517,
+  "s1_activated": false,
+  "s1_moved": false,
+  "s1_last_known": [
+    110.388517,
+    1.583238
+  ],
+  "s1_idle_time": 33.98328916100036,
+  "s1_active_time": 14.764028273999429
+}
