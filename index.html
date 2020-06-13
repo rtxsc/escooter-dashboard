@@ -180,6 +180,20 @@ main.container {
           <span>Dashboard</span></a>
       </li>
 
+      <li class="nav-item active">
+        <a class="nav-link" href="index2.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>History</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="index3.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Backtrack</span></a>
+      </li>
+
+
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -281,23 +295,38 @@ main.container {
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Occupancy </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="client-occupancy-tag" class="float-right">Loading</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
 
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Join </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="client-join-tag" class="float-right">Loading</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Leave </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="client-leave-tag" class="float-right">Loading</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>
+          </button> -->
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-50 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+
               <div class="input-group-append">
+
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -480,18 +509,15 @@ main.container {
                 <div class="card-body " >
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <!-- <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Status</div> -->
-
                         <div class="px-2 py-0 bg-gradient-primary text-white">Scooter 1 Status</div>
-                        <!-- <div class="px-3 py-5 bg-gradient-danger text-white">.bg-gradient-danger</div> -->
-
-                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
-                      <a href="#" id="s1-btn" class="btn btn-success btn-icon-split">
-                        <span class="icon text-white-50">
+                        <br>
+                          <a href="#" id="s1-btn" class="btn btn-success btn-icon-split">
+                          <span class="icon text-white-50">
                           <i id="s1-logo" class="fas fa-check"></i>
                         </span>
                         <span id="s1-status" class="text">Activated</span>
                       </a>
+                      <br><br>
 
                       <label>
                       <input id="s1-toggle" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
@@ -505,15 +531,6 @@ main.container {
                       </label>
                     </div>
 
-                    <!-- <a href="#" id="s1-btn-override" class="btn btn-danger btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i id="s1-logo-override" class="fas fa-info"></i>
-                      </span>
-                      <span id="s1-status-override" class="text">Disable</span>
-                    </a> -->
-                    <!-- <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div> -->
                   </div>
                 </div>
               </div>
@@ -525,27 +542,28 @@ main.container {
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Status</div>
-                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
-
-                      <a href="#" id="s2-btn" class="btn btn-success btn-icon-split">
+                      <div class="px-2 py-0 bg-gradient-info text-white">Scooter 2 Status</div>
+                      <br>
+                        <a href="#" id="s2-btn" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
-                          <i id="s2-logo" class="fas fa-check"></i>
-                        </span>
-                        <span id="s2-status" class="text">Activated</span>
-                      </a>
+                        <i id="s2-logo" class="fas fa-check"></i>
+                      </span>
+                      <span id="s2-status" class="text">Activated</span>
+                    </a>
+                    <br><br>
 
-                      <a href="#" id="s2-btn-override" class="btn btn-danger btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i id="s2-logo-override" class="fas fa-info"></i>
-                        </span>
-                        <span id="s2-status-override" class="text">Disable</span>
-                      </a>
-
+                    <label>
+                    <input id="s2-toggle" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                    Server Activation
+                    <span id="s2-status-override" class="text">None</span>
+                    </label>
+                    <label>
+                    <input id="s2-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                    User Activation
+                    <span id="s2-status-override-user" class="text">None</span>
+                    </label>
                     </div>
-                    <!-- <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div> -->
+
                   </div>
                 </div>
               </div>
@@ -579,14 +597,13 @@ main.container {
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 2 User UUID</div>
-                      <h4 class="small font-weight-bold">Fazila Elot<span id="s2-usage-timer" class="float-right">0%</span></h4>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client IP <span id="client-ip-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client MAC <span id="client-mac-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client UUID  <span id="client-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">User UUID  <span id="user-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Idle Duration <span id="client-idle-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Use Duration <span id="client-active-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
 
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 2 Usage Duration</div>
-                      <h4 class="small font-weight-bold">000<span id="s2-usage-timer" class="float-right">0%</span></h4>
-                      <!-- <div class="progress mb-4">
-                        <div id="s2-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
-                      </div> -->
                       </div>
                       <!-- <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -1052,7 +1069,7 @@ main.container {
 
   var s2_battery = 100;
   var s2_range= 30; // Xiaomi Mijia M365 Range 30KM
-
+  var s2_groundSpeed = 0.0;
   s1_range = s1_battery/100*30;
   s2_range = s2_battery/100*30;
 
@@ -1083,8 +1100,35 @@ main.container {
 
     pubnub.subscribe({
         channels: [CHANNEL_ID],
+        withPresence: true
     });
 
+    pubnub.hereNow(
+    {
+        channels: [CHANNEL_ID],
+        includeUUIDs: true,
+        includeState: true
+    },
+    function (status, response) {
+        // handle status, response
+        console.log(status);
+        console.log(response);
+        console.log(response.channels.robotronix.occupants);
+        $("#client-occupancy-tag").text(response.totalOccupancy);
+
+    }
+    );
+
+    pubnub.getState(
+    {
+        uuid: "Console_Admin",
+        channels: [CHANNEL_ID]
+    },
+    function (status) {
+        // handle state setting response
+        console.log(status);
+    }
+    );
 
     // Initialize longitude latitude to default coordinates after load
     // lat : 1.5832216299999995
@@ -1241,21 +1285,47 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
             }
 
+            if(client_uuid == "client-s2"){
+              s2_mac = msg.s2_mac_address;
+              s2_ipv4 = msg.s2_public_ipv4;
+              s2_ipv6 = msg.s2_public_ipv6;
+              s2_uuid = msg.s2_uuid;
+              s2_groundSpeed = msg.s2_speed;
+              s2_lon = msg.s2_longitude;
+              s2_lat = msg.s2_latitude;
+              scooter2_activated = msg.s2_activated;
+              s2_moved = msg.s2_moved;
+              s2_last_seen = msg.s2_last_known;
+              s2_idle_time = msg.s2_idle_time;
+              s2_active_time = msg.s2_active_time;
+              var idle_duration = convertSeconds(Math.floor(s2_idle_time));
+              var active_duration = convertSeconds(Math.floor(s2_active_time));
 
-            scooter2_activated = msg.s2_activated;
 
-            if(s1_last_seen==null){
+              $("#client-ip-tag-2").text(s2_ipv4);
+              $("#client-mac-tag-2").text(s2_mac);
+              $("#client-uuid-tag-2").text(s2_uuid);
+              $("#client-idle-tag-2").text(idle_duration);
+              $("#client-active-tag-2").text(active_duration);
+
+            }
+
+            if(s1_last_seen==null || s2_last_seen==null){
               console.log("UNDEFINED DETECTED");
-              s1_last_seen = default_location
+              s1_last_seen = default_location;
+              s2_last_seen = default_location;
             }
             else {
               s1_last_seen = msg.s1_last_known;
+              s2_last_seen = msg.s2_last_known;
             }
+
+
 
             s2_last_seen = s1_last_seen;
 
             scooter1_activation(scooter1_activated);
-            scooter2_activation(!(scooter1_activated));
+            scooter2_activation(scooter2_activated);
             // console.log("s1 coordinate listened from "+client_uuid+" :"+msg.s1_last_known);
             // console.log("S1 last known location: "+s1_last_seen)
             // console.log("S2 last known location: "+s2_last_seen)
@@ -1273,6 +1343,10 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             var uuid = p.uuid; // UUIDs of users who are connected with the channel
 
             console.log("current-connected-client:"+uuid);
+            console.log("fleet size:"+occupancy);
+            $("#client-join-tag").text(occupancy);
+
+
 
         },
         status: function(s) {
@@ -1457,6 +1531,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           var s_act_payload;
           var u_act_payload;
 
+ // below payload activation for client-s1 only
           $(function() {
             $('#s1-toggle').change(function() {
               $('#s1-status-override').html(""+$(this).prop('checked'))
@@ -1474,6 +1549,8 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               }
 
               var messagePayload = {
+                  uuid : "web-dashboard",
+                  publisher: pubnub.uuid,
                   s_act: s_act_payload
               }
 
@@ -1507,8 +1584,84 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               }
 
               var serverPayload = {
+                uuid : "web-dashboard",
+                publisher: pubnub.uuid,
                 u_act: u_act_payload,
                 s2_last_seen: [110.388495,1.583235]
+              }
+              var onResponse = function(status,response){
+                // handle response here
+              }
+              pubnub.publish(
+                  {
+                      message: serverPayload,
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
+                  },
+                  onResponse
+              )//end publish
+
+            })
+          }) // end of user activation block
+
+ ////////////////////////////////////////////////////////////////////////////
+ // below payload activation for client-s2 only
+          $(function() {
+            $('#s2-toggle').change(function() {
+              $('#s2-status-override').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                s_act_payload = "s_act_1"
+              }
+              else {
+                s_act_payload = "s_act_0"
+              }
+              // if(s1_last_seen==null)
+              //   s1_last_seen = 45,45;
+
+              var metaOnlyPublishTo = {
+                "uuid": "client-s2"
+              }
+
+              var messagePayload = {
+                uuid : "web-dashboard",
+                  publisher: pubnub.uuid,
+                  s_act: s_act_payload
+              }
+
+              var onResponse = function(status,response){
+                // handle response here
+              }
+              pubnub.publish(
+                  {
+                      message: messagePayload,
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
+                  },
+                  onResponse
+              )// end publish
+
+            })
+          }) // end of server activation block
+
+          $(function() {
+            $('#s2-toggle-user').change(function() {
+              $('#s2-status-override-user').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                u_act_payload = "u_act_1"
+              }
+              else {
+                u_act_payload = "u_act_0"
+              }
+
+              var metaOnlyPublishTo = {
+                "uuid": "client-s2"
+              }
+
+              var serverPayload = {
+                uuid : "web-dashboard",
+                publisher: pubnub.uuid,
+                u_act: u_act_payload,
+                s2_last_seen: [0,0]
               }
               var onResponse = function(status,response){
                 // handle response here
@@ -1557,16 +1710,21 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             s1_lon= 0;
             s1_lat= 0;
           }
-
+          if(s2_lon==null && s2_lat==null){
+            s2_lon= 0;
+            s2_lat= 0;
+          }
+          console.log("Coordinate of s1="+s1_lon,s1_lat);
+          console.log("Coordinate of s2="+s2_lon+","+s2_lat);
           scooter1.setLngLat([s1_lon,s1_lat]);
-          scooter2.setLngLat([s1_lon+s2_run_lon,s1_lat+s2_run_lat]);
+          scooter2.setLngLat([s2_lon+change,s2_lat]);
           scooter3.setLngLat([run_lon,run_lat]);
           // Request the next frame of the animation.
           requestAnimationFrame(animateMarker);
 
           // Ensure it's added to the map. This is safe to call if it's already added.
           scooter1.addTo(map);
-          // scooter2.addTo(map);
+          scooter2.addTo(map);
           scooter3.addTo(map);
 
           // // create the marker
@@ -2006,7 +2164,9 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
       // item.appendChild(tspan3);
 
       var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan1.textContent=Math.round(value * 100) / 100; // speed value from sc2
+      // tspan1.textContent=Math.round(value * 100) / 100; // speed value from sc2
+      tspan1.textContent=s2_groundSpeed; // speed value from sc2
+
       tspan1.setAttribute('x',50);
       tspan1.setAttribute('y',48);
       item.appendChild(tspan1);
