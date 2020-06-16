@@ -1363,6 +1363,8 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
             console.log("forever listening to: " , rx_u_act + " from "+ client_uuid);
             console.log(msg);
+            // payload from user device (iOS app) is u_act_from_API
+            // u_act_from_API is able to toggle the User Act button automatically
             if(msg.u_act_from_API == "u_act_1"){
                 rx_u_act = msg.u_act_from_API;
                 toggleOn();
@@ -1456,14 +1458,10 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                 $('#s1-status-override-user').html(""+$(this).prop('checked'))
                 if($(this).prop('checked')){
                   u_act_payload = "u_act_1";
-                  rx_u_act = "u_act_1";
-
                 }
                 else {
                   u_act_payload = "u_act_0";
-                  rx_u_act = "u_act_0";
                 }
-
                 var metaOnlyPublishTo = {
                   "uuid": "client-s1"
                 }
@@ -1485,8 +1483,6 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
               })
             }) // end of user activation block
-
-
 
 
             var distance = document.getElementById("distance-to-client");
@@ -1978,11 +1974,11 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               $('#s1-status-override').html(""+$(this).prop('checked'))
               if($(this).prop('checked')){
                 s_act_payload = "s_act_1"
-                u_act_payload = rx_u_act
+                // u_act_payload = rx_u_act
               }
               else {
                 s_act_payload = "s_act_0"
-                  u_act_payload = rx_u_act
+                // u_act_payload = rx_u_act
               }
               // if(s1_last_seen==null)
               //   s1_last_seen = 45,45;
