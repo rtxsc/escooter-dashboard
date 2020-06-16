@@ -543,9 +543,21 @@ main.container {
                       </label>
                       <label>
                       <input id="s1-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
-                      [DEBUG] User Activation
+                      [DEBUG] User Act
                       <span id="s1-status-override-user" class="text">None</span>
+                      <br>
+                      RECEIVED val:
+                      <span id="s1-u_act" class="text">u_act value</span>
+                      <br>
+                      FROM:
+                      <span id="s1-u_act-publisher" class="text">u_act publisher</span>
                       </label>
+
+
+                      <button class="btn btn-success btn-circle" onclick="toggleOn()">ON</button>
+                      <button class="btn btn-danger btn-circle" onclick="toggleOff()">OFF</button>
+                      <button class="btn btn-info btn-circle" onclick="sendAck()">ACK</button>
+
                     </div>
 
                   </div>
@@ -576,7 +588,8 @@ main.container {
                     </label>
                     <label>
                     <input id="s2-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
-                    [DEBUG] User Activation
+                    [DEBUG] User Act
+
                     <span id="s2-status-override-user" class="text">None</span>
                     </label>
                     </div>
@@ -1202,6 +1215,7 @@ main.container {
     s1_last_seen = default_location;
     s2_last_seen = default_location;
 
+    var rx_u_act = null;
     var scooter1_activated = null;
     var scooter2_activated = null;
 
@@ -1305,6 +1319,38 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
         result += " S ";
         return result;
      }
+     function sendAck() {
+
+       $(function() {
+
+           var metaOnlyPublishTo = {
+             "uuid": "tomot"
+           }
+
+           var messagePayload = {
+              "handshakeAck" : true
+           }
+
+           var onResponse = function(status,response){
+             // handle response here
+           }
+           pubnub.publish(
+               {
+                   message: messagePayload,
+                   channel: CHANNEL_ID,
+                   meta: metaOnlyPublishTo
+               },
+               onResponse
+           )// end publish
+       }) // end of server activation block
+     }
+
+     function toggleOn() {
+       $('#s1-toggle-user').bootstrapToggle('on')
+     }
+     function toggleOff() {
+       $('#s1-toggle-user').bootstrapToggle('off')
+     }
 
     pubnub.addListener({
         message: function(m) {
@@ -1314,7 +1360,27 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             var pubTT = m.timetoken; // Publish timetoken
             var client_uuid = m.publisher; // client's uuid
             var msg = m.message; // The Payload
+
+            console.log("forever listening to: " , rx_u_act + " from "+ client_uuid);
+            console.log(msg);
+            if(msg.u_act_from_API == "u_act_1"){
+                rx_u_act = msg.u_act_from_API;
+                toggleOn();
+            }
+            else if(msg.u_act_from_API == "u_act_0"){
+                rx_u_act = msg.u_act_from_API;
+                  toggleOff();
+            }
+            else{
+              console.log("do nothing...");
+            }
+            // if(client_uuid == "web-dashboard"){
+            //   rx_u_act = msg.u_act;
+            // }
+
+
             if(client_uuid == "client-s1"){
+
               s1_mac = msg.s1_mac_address;
               s1_ipv4 = msg.s1_public_ipv4;
               s1_ipv6 = msg.s1_public_ipv6;
@@ -1331,7 +1397,6 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               var idle_duration = convertSeconds(Math.floor(s1_idle_time));
               var active_duration = convertSeconds(Math.floor(s1_active_time));
 
-
               $("#client-ip-tag").text(s1_ipv4);
               $("#client-mac-tag").text(s1_mac);
               $("#client-uuid-tag").text(s1_uuid);
@@ -1339,9 +1404,11 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               $("#client-active-tag").text(active_duration);
               $("#client-alarm-tag").text(s1_alarm);
 
+
             }
 
             if(client_uuid == "client-s2"){
+
               s2_mac = msg.s2_mac_address;
               s2_ipv4 = msg.s2_public_ipv4;
               s2_ipv6 = msg.s2_public_ipv6;
@@ -1368,6 +1435,57 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
 
             }
+            console.log("s1_last_seeeeeeeeeeeeen: "+ s1_last_seen);
+            console.log("u_act received from user iPhone: "+ rx_u_act);
+            // if(rx_u_act == "u_act_1"){
+            //   toggleOn();
+            // }
+            // else if (rx_u_act == "u_act_0"){
+            //   toggleOff();
+            // }
+            // else{
+            //   console.log("NO U_ACT RECEIVED!!!!!!");
+            // }
+            $("#s1-u_act").text(rx_u_act);
+            $("#s1-u_act-publisher").text(client_uuid);
+
+
+
+            $(function() {
+              $('#s1-toggle-user').change(function() {
+                $('#s1-status-override-user').html(""+$(this).prop('checked'))
+                if($(this).prop('checked')){
+                  u_act_payload = "u_act_1";
+                  rx_u_act = "u_act_1";
+
+                }
+                else {
+                  u_act_payload = "u_act_0";
+                  rx_u_act = "u_act_0";
+                }
+
+                var metaOnlyPublishTo = {
+                  "uuid": "client-s1"
+                }
+
+                var serverPayload = {
+                  u_act_from_s: u_act_payload
+                }
+                var onResponse = function(status,response){
+                  // handle response here
+                }
+                pubnub.publish(
+                    {
+                        message: serverPayload,
+                        channel: CHANNEL_ID,
+                        meta: metaOnlyPublishTo
+                    },
+                    onResponse
+                )//end publish
+
+              })
+            }) // end of user activation block
+
 
 
 
@@ -1408,12 +1526,12 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                 });
 
 
-            if(s1_alarm == true){
-                $("#s1-alarm-status").text("Alarm Engaged");
-            }
-            else{
-                $("#s1-alarm-status").text("Alarm Disengaged");
-            }
+            // if(s1_alarm == true){
+            //     $("#s1-alarm-status").text("Alarm Engaged");
+            // }
+            // else{
+            //     $("#s1-alarm-status").text("Alarm Disengaged");
+            // }
 
             // if(s2_alarm == true){
             //     $("#s2-alarm-status").text(s1_alarm);
@@ -1423,7 +1541,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             // }
 
             if(s1_last_seen==null || s2_last_seen==null){
-              console.log("UNDEFINED DETECTED");
+              // console.log("UNDEFINED DETECTED");
               s1_last_seen = default_location;
               s2_last_seen = default_location;
             }
@@ -1853,14 +1971,18 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           var u_act_payload;
 
  // below payload activation for client-s1 only
+
+
           $(function() {
             $('#s1-toggle').change(function() {
               $('#s1-status-override').html(""+$(this).prop('checked'))
               if($(this).prop('checked')){
                 s_act_payload = "s_act_1"
+                u_act_payload = rx_u_act
               }
               else {
                 s_act_payload = "s_act_0"
+                  u_act_payload = rx_u_act
               }
               // if(s1_last_seen==null)
               //   s1_last_seen = 45,45;
@@ -1890,40 +2012,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             })
           }) // end of server activation block
 
-          $(function() {
-            $('#s1-toggle-user').change(function() {
-              $('#s1-status-override-user').html(""+$(this).prop('checked'))
-              if($(this).prop('checked')){
-                u_act_payload = "u_act_1"
-              }
-              else {
-                u_act_payload = "u_act_0"
-              }
 
-              var metaOnlyPublishTo = {
-                "uuid": "client-s1"
-              }
-
-              var serverPayload = {
-                uuid : "web-dashboard",
-                publisher: pubnub.uuid,
-                u_act: u_act_payload,
-                s2_last_seen: [110.388495,1.583235]
-              }
-              var onResponse = function(status,response){
-                // handle response here
-              }
-              pubnub.publish(
-                  {
-                      message: serverPayload,
-                      channel: CHANNEL_ID,
-                      meta: metaOnlyPublishTo
-                  },
-                  onResponse
-              )//end publish
-
-            })
-          }) // end of user activation block
 
  ////////////////////////////////////////////////////////////////////////////
  // below payload activation for client-s2 only
