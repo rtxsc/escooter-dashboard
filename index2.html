@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+    <title>OpenLayers Animation</title>
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <style>
-      .map_s1 {
-        height: 400px;
+      .map {
         width: 100%;
+        height:500px;
+      }
+
+      .map2 {
+        width: 100%;
+        height:500px;
       }
     </style>
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
-    <title>OpenLayers example</title>
   </head>
   <body>
-    <h2>S1 Last Seen Location</h2>
-    <div id="map_s1" class="map_s1"></div>
-    <script type="text/javascript">
-      var map_s1 = new ol.Map({
-        target: 'map_s1',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          //1.4489° N, 110.4451° E - UiTM samarahan
-          center: ol.proj.fromLonLat([110.4451, 1.4489]),
-          zoom: 15
-        })
-      });
-    </script>
+    <div id="map" class="map"></div>
+    <button id="rotate-left" title="Rotate clockwise">↻</button>
+    <button id="rotate-right" title="Rotate counterclockwise">↺</button>
+    <button id="pan-to-home">Pan to Home</button>
+    <button id="pan-to-london">Pan to London</button>
+    <button id="elastic-to-moscow">Elastic to Moscow</button>
+    <button id="bounce-to-istanbul">Bounce to Istanbul</button>
+    <button id="spin-to-rome">Spin to Rome</button>
+    <button id="fly-to-bern">Fly to Bern</button>
+    <button id="rotate-around-rome">Rotate around Rome</button>
+    <button id="tour">Take a tour</button>
+    <h4>Map2</h4>
+    <div id="map2" class="map"></div>
+    <button id="pan-to-ks1">Pan to KS1</button>
+
+
+    <script src="index.js"></script>
   </body>
 </html>

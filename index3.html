@@ -1,127 +1,2632 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Last Seen Locater</title>
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
 
-    <style>
-      .map_s1 {
-        width: 100%;
-        height:400px;
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>eScooter BACKUP</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+
+  <style>
+  	body { margin: 0; padding: 0; }
+  	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    .map_s1 {
+      width: 100%;
+      height:200px;
+    }
+    .map_s2 {
+      width: 100%;
+      height:200px;
+    }
+    #marker {
+    /* background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg'); */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+    .mapboxgl-popup {
+max-width: 200px;
+}
+
+  button {
+    margin: 10px;
+  }
+
+/* animating gauge CSS */
+  html {
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+main.container {
+  max-width: 960px;
+  padding-top: 80px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
+.card-deck .card {
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+/* ------ Default Style ---------- */
+.gauge-container {
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.gauge-container > .gauge > .dial {
+  stroke: rgb(47, 227, 255);
+  stroke-width: 2;
+  fill: rgba(0, 0, 0, 0);
+}
+.gauge-container > .gauge > .value {
+  stroke: #03a9f4;
+  stroke-width: 4;
+  fill: rgba(0, 0, 0, 0);
+}
+.gauge-container > .gauge > .value-text {
+  fill: rgb(47, 227, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.bg-gradient {
+  color: #ffffff !important;
+  background: #07a7e3;
+  background: -moz-linear-gradient(-45deg, #07a7e3 0%, #32dac3 100%);
+  background: -webkit-linear-gradient(-45deg, #07a7e3 0%, #32dac3 100%);
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr=$qp-color-1,
+      endColorstr=$qp-color-2,
+      GradientType=1
+    );
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+.card.bg-gradient > .gauge-container > .gauge > .dial {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 2;
+}
+.card.bg-gradient > .gauge-container > .gauge > .value {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 4;
+}
+
+.card.bg-gradient > .gauge-container > .gauge > .value-text {
+  fill: #ffffff;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+  </style>
+
+</head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-biking"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">BACKUP<sup>HTML</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:1234">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>OpenLayers</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="index3.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Backtrack</span></a>
+      </li>
+
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Utilities</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="utilities-color.html">Colors</a>
+            <a class="collapse-item" href="utilities-border.html">Borders</a>
+            <a class="collapse-item" href="utilities-animation.html">Animations</a>
+            <a class="collapse-item" href="utilities-other.html">Other</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Addons
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Login Screens:</h6>
+            <a class="collapse-item" href="login.html">Login</a>
+            <a class="collapse-item" href="register.html">Register</a>
+            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Other Pages:</h6>
+            <a class="collapse-item" href="404.html">404 Page</a>
+            <a class="collapse-item" href="blank.html">Blank Page</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Charts</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tables</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Occupancy </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="client-occupancy-tag" class="float-right">Loading</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >USER UUID </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="client-join-tag" class="float-right">Loading</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Admin Coordinate </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="getAdminCoordinate" class="float-right">Latitude,Longitude</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <a href="#" id="getAdminCoordinate-btn" class="btn btn-info btn-circle btn-lg float-right">
+          <span class="icon text-white-50">
+          <i id="s2-logo" class="fas fa-flag"></i>
+          </span>
+          </a>
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >Distance to Selected Client </div>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <span id="distance-to-client" class="float-right">km</span>
+          <div class="topbar-divider d-none d-sm-block"></div>
+          <a href="#" id="getDistance-btn" class="btn btn-primary btn-circle btn-lg float-right">
+          <span class="icon text-white-50">
+          <i id="s2-logo" class="fas fa-flag"></i>
+          </span>
+          </a>
+          <!-- Sidebar Toggle (Topbar) -->
+          <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button> -->
+
+          <!-- Topbar Search -->
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-50 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+
+              <div class="input-group-append">
+
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form> -->
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  <!-- Alerts Center -->
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  <!-- Message Center -->
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mohd Yazid</span>
+                <img class="img-profile rounded-circle" src="https://images.unsplash.com/photo-1573126324222-6600c9c21274?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2249&q=80">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div> -->
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body " >
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="px-2 py-0 bg-gradient-primary text-white">Scooter 1 Status</div>
+                        <br>
+                          <a href="#" id="s1-btn" class="btn btn-success btn-icon-split">
+                          <span class="icon text-white-50">
+                          <i id="s1-logo" class="fas fa-check"></i>
+                        </span>
+                        <span id="s1-status" class="text">Activated</span>
+                      </a>
+                      <br><br>
+
+                      <label>
+                      <input id="s1-toggle" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                      Server Activation
+                      <span id="s1-status-override" class="text">None</span>
+                      </label>
+                      <label>
+                      <input id="s1-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                      [DEBUG] User Act
+                      <span id="s1-status-override-user" class="text">None</span>
+                      <br>
+                      RECEIVED val:
+                      <span id="s1-u_act" class="text">u_act value</span>
+                      <br>
+                      FROM:
+                      <span id="s1-u_act-publisher" class="text">u_act publisher</span>
+                      </label>
+
+
+                      <button class="btn btn-success btn-circle" onclick="toggleOn()">ON</button>
+                      <button class="btn btn-danger btn-circle" onclick="toggleOff()">OFF</button>
+                      <button class="btn btn-info btn-circle" onclick="sendAck()">ACK</button>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="px-2 py-0 bg-gradient-info text-white">Scooter 2 Status</div>
+                      <br>
+                        <a href="#" id="s2-btn" class="btn btn-success btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i id="s2-logo" class="fas fa-check"></i>
+                      </span>
+                      <span id="s2-status" class="text">Activated</span>
+                    </a>
+                    <br><br>
+
+                    <label>
+                    <input id="s2-toggle" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                    Server Activation
+                    <span id="s2-status-override" class="text">None</span>
+                    </label>
+                    <label>
+                    <input id="s2-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
+                    [DEBUG] User Act
+
+                    <span id="s2-status-override-user" class="text">None</span>
+                    </label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client IP <span id="client-ip-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client MAC <span id="client-mac-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client UUID  <span id="client-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User UUID  <span id="user-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Idle Duration <span id="client-idle-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Use Duration <span id="client-active-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+
+                      <a href="#" id="s1-alarm" class="btn btn-success btn-icon-split float-right">
+                      <span class="icon text-white-50">
+                      <i id="s1-logo" class="fas fa-check"></i>
+                      </span>
+                      <span id="s1-alarm-status" class="text">Alarm Off</span>
+                      </a>
+                      <br>
+                      <br>
+                      <a href="#" id="s1-alarm-disable" class="btn btn-warning btn-circle btn-lg float-right">
+                      <span class="icon text-white-50">
+                      <i id="s1-logo" class="fas fa-exclamation-triangle"></i>
+                      </span>
+                      </a>
+
+
+                      <!-- <div class="progress mb-4">
+                        <div id="s1-usage-duration" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"></div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client IP <span id="client-ip-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client MAC <span id="client-mac-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client UUID  <span id="client-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">User UUID  <span id="user-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Idle Duration <span id="client-idle-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Use Duration <span id="client-active-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
+
+                      <a href="#" id="s2-alarm" class="btn btn-success btn-icon-split float-right" >
+                      <span class="icon text-white-50">
+                      <i id="s2-logo" class="fas fa-check"></i>
+                      </span>
+                      <span id="s2-alarm-status" class="text">Alarm Off</span>
+                      </a>
+                      <br>
+                      <br>
+                      <a href="#" id="s2-alarm-disable" class="btn btn-warning btn-circle btn-lg float-right">
+                      <span class="icon text-white-50">
+                      <i id="s2-logo" class="fas fa-exclamation-triangle"></i>
+                      </span>
+                      </a>
+                      </div>
+                      <!-- <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+  <!-- Content Row 1 -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Speed Over Ground</div>
+                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
+
+                      <div class="card-deck text-center">
+                      <div class="card mb-4 box-shadow bg-gradient">
+                           <div class="card-body gauge-container" id="gauge1">
+                           </div>
+                         </div>
+                       </div>
+
+                      <!-- <a href="#" id="s1-btn_" class="btn btn-success btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i id="s1-logo_" class="fas fa-check"></i>
+                        </span>
+                        <span id="s1-status_" class="text">Activated</span>
+                      </a> -->
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Speed Over Ground</div>
+                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
+
+                      <div class="card mb-4 box-shadow">
+                       <div class="card-body gauge-container" id="gauge2">
+                       </div>
+                     </div>
+
+                      <!-- <a href="#" id="s2-btn_" class="btn btn-success btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i id="s2-logo_" class="fas fa-check"></i>
+                        </span>
+                        <span id="s2-status_" class="text">Activated</span>
+                      </a> -->
+
+                    </div>
+                    <!-- <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Tracker
+                      </div>
+
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div id="s1-alert-bg" class="icon-circle bg-warning">
+                          <i id="s1-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
+                          </div>
+                        </div>
+
+                        <div class="col">
+                          <h4 class="small font-weight-bold">Scooter 1 Last Seen Location:
+                            <div id="map_s1" class="map_s1"><div id="popup"></div></div>
+                              <input id="s1-track-btn" type="button" class="btn btn-danger" value=" Track " />
+                               <span id="s1-track" class="text">None</span>
+                               <br><br>
+                              <label>
+                              <input id="s1-track-mode" type="checkbox"  data-toggle="toggle" data-on="Auto-Track" data-off="Self-Track" data-onstyle="primary" data-offstyle="danger">
+                              AUTO
+                              <!-- <span id="s1-track-status" class="text">None</span> -->
+                              </label>
+                            <br><b> <span id="s1-last-seen-address" class="float-right">Init...</b></span></h4>
+                          <br><br>
+                          <h4 class="small font-weight-bold">Time:<br>
+                            <b> <span id="s1-last-seen-time" class="float-left">HH:MM</b></span></h4>
+                            <br>
+                          <h4 class="small font-weight-bold">Date:<br>
+                            <b> <span id="s1-last-seen-date" class="float-left">DD:MM:YYYY</b></span></h4>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <!-- <i class="fas fa-clipboard-list fa-2x text-gray-300"></i> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Tracker</div>
+                      <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                      <div id="s2-alert-bg" class="icon-circle bg-warning">
+                      <i id="s2-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                    </div>
+
+                  <div class="col">
+                    <h4 class="small font-weight-bold">Scooter 2 Last Seen Location:
+                      <div id="map_s2" class="map_s2"><div id="popup2"></div></div>
+                      <input id="s2-track-btn" type="button" class="btn btn-danger" value=" Track " />
+                       <span id="s2-track" class="text">None</span>
+                       <br><br>
+                      <label>
+                      <input id="s2-track-mode" type="checkbox"  data-toggle="toggle" data-on="Auto-Track" data-off="Self-Track" data-onstyle="primary" data-offstyle="danger">
+                      AUTO
+                      <!-- <span id="s1-track-status" class="text">None</span> -->
+                      </label>
+                      <br><b> <span id="s2-last-seen-address" class="float-right">Locating...</b></span></h4>
+                    <br><br>
+                    <h4 class="small font-weight-bold">Time:<br>
+                      <b> <span id="s2-last-seen-time" class="float-left">HH:MM</b></span></h4>
+                      <br>
+                    <h4 class="small font-weight-bold">Date:<br>
+                      <b> <span id="s2-last-seen-date" class="float-left">DD:MM:YYYY</b></span></h4>
+                    <div id="map-s2-tracked"></div>
+                  </div>
+                </div>
+              </div>
+                      <div class="col-auto">
+                      <!-- <i class="fas fa-comments fa-2x text-gray-300"></i> -->
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  <!-- Content Row 1 -->
+
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">eScooter Nearby</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <!-- <canvas id="myAreaChart"></canvas> -->
+                    <div id="map"></div>
+                    <div id="geocoder" class="geocoder"></div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+
+                  <!-- <div class="card shadow mb-4"> -->
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">eScooter Health</h6>
+                    </div>
+                    <div class="card-body">
+
+                      <h4 class="small font-weight-bold">Scooter 1 Battery <span id="s1-battery-level" class="float-right">0%</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s1-battery-inside" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:0%"><span id="s1-batt" class="float-right">0%</span></div>
+                      </div>
+                      <h4 class="small font-weight-bold">Scooter 1 Range <span id="s1-range-level" class="float-right">0KM</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s1-range-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
+                      </div>
+
+
+                      <h4 class="small font-weight-bold">Scooter 2 Battery <span id="s2-battery-level" class="float-right">0%</span></h4>
+                      <div class="progress mb-4">
+                        <div id="s2-battery-inside" class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:0%"><span id="s2-batt" class="float-right">0%</span></div>
+
+                        <!-- <div id="s2-battery-bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div> -->
+                      </div>
+                      <h4 class="small font-weight-bold">Scooter 2 Range <span id="s2-range-level" class="float-right">0KM</span></h4>
+                      <div class="progress mb-4">
+                        <div  id="s2-range-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
+                      </div>
+
+
+                      <h4 class="small font-weight-bold">Console Area <span id="console" class="float-right">Waiting for input</span></h4>
+                      <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+
+              <!-- Project Card Example -->
+
+                <!-- <div class="card-body"> -->
+
+                  <!-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <div class="dropdown no-arrow">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right shadow animatedfade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Dropdown Header:</div>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div>
+                  </div> -->
+
+                  <!-- </div> -->
+                  <!-- <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                </div> -->
+              <!-- </div> -->
+          </div>
+        </div>
+
+              <!-- Color System -->
+              <!-- <div class="row">
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                      Primary
+                      <div class="text-white-50 small">#4e73df</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                      Success
+                      <div class="text-white-50 small">#1cc88a</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-info text-white shadow">
+                    <div class="card-body">
+                      Info
+                      <div class="text-white-50 small">#36b9cc</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-warning text-white shadow">
+                    <div class="card-body">
+                      Warning
+                      <div class="text-white-50 small">#f6c23e</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-secondary text-white shadow">
+                    <div class="card-body">
+                      Secondary
+                      <div class="text-white-50 small">#858796</div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+            </div>
+
+            <!-- <div class="col-lg-6 mb-4"> -->
+
+              <!-- Illustrations -->
+              <!-- <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">eScooter GPS Tracking</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                    <canvas id="myAreaChart"></canvas>
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_scooter_aia8.svg" alt="">
+                  </div>
+                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                </div>
+              </div> -->
+
+              <!-- Approach -->
+              <!-- <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                </div>
+                <div class="card-body">
+                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                </div>
+              </div> -->
+
+            <!-- </div> -->
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; eScooter Tracking 2020 | Universiti Teknologi MARA</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- ALLJS Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+
+  <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.23.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
+  type="text/css"
+  />
+
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
+  <script>
+
+  var CHANNEL_ID = "robotronix";
+  var fleet_size = 0;
+  var s1_battery =50;
+  var s1_range= 30; // Xiaomi Mijia M365 Range 30KM
+
+  var s2_battery = 100;
+  var s2_range= 30; // Xiaomi Mijia M365 Range 30KM
+  var s2_groundSpeed = 0.0;
+  s1_range = s1_battery/100*30;
+  s2_range = s2_battery/100*30;
+
+  $("#s1-battery-level").text("FULL");
+  $("#s1-batt").text(s1_battery+"%");
+
+  // document.getElementById("s1-battery-bar").style.width = s1_battery+"%";
+  document.getElementById("s1-battery-inside").style.width = s1_battery+"%";
+
+  $("#s1-range-level").text(s1_range+"%");
+  document.getElementById("s1-range-bar").style.width = (s1_range/30*100)+"%";
+
+  $("#s2-battery-level").text("FULL");
+  $("#s2-batt").text(s2_battery+"%");
+
+  // document.getElementById("s2-battery-bar").style.width = s2_battery+"%";
+  document.getElementById("s2-battery-inside").style.width = s2_battery+"%";
+
+  $("#s2-range-level").text(s2_range+"%");
+  document.getElementById("s2-range-bar").style.width = (s2_range/30*100)+"%";
+
+    var pubnub = new PubNub({
+      subscribeKey: "sub-c-cf845704-8def-11ea-8e98-72774568d584",
+      publishKey: "pub-c-8f52ff44-41bb-422c-a0c0-a63167077c6d",
+      uuid: "web-dashboard",
+      ssl: true
+    });
+    console.log(pubnub.getUUID());
+
+    pubnub.subscribe({
+        channels: [CHANNEL_ID],
+        withPresence: true
+    });
+
+    pubnub.hereNow(
+    {
+        channels: [CHANNEL_ID],
+        includeUUIDs: true,
+        includeState: true
+    },
+    function (status, response) {
+        // handle status, response
+    }
+    );
+
+
+    // Initialize longitude latitude to default coordinates after load
+    // lat : 1.5832216299999995
+    // lon : 110.38827859999998
+    var latitude = 1.581206; // 1.581623,110.382395
+    var longitude = 110.377947;
+    var s1_lat = 0.0;
+    var s1_lon = 0.0;
+    var s2_lat = 0.0;
+    var s2_lon = 0.0;
+
+    var s1_last_seen// default to uitm samaraham
+    var s2_last_seen// default to uitm samaraham
+    var default_location = [110.4451,1.4489]; //110.4451,1.4489
+    var s1_tracked = "";
+    var s2_tracked = "";
+
+    s1_last_seen = default_location;
+    s2_last_seen = default_location;
+
+    var API_u_act = null;
+    var index_API = 0;
+    var scooter1_activated = null;
+    var scooter2_activated = null;
+
+    var longitude_s2 = 110.389;
+    var latitude_s2 = 1.582;
+
+    function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+    }
+
+    var d = new Date();
+    var h = addZero(d.getHours());
+    var m = addZero(d.getMinutes());
+    var s = addZero(d.getSeconds());
+
+
+    $("#s1-last-seen-address").text("s1-Performing real-time tracking...");
+    $("#s1-last-seen-time").text(h+":"+m+":"+s);
+    $("#s2-last-seen-time").text(h+":"+m+":"+s);
+
+    $("#s2-last-seen-address").text("s2-Performing real-time tracking...");
+    $("#s1-last-seen-date").text(d);
+    $("#s2-last-seen-date").text(d);
+
+
+    scooter1_activation(scooter1_activated);
+    scooter2_activation(scooter2_activated);
+
+    function scooter1_activation(scooter1_activated){
+      if(scooter1_activated==true){
+        $( "#s1-btn" ).removeClass("btn btn-danger btn-icon-split");
+        $( "#s1-btn" ).removeClass("btn btn-light btn-icon-split");
+        $( "#s1-btn" ).addClass("btn btn-success btn-icon-split");
+        $( "#s1-logo" ).removeClass("fas fa-flag");
+        $( "#s1-logo" ).removeClass("fas fa-exclamation-triangle");
+        $( "#s1-logo" ).addClass("fas fa-check");
+        $("#s1-status").text("Activated");
       }
-    </style>
-  </head>
-  <body>
-    <div id="map_s1" class="map_s1"><div id="popup"></div></div>
+      else if(scooter1_activated==false) {
+        $( "#s1-btn" ).removeClass("btn btn-success btn-icon-split");
+        $( "#s1-btn" ).removeClass("btn btn-light btn-icon-split");
+        $( "#s1-btn" ).addClass("btn btn-danger btn-icon-split");
+        $( "#s1-logo" ).removeClass("fas fa-check");
+        $( "#s1-logo" ).removeClass("fas fa-exclamation-triangle");
+        $( "#s1-logo" ).addClass("fas fa-flag");
+        $("#s1-status").text("Deactivated");
+      }
+      else {
+        $( "#s1-btn" ).addClass("btn btn-light btn-icon-split");
+        $( "#s1-logo" ).addClass("fas fa-exclamation-triangle");
+        $("#s1-status").text("Disconnected");
+      }
+    }
+
+    function scooter2_activation(scooter2_activated){
+        if(scooter2_activated==true){
+          $( "#s2-btn" ).removeClass("btn btn-danger btn-icon-split");
+          $( "#s2-btn" ).removeClass("btn btn-light btn-icon-split");
+          $( "#s2-btn" ).addClass("btn btn-success btn-icon-split");
+          $( "#s2-logo" ).removeClass("fas fa-flag");
+          $( "#s2-logo" ).removeClass("fas fa-exclamation-triangle");
+          $( "#s2-logo" ).addClass("fas fa-check");
+          $("#s2-status").text("Activated");
+        }
+        else if(scooter2_activated==false){
+          $( "#s2-btn" ).removeClass("btn btn-success btn-icon-split");
+          $( "#s2-btn" ).removeClass("btn btn-light btn-icon-split");
+          $( "#s2-btn" ).addClass("btn btn-danger btn-icon-split");
+          $( "#s2-logo" ).removeClass("fas fa-check");
+          $( "#s2-logo" ).removeClass("fas fa-exclamation-triangle");
+          $( "#s2-logo" ).addClass("fas fa-flag");
+          $("#s2-status").text("Deactivated");
+        }
+        else {
+          $( "#s2-btn" ).addClass("btn btn-light btn-icon-split");
+          $( "#s2-logo" ).addClass("fas fa-exclamation-triangle");
+          $("#s2-status").text("Disconnected");
+        }
+      }
+
+
+// reverse geocoding
+/*
+lat : 1.5832216299999995
+lon : 110.38827859999998
+curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.5832216299999995.json?access_token=pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA"
+
+*/
+   var convertSeconds = function(sec) {
+        var hrs = Math.floor(sec / 3600);
+        var min = Math.floor((sec - (hrs * 3600)) / 60);
+        var seconds = sec - (hrs * 3600) - (min * 60);
+        seconds = Math.round(seconds * 100) / 100
+
+        var result = (hrs < 10 ? "0" + hrs : hrs);
+        result += " H : " + (min < 10 ? "0" + min : min);
+        result += " M : " + (seconds < 10 ? "0" + seconds : seconds);
+        result += " S ";
+        return result;
+     }
+     function sendAck() {
+
+       $(function() {
+
+           var metaOnlyPublishTo = {
+             "uuid": "tomot"
+           }
+
+           var messagePayload = {
+               uuid : pubnub.getUUID(),
+               handshakeAck : true
+           }
+
+           var onResponse = function(status,response){
+             // handle response here
+           }
+           pubnub.publish(
+               {
+                   message: messagePayload,
+                   channel: CHANNEL_ID,
+                   meta: metaOnlyPublishTo
+               },
+               onResponse
+           )// end publish
+       }) // end of server activation block
+     }
+
+     function toggleOn() {
+       $('#s1-toggle-user').bootstrapToggle('on')
+     }
+     function toggleOff() {
+       $('#s1-toggle-user').bootstrapToggle('off')
+     }
+
+
+    pubnub.addListener({
+        message: function(m) {
+            index_API++;
+            // handle message
+            var channelName = m.channel; // The channel for which the message belongs
+            var channelGroup = m.subscription; // The channel group or wildcard subscription match (if exists)
+            var pubTT = m.timetoken; // Publish timetoken
+            var client_uuid = m.publisher; // client's uuid
+            var msg = m.message; // The Payload
+
+
+            if(s1_last_seen==null || s2_last_seen==null){
+              // console.log("UNDEFINED COORDINATES");
+              s1_last_seen = default_location;
+              s2_last_seen = default_location;
+            }
+            else {
+              s1_last_seen = msg.s1_last_known;
+              s2_last_seen = msg.s2_last_known;
+            }
+
+            console.log("> > > >  forever listening to: " , API_u_act + " from "+ client_uuid);
+            console.log(msg);
+            // payload from user device (iOS app) is u_act_from_API
+            // u_act_from_API is able to toggle the User Act button automatically
+            if(msg.u_act_from_API == "u_act_1"){
+                API_u_act = msg.u_act_from_API;
+                toggleOn();
+            }
+            else if(msg.u_act_from_API == "u_act_0"){
+                API_u_act = msg.u_act_from_API;
+                toggleOff();
+            }
+            else{
+              console.log("No u_act_from_API payload received : "+ index_API + " times.");
+            }
+
+
+            if(client_uuid == "client-s1"){
+
+              s1_mac = msg.s1_mac_address;
+              s1_ipv4 = msg.s1_public_ipv4;
+              s1_ipv6 = msg.s1_public_ipv6;
+              s1_uuid = msg.s1_uuid;
+              s1_groundSpeed = msg.s1_speed;
+              s1_lon = msg.s1_longitude;
+              s1_lat = msg.s1_latitude;
+              scooter1_activated = msg.s1_activated;
+              s1_moved = msg.s1_moved;
+              s1_alarm = msg.s1_alarm;
+              s1_last_seen = msg.s1_last_known;
+              s1_idle_time = msg.s1_idle_time;
+              s1_active_time = msg.s1_active_time;
+              var idle_duration = convertSeconds(Math.floor(s1_idle_time));
+              var active_duration = convertSeconds(Math.floor(s1_active_time));
+
+              $("#client-ip-tag").text(s1_ipv4);
+              $("#client-mac-tag").text(s1_mac);
+              $("#client-uuid-tag").text(s1_uuid);
+              $("#client-idle-tag").text(idle_duration);
+              $("#client-active-tag").text(active_duration);
+              $("#client-alarm-tag").text(s1_alarm);
+
+
+            }
+
+            if(client_uuid == "client-s2"){
+
+              s2_mac = msg.s2_mac_address;
+              s2_ipv4 = msg.s2_public_ipv4;
+              s2_ipv6 = msg.s2_public_ipv6;
+              s2_uuid = msg.s2_uuid;
+              s2_groundSpeed = msg.s2_speed;
+              s2_lon = msg.s2_longitude;
+              s2_lat = msg.s2_latitude;
+              scooter2_activated = msg.s2_activated;
+              s2_moved = msg.s2_moved;
+              s2_alarm = msg.s2_alarm;
+              s2_last_seen = msg.s2_last_known;
+              s2_idle_time = msg.s2_idle_time;
+              s2_active_time = msg.s2_active_time;
+              var idle_duration = convertSeconds(Math.floor(s2_idle_time));
+              var active_duration = convertSeconds(Math.floor(s2_active_time));
+
+
+              $("#client-ip-tag-2").text(s2_ipv4);
+              $("#client-mac-tag-2").text(s2_mac);
+              $("#client-uuid-tag-2").text(s2_uuid);
+              $("#client-idle-tag-2").text(idle_duration);
+              $("#client-active-tag-2").text(active_duration);
+
+            }
+            console.log("s1_last_seen: "+ s1_last_seen);
+            console.log("u_act_from_API received from iPhone: "+ API_u_act);
+
+            $("#s1-u_act").text(API_u_act);
+            $("#s1-u_act-publisher").text(client_uuid);
+
+
+            $(function() {
+              $('#s1-toggle-user').change(function() {
+                $('#s1-status-override-user').html(""+$(this).prop('checked'))
+                if($(this).prop('checked')){
+                  u_act_payload = "u_act_1";
+                }
+                else {
+                  u_act_payload = "u_act_0";
+                }
+                var metaOnlyPublishTo = {
+                  "uuid": "client-s1"
+                }
+
+                var serverPayload = {
+                  uuid : pubnub.getUUID(),
+                  u_act_from_s: u_act_payload
+                }
+                var onResponse = function(status,response){
+                  // handle response here
+                }
+                pubnub.publish(
+                    {
+                        message: serverPayload,
+                        channel: CHANNEL_ID,
+                        meta: metaOnlyPublishTo
+                    },
+                    onResponse
+                )//end publish
+
+              })
+            }) // end of user activation block
+
+
+            var distance = document.getElementById("distance-to-client");
+            var calcDistance_count = 0;
+            function calcDistance() {
+              /*adminLat = lat1,
+              adminLon = lon1,
+              s1_lat = lat2,
+              s1_lon = lon2
+              */
+              const R = 6371e3; // metres
+              // const φ1 = adminLat * Math.PI/180; // φ, λ in radians
+              // const φ2 = s1_lat * Math.PI/180;
+              // const Δφ = (s1_lat-adminLat) * Math.PI/180;
+              // const Δλ = (s1_lon-adminLon) * Math.PI/180;
+
+              const φ1 = adminLat * Math.PI/180; // φ, λ in radians
+              const φ2 = run_lat * Math.PI/180;
+              const Δφ = (run_lat-adminLat) * Math.PI/180;
+              const Δλ = (run_lon-adminLon) * Math.PI/180;
+
+              const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ/2) * Math.sin(Δλ/2);
+              const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+              const d = (R * c)/1000; // in kilometres
+              distance.innerHTML = d.toFixed(2)+"KM";
+            }
+
+            $(document).ready(function(){
+                  $("#getDistance-btn").click(function(){
+
+                    console.log("calculating now..."+calcDistance_count++);
+                    calcDistance();
+                  });
+                });
+
+
+            // if(s1_alarm == true){
+            //     $("#s1-alarm-status").text("Alarm Engaged");
+            // }
+            // else{
+            //     $("#s1-alarm-status").text("Alarm Disengaged");
+            // }
+
+            // if(s2_alarm == true){
+            //     $("#s2-alarm-status").text(s1_alarm);
+            // }
+            // else{
+            //     $("#s2-alarm-status").text(s1_alarm);
+            // }
+
+            if(s1_last_seen==null || s2_last_seen==null){
+              // console.log("UNDEFINED DETECTED");
+              s1_last_seen = default_location;
+              s2_last_seen = default_location;
+            }
+            else {
+              s1_last_seen = msg.s1_last_known;
+              s2_last_seen = msg.s2_last_known;
+            }
+
+            scooter1_activation(scooter1_activated);
+            scooter2_activation(scooter2_activated);
+
+
+        },
+        presence: function(p) {
+            // handle presence
+            var action = p.action; // Can be join, leave, state-change or timeout
+            var channelName = p.channel; // The channel for which the message belongs
+            var occupancy = p.occupancy; // No. of users connected with the channel
+            var state = p.state; // User State
+            var channelGroup = p.subscription; //  The channel group or wildcard subscription match (if exists)
+            var publishTime = p.timestamp; // Publish timetoken
+            var timetoken = p.timetoken;  // Current timetoken
+            var uuid = p.uuid; // UUIDs of users who are connected with the channel
+
+            console.log("joining/leaving client:"+uuid);
+            console.log("latest fleet size:"+occupancy);
+            $("#client-join-tag").text(uuid);
+            $("#client-occupancy-tag").text(occupancy);
+
+
+        },
+        status: function(s) {
+            var affectedChannelGroups = s.affectedChannelGroups;
+            var affectedChannels = s.affectedChannels;
+            var category = s.category;
+            var operation = s.operation;
+        }
+    });
+
+
+    //////////////////////////// END OF PUBNUB ///////////////////////////////////
+
+    var accessTokenGlobal = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
+  	mapboxgl.accessToken = accessTokenGlobal;
+      var map = new mapboxgl.Map({
+          container: "map",
+          style: 'mapbox://styles/mapbox/dark-v10', //dark-v10 or streets-v11
+          center: [longitude,latitude],
+          zoom: 15
+      });
+
+
+      var radius = 0.001; // rotate radius for circle and marker3/scooter3
+      /*
+      3.069638,101.503772 uitm shah alam
+      var southWest = new mapboxgl.LngLat(110.327979, 1.429448); // 1.429448,110.327979 padawan
+      var northEast = new mapboxgl.LngLat(110.4717407, 1.606540); // 1.606540,110.471740 sungai sarawak
+      var boundingBox = new mapboxgl.LngLatBounds(southWest, northEast);
+      arrayBound = boundingBox.toArray()
+      console.log(arrayBound);
+      */
+      // forward geocoding - user enter name of places
+      map.addControl(
+        new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        zoom: 15,
+        placeholder: 'UiTM Samrahan',
+        // limit results to Malaysia
+        countries: 'my',
+        // further limit results to the geographic bounds representing the region of
+        bbox: [110.327979,1.429448,110.471740,1.606540],
+        // localGeocoder: coordinatesGeocoder,
+        // apply a client side filter to further limit results to those strictly within
+        // the Sarawak
+        filter: function(item) {
+        // returns true if item contains Sarawak
+        return item.context
+        .map(function(i) {
+        return (
+          i.id.split('.').shift() === 'region' &&
+          i.text === 'Sarawak'
+          );
+        })
+        .reduce(function(acc, cur) {
+          return acc || cur;
+          });
+        },
+        mapboxgl: mapboxgl
+        })
+        );
+
+        // reverse geocoding - user enter coordinate longitude,latitude
+        // NOTE_: The MapboxGeocoder plugin for Mapbox GL JS is to
+        // provide an out of the box search box interface (GUI search),
+        // not for calling the API directly (script search).
+
+        map.addControl(
+          geocoder = new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          // limit results to Malaysia
+          countries: 'my',
+          // localGeocoder: coordinatesGeocoder,
+          zoom: 15,
+          limit:1,
+          placeholder: 'Lon/Lat: 110.38,1.588',
+          // limit results to Malaysia
+          countries: 'my',
+          // further limit results to the geographic bounds representing the region of
+          bbox: [110.327979,1.429448,110.471740,1.606540],
+          // localGeocoder: coordinatesGeocoder,
+          // apply a client side filter to further limit results to those strictly within
+          // the Sarawak
+
+          filter: function(item) {
+          // returns true if item contains Sarawak
+          return item.context
+          .map(function(i) {
+          return (i.id.split('.').shift() === 'region' && i.text === 'Sarawak');
+          })
+          .reduce(function(acc, cur) {
+            return acc || cur;
+            });
+          },
+          mapboxgl: mapboxgl
+          })
+          );
+
+          map.addControl(
+          new MapboxDirections({
+          accessToken: mapboxgl.accessToken
+          }),
+          'top-left'
+          );
+
+          // Add geolocate control to the map.
+          map.addControl(
+              new mapboxgl.GeolocateControl({
+              positionOptions: {
+              enableHighAccuracy: true
+              },
+              trackUserLocation: true
+            }),
+              'bottom-right'
+
+          );
+
+          var x = document.getElementById("getAdminCoordinate");
+          var adminLat , adminLon;
+          function getLocation() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+              x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+          }
+
+          function showPosition(position) {
+            adminLat = (position.coords.latitude).toFixed(3);
+            adminLon = (position.coords.longitude).toFixed(3);
+            x.innerHTML = "Latitude: " + adminLat +
+            "<br>Longitude: " + adminLon;
+          }
+
+          $(document).ready(function(){
+                $("#getAdminCoordinate-btn").click(function(){
+                  getLocation();
+                });
+              });
+
+
+
+          var iconFeature = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.fromLonLat([110.4451, 1.4489])),
+            name: 'sc1',
+            population: 4000,
+            rainfall: 500
+          });
+          var iconFeature2 = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.fromLonLat([110.358, 1.5906])),
+            name: 'sc2',
+            population: 4000,
+            rainfall: 500
+          });
+
+          var iconStyle = new ol.style.Style({
+            image: new ol.style.Icon({
+              anchor: [0, 0],
+              anchorXUnits: 'fraction',
+              anchorYUnits: 'pixels',
+              src: 'img/icon.png'
+            })
+          });
+
+          var iconStyle2 = new ol.style.Style({
+            image: new ol.style.Icon({
+              anchor: [10, 10],
+              anchorXUnits: 'fraction',
+              anchorYUnits: 'pixels',
+              src: 'img/icon2.png'
+            })
+          });
+
+          iconFeature.setStyle(iconStyle);
+          iconFeature2.setStyle(iconStyle2);
+
+          var vectorSource = new ol.source.Vector({
+            features: [iconFeature]
+          });
+          var vectorSource2 = new ol.source.Vector({
+            features: [iconFeature2]
+          });
+
+          var vectorLayer = new ol.layer.Vector({
+            source: vectorSource
+          });
+
+          var vectorLayer2 = new ol.layer.Vector({
+            source: vectorSource2
+          });
+
+          var rasterLayer = new ol.layer.Tile({
+            source: new ol.source.TileJSON({
+              url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json',
+              crossOrigin: ''
+            })
+          });
+
+
+          var istanbul = ol.proj.fromLonLat([28.9744, 41.0128]);
+          var view = new ol.View({
+            center: istanbul,
+            zoom: 6
+          });
+/*
+          var map = new Map({
+            target: 'map',
+            layers: [
+              new TileLayer({
+                preload: 4,
+                source: new OSM()
+              })
+            ],
+            view: view
+          });
+*/
+          var map_s1 = new ol.Map({
+            target: document.getElementById('map_s1'),
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              }),
+              vectorLayer
+            ],
+            view: new ol.View({
+              //1.4489° N, 110.4451° E - UiTM samarahan
+              center: ol.proj.fromLonLat([28.9744, 41.0128]), //110.388514, 1.583216
+              // center: ol.proj.fromLonLat(istanbul),
+              // center: ol.proj.fromLonLat(s1_last_seen),
+              zoom: 15
+            })
+
+          });
+
+
+          var map_s2 = new ol.Map({
+            target: document.getElementById('map_s2'),
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              }),
+              vectorLayer2
+            ],
+            view: new ol.View({
+              //1  query: [110.3581,1.5906] //stadium
+              center: ol.proj.fromLonLat([110.358, 1.5906]),
+              // center: ol.proj.fromLonLat(default_location),
+
+              zoom: 15
+            })
+          });
+
+    var clickTime = 0;
+    $(document).ready(function(){
+
+
+          $("#s1-track-btn").click(function(){
+          console.log(s1_last_seen);
+          console.log("clicked! "+ clickTime++);
+          $('#s1-track').html("Tracking...")
+          $(this).button('loading').delay(1000).queue(function() {
+
+
+                locateS1(s1_last_seen);
+                $(this).dequeue();
+                $('#s1-track').html("Found "+s1_last_seen);
+
+                view.animate({
+                center: s1_last_seen,
+                duration: 2000
+              });
+
+            });
+        });
+    });
+
+
+    $(document).ready(function(){
+          $("#s2-track-btn").click(function(){
+          console.log(s2_last_seen);
+          console.log("clicked!");
+          $('#s2-track').html("Tracking...")
+
+          // pubnub.publish({
+          //         message: "s_act_69",
+          //         channel: CHANNEL_ID
+          //       });
+          // s1_last_seen = [110.3581,1.5906];
+            $(this).button('loading').delay(1000).queue(function() {
+              if(s2_last_seen != 0,0){
+                  locateS2(s2_last_seen);
+                  $(this).dequeue();
+                  $('#s2-track').html("Found! "+s2_last_seen);
+              }
+              else{
+                $(this).dequeue();
+                $('#s2-track').html("Nothing found! Try again!")
+              }
+
+
+            });
+        });
+    });
+
+
+
+
+
+
+    // API to perform reverse Geocoding in JavaScript
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+
+    function locateS1(s1_last_seen){
+
+        mapboxClient.geocoding
+          .reverseGeocode({
+            query: s1_last_seen //[110.38,1.588]
+          })
+          .send()
+          .then(function(response) {
+            if (
+              response &&
+              response.body &&
+              response.body.features &&
+              response.body.features.length
+            ) {
+              var feature = response.body.features[0];
+              s1_tracked = feature.place_name;
+              console.log(response);
+              $("#s1-last-seen-address").text(s1_tracked);
+            }
+          });
+
+
+    }
+
+
+          function locateS2(){
+            mapboxClient.geocoding
+              .reverseGeocode({
+                query: s2_last_seen //stadium 110.3581,1.5906
+              })
+              .send()
+              .then(function(response) {
+                if (
+                  response &&
+                  response.body &&
+                  response.body.features &&
+                  response.body.features.length
+                ) {
+                  var feature = response.body.features[0];
+                  s2_tracked = feature.place_name;
+                  console.log(response);
+                  $("#s2-last-seen").text(s2_tracked);
+                }
+              });
+          }
+
+          $(function() {
+            $('#s1-track-mode').change(function() {
+              // $('#s1-track-status').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                 $('#s1-track-btn').prop('disabled', true);
+                   $('#s1-track').html("Auto-Track Enabled")
+              }
+              else {
+                $('#s1-track-btn').prop('disabled', false);
+              }
+            }) // end of server activation block
+          })
+
+          $(function() {
+            $('#s2-track-mode').change(function() {
+              // $('#s1-track-status').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                 $('#s2-track-btn').prop('disabled', true);
+                   $('#s2-track').html("Auto-Track Enabled")
+              }
+              else {
+                $('#s2-track-btn').prop('disabled', false);
+              }
+            }) // end of server activation block
+          })
+
+          var s_act_payload;
+          var u_act_payload;
+
+ // below payload activation for client-s1 only
+
+
+          $(function() {
+            $('#s1-toggle').change(function() {
+              $('#s1-status-override').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                s_act_payload = "s_act_1"
+                // u_act_payload = API_u_act
+              }
+              else {
+                s_act_payload = "s_act_0"
+                // u_act_payload = API_u_act
+              }
+              // if(s1_last_seen==null)
+              //   s1_last_seen = 45,45;
+
+              var metaOnlyPublishTo = {
+                "uuid": "client-s1"
+              }
+
+              var messagePayload = {
+                  uuid : "web-dashboard",
+                  publisher: pubnub.uuid,
+                  s_act: s_act_payload
+              }
+
+              var onResponse = function(status,response){
+                // handle response here
+              }
+              pubnub.publish(
+                  {
+                      message: messagePayload,
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
+                  },
+                  onResponse
+              )// end publish
+
+            })
+          }) // end of server activation block
+
+
+
+ ////////////////////////////////////////////////////////////////////////////
+ // below payload activation for client-s2 only
+          $(function() {
+            $('#s2-toggle').change(function() {
+              $('#s2-status-override').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                s_act_payload = "s_act_1"
+              }
+              else {
+                s_act_payload = "s_act_0"
+              }
+              // if(s1_last_seen==null)
+              //   s1_last_seen = 45,45;
+
+              var metaOnlyPublishTo = {
+                "uuid": "client-s2"
+              }
+
+              var messagePayload = {
+                uuid : "web-dashboard",
+                  publisher: pubnub.uuid,
+                  s_act: s_act_payload
+              }
+
+              var onResponse = function(status,response){
+                // handle response here
+              }
+              pubnub.publish(
+                  {
+                      message: messagePayload,
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
+                  },
+                  onResponse
+              )// end publish
+
+            })
+          }) // end of server activation block
+
+          $(function() {
+            $('#s2-toggle-user').change(function() {
+              $('#s2-status-override-user').html(""+$(this).prop('checked'))
+              if($(this).prop('checked')){
+                u_act_payload = "u_act_1"
+              }
+              else {
+                u_act_payload = "u_act_0"
+              }
+
+              var metaOnlyPublishTo = {
+                "uuid": "client-s2"
+              }
+
+              var serverPayload = {
+                uuid : "web-dashboard",
+                publisher: pubnub.uuid,
+                u_act: u_act_payload,
+                s2_last_seen: [0,0]
+              }
+              var onResponse = function(status,response){
+                // handle response here
+              }
+              pubnub.publish(
+                  {
+                      message: serverPayload,
+                      channel: CHANNEL_ID,
+                      meta: metaOnlyPublishTo
+                  },
+                  onResponse
+              )//end publish
+
+            })
+          }) // end of user activation block
+
+
+      var scooter1 = new mapboxgl.Marker();
+      var scooter2 = new mapboxgl.Marker();
+      var scooter3 = new mapboxgl.Marker();
+
+      var change = 0.001;
+      var i; // count newMarkers
+      var previousMarkers=[];
+      var newMarkers;
+      var run_lon ;
+      var run_lat ;
+
+      // create the popup
+      var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+      'Construction on the Washington Monument began in 1848.'
+      );
+      // create DOM element for the marker
+      var el = document.createElement('div');
+      el.id = 'marker';
+
+      function animateMarker(timestamp) {
+          run_lon = radius* Math.sin(timestamp / 5000) + longitude;
+          run_lat = radius* Math.cos(timestamp / 5000) + latitude;
+          // run_lon = radius* Math.sin(timestamp / 5000) + s1_lon;
+          // run_lat = radius* Math.cos(timestamp / 5000) + s1_lat;
+          s2_run_lon = radius* Math.sin(timestamp / 5000);
+          s2_run_lat = radius* Math.cos(timestamp / 5000);
+
+          if(s1_lon==null && s1_lat==null){
+            s1_lon= 0;
+            s1_lat= 0;
+          }
+          if(s2_lon==null && s2_lat==null){
+            s2_lon= 0;
+            s2_lat= 0;
+          }
+          // console.log("Coordinate of s1="+s1_lon,s1_lat);
+          // console.log("Coordinate of s2="+s2_lon+","+s2_lat);
+          scooter1.setLngLat([s1_lon,s1_lat]);
+          scooter2.setLngLat([s2_lon+change,s2_lat]);
+          scooter3.setLngLat([run_lon,run_lat]);
+          // Request the next frame of the animation.
+          requestAnimationFrame(animateMarker);
+
+          // Ensure it's added to the map. This is safe to call if it's already added.
+          scooter1.addTo(map);
+          scooter2.addTo(map);
+          scooter3.addTo(map);
+
+          // // create the marker
+          // new mapboxgl.Marker(el)
+          // .setLngLat([run_lon,run_lat])
+          // .setPopup(popup) // sets a popup on this marker
+          // .addTo(map);
+
+
+      } // end of animateMarker
+      // Start the animation.
+      requestAnimationFrame(animateMarker);
+
+  </script>
 
   <script type="text/javascript">
 
-  // import 'ol/ol.css';
-  // import Feature from 'ol/Feature';
-  // import Map from 'ol/Map';
-  // import Overlay from 'ol/Overlay';
-  // import View from 'ol/View';
-  // import Point from 'ol/geom/Point';
-  // import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
-  // import TileJSON from 'ol/source/TileJSON';
-  // import VectorSource from 'ol/source/Vector';
-  // import {Icon, Style} from 'ol/style';
-
-  var iconFeature = new ol.Feature({
-    geometry: new ol.geom.Point(ol.proj.fromLonLat([110.4451, 1.4489])),
-    name: 'sc1',
-    population: 4000,
-    rainfall: 500
-  });
-
-  var iconStyle = new ol.style.Style({
-    image: new ol.style.Icon({
-      anchor: [0, 0],
-      anchorXUnits: 'fraction',
-      anchorYUnits: 'pixels',
-      src: 'img/icon.png'
-    })
-  });
-
-  iconFeature.setStyle(iconStyle);
-
-  var vectorSource = new ol.source.Vector({
-    features: [iconFeature]
-  });
-
-  var vectorLayer = new ol.layer.Vector({
-    source: vectorSource
-  });
-
-  var rasterLayer = new ol.layer.Tile({
-    source: new ol.source.TileJSON({
-      url: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json',
-      crossOrigin: ''
-    })
-  });
-
-  var map_s1 = new ol.Map({
-    target: document.getElementById('map_s1'),
-    layers: [
-      new ol.layer.Tile({
-        source: new ol.source.OSM()
-      }),
-      vectorLayer
-    ],
-    view: new ol.View({
-      //1.4489° N, 110.4451° E - UiTM samarahan
-      center: ol.proj.fromLonLat([110.4451, 1.4489]),
-      zoom: 15
-    })
-  });
-
-  var element = document.getElementById('popup');
-
-  var popup = new ol.Overlay({
-    element: element,
-    positioning: 'bottom-center',
-    stopEvent: false,
-    offset: [0, 0]
-  });
-  map_s1.addOverlay(popup);
-
-  // display popup on click
-  map_s1.on('click', function(evt) {
-    var feature = map_s1.forEachFeatureAtPixel(evt.pixel,
-      function(feature) {
-        return feature;
+  function animatingGauge(){
+    /* global window, define, module */
+  (function(global, factory) {
+    var Gauge = factory(global);
+    if (typeof define === "function" && define.amd) {
+      // AMD support
+      define(function() {
+        return Gauge;
       });
-    if (feature) {
-      var coordinates = feature.getGeometry().getCoordinates();
-      popup.setPosition(coordinates);
-      $(element).popover({
-        placement: 'top',
-        html: true,
-        content: feature.get('name')
-      });
-      $(element).popover('show');
+    } else if (typeof module === "object" && module.exports) {
+      // CommonJS support
+      module.exports = Gauge;
     } else {
-      $(element).popover('destroy');
+      // We are probably running in the browser
+      global.Gauge = Gauge;
+    }
+  })(typeof window === "undefined" ? this : window, function(global, undefined) {
+    var document = global.document,
+      slice = Array.prototype.slice,
+      requestAnimationFrame =
+        global.requestAnimationFrame ||
+        global.mozRequestAnimationFrame ||
+        global.webkitRequestAnimationFrame ||
+        global.msRequestAnimationFrame ||
+        function(cb) {
+          return setTimeout(cb, 1000 / 60);
+        };
+
+    // EXPERIMENTAL!!
+    /**
+     * Simplistic animation function for animating the gauge. That's all!
+     * Options are:
+     * {
+     *  duration: 1,    // In seconds
+     *  start: 0,       // The start value
+     *  end: 100,       // The end value
+     *  step: function, // REQUIRED! The step function that will be passed the value and does something
+     *  easing: function // The easing function. Default is easeInOutCubic
+     * }
+     */
+    function Animation(options) {
+      var duration = options.duration,
+        currentIteration = 1,
+        iterations = 60 * duration,
+        start = options.start || 0,
+        end = options.end,
+        change = end - start,
+        step = options.step,
+        easing =
+          options.easing ||
+          function easeInOutCubic(pos) {
+            // https://github.com/danro/easing-js/blob/master/easing.js
+            if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 3);
+            return 0.5 * (Math.pow(pos - 2, 3) + 2);
+          };
+
+      function animate() {
+        var progress = currentIteration / iterations,
+          value = change * easing(progress) + start;
+        // console.log(progress + ", " + value);
+        step(value, currentIteration);
+        currentIteration += 1;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      }
+      // start!
+      requestAnimationFrame(animate);
+    }
+
+    var Gauge = (function() {
+      var SVG_NS = "http://www.w3.org/2000/svg";
+
+      var GaugeDefaults = {
+        centerX: 50,
+        centerY: 50
+      };
+
+      var defaultOptions = {
+        dialRadius: 40,
+        dialStartAngle: 135,
+        dialEndAngle: 45,
+        value: 0,
+        max: 100,
+        min: 0,
+        valueDialClass: "value",
+        valueClass: "value-text",
+        dialClass: "dial",
+        gaugeClass: "gauge",
+        showValue: true,
+        gaugeColor: null,
+        label: function(val) {
+          return Math.round(val);
+        }
+      };
+
+      function shallowCopy(/* source, ...targets*/) {
+        var target = arguments[0],
+          sources = slice.call(arguments, 1);
+        sources.forEach(function(s) {
+          for (k in s) {
+            if (s.hasOwnProperty(k)) {
+              target[k] = s[k];
+            }
+          }
+        });
+        return target;
+      }
+
+      /**
+       * A utility function to create SVG dom tree
+       * @param {String} name The SVG element name
+       * @param {Object} attrs The attributes as they appear in DOM e.g. stroke-width and not strokeWidth
+       * @param {Array} children An array of children (can be created by this same function)
+       * @return The SVG element
+       */
+      function svg(name, attrs, children) {
+        var elem = document.createElementNS(SVG_NS, name);
+        for (var attrName in attrs) {
+          elem.setAttribute(attrName, attrs[attrName]);
+        }
+
+        if (children) {
+          children.forEach(function(c) {
+            elem.appendChild(c);
+          });
+        }
+        return elem;
+      }
+
+      /**
+       * Translates percentage value to angle. e.g. If gauge span angle is 180deg, then 50%
+       * will be 90deg
+       */
+      function getAngle(percentage, gaugeSpanAngle) {
+        return percentage * gaugeSpanAngle / 100;
+      }
+
+      function normalize(value, min, limit) {
+        var val = Number(value);
+        if (val > limit) return limit;
+        if (val < min) return min;
+        return val;
+      }
+
+      function getValueInPercentage(value, min, max) {
+        const newMax = max - min,
+          newVal = value - min;
+        return 100 * newVal / newMax;
+        // var absMin = Math.abs(min);
+        // return 100 * (absMin + value) / (max + absMin);
+      }
+
+      /**
+       * Gets cartesian co-ordinates for a specified radius and angle (in degrees)
+       * @param cx {Number} The center x co-oriinate
+       * @param cy {Number} The center y co-ordinate
+       * @param radius {Number} The radius of the circle
+       * @param angle {Number} The angle in degrees
+       * @return An object with x,y co-ordinates
+       */
+      function getCartesian(cx, cy, radius, angle) {
+        var rad = angle * Math.PI / 180;
+        return {
+          x: Math.round((cx + radius * Math.cos(rad)) * 1000) / 1000,
+          y: Math.round((cy + radius * Math.sin(rad)) * 1000) / 1000
+        };
+      }
+
+      // Returns start and end points for dial
+      // i.e. starts at 135deg ends at 45deg with large arc flag
+      // REMEMBER!! angle=0 starts on X axis and then increases clockwise
+      function getDialCoords(radius, startAngle, endAngle) {
+        var cx = GaugeDefaults.centerX,
+          cy = GaugeDefaults.centerY;
+        return {
+          end: getCartesian(cx, cy, radius, endAngle),
+          start: getCartesian(cx, cy, radius, startAngle)
+        };
+      }
+
+      /**
+       * Creates a Gauge object. This should be called without the 'new' operator. Various options
+       * can be passed for the gauge:
+       * {
+       *    dialStartAngle: The angle to start the dial. MUST be greater than dialEndAngle. Default 135deg
+       *    dialEndAngle: The angle to end the dial. Default 45deg
+       *    radius: The gauge's radius. Default 400
+       *    max: The maximum value of the gauge. Default 100
+       *    value: The starting value of the gauge. Default 0
+       *    label: The function on how to render the center label (Should return a value)
+       * }
+       * @param {Element} elem The DOM into which to render the gauge
+       * @param {Object} opts The gauge options
+       * @return a Gauge object
+       */
+      return function Gauge(elem, opts) {
+        opts = shallowCopy({}, defaultOptions, opts);
+        var gaugeContainer = elem,
+          limit = opts.max,
+          min = opts.min,
+          value = normalize(opts.value, min, limit),
+          radius = opts.dialRadius,
+          displayValue = opts.showValue,
+          startAngle = opts.dialStartAngle,
+          endAngle = opts.dialEndAngle,
+          valueDialClass = opts.valueDialClass,
+          valueTextClass = opts.valueClass,
+          valueLabelClass = opts.valueLabelClass,
+          dialClass = opts.dialClass,
+          gaugeClass = opts.gaugeClass,
+          gaugeColor = opts.color,
+          gaugeValueElem,
+          gaugeValuePath,
+          label = opts.label,
+          instance;
+
+        if (startAngle < endAngle) {
+          console.log("WARN! startAngle < endAngle, Swapping");
+          var tmp = startAngle;
+          startAngle = endAngle;
+          endAngle = tmp;
+        }
+
+        function pathString(radius, startAngle, endAngle, largeArc) {
+          var coords = getDialCoords(radius, startAngle, endAngle),
+            start = coords.start,
+            end = coords.end,
+            largeArcFlag = typeof largeArc === "undefined" ? 1 : largeArc;
+
+          return [
+            "M",
+            start.x,
+            start.y,
+            "A",
+            radius,
+            radius,
+            0,
+            largeArcFlag,
+            1,
+            end.x,
+            end.y
+          ].join(" ");
+        }
+
+        function initializeGauge(elem) {
+          gaugeValueElem = svg("text", {
+            x: 50,
+            y: 50,
+            fill: "#999",
+            class: valueTextClass,
+            "font-size": "100%",
+            "font-family": "sans-serif",
+            "font-weight": "normal",
+            "text-anchor": "middle"
+          });
+
+          gaugeValuePath = svg("path", {
+            class: valueDialClass,
+            fill: "none",
+            stroke: "#666",
+            "stroke-width": 2.5,
+            d: pathString(radius, startAngle, startAngle) // value of 0
+          });
+
+          var angle = getAngle(100, 360 - Math.abs(startAngle - endAngle));
+          var flag = angle <= 180 ? 0 : 1;
+          var gaugeElement = svg(
+            "svg",
+            { viewBox: "0 0 100 100", class: gaugeClass },
+            [
+              svg("path", {
+                class: dialClass,
+                fill: "none",
+                stroke: "#eee",
+                "stroke-width": 2,
+                d: pathString(radius, startAngle, endAngle, flag)
+              }),
+              gaugeValueElem,
+              gaugeValuePath
+            ]
+          );
+          elem.appendChild(gaugeElement);
+        }
+
+        function updateGauge(theValue, frame) {
+          var val = getValueInPercentage(theValue, min, limit),
+            // angle = getAngle(val, 360 - Math.abs(endAngle - startAngle)),
+            angle = getAngle(val, 360 - Math.abs(startAngle - endAngle)),
+            // this is because we are using arc greater than 180deg
+            flag = angle <= 180 ? 0 : 1;
+          if (displayValue) {
+            if (label.length === 1) {
+              gaugeValueElem.textContent = label.call(opts, theValue);
+            } else {
+              label.call(opts, gaugeValueElem, theValue);
+            }
+          }
+          gaugeValuePath.setAttribute(
+            "d",
+            pathString(radius, startAngle, angle + startAngle, flag)
+          );
+        }
+
+        function setGaugeColor(value, duration) {
+          var c = gaugeColor(value),
+            dur = duration * 1000,
+            pathTransition = "stroke " + dur + "ms ease";
+          // textTransition = "fill " + dur + "ms ease";
+
+          gaugeValuePath.style = [
+            "stroke: " + c,
+            "-webkit-transition: " + pathTransition,
+            "-moz-transition: " + pathTransition,
+            "transition: " + pathTransition
+          ].join(";");
+          /*
+          gaugeValueElem.style = [
+            "fill: " + c,
+            "-webkit-transition: " + textTransition,
+            "-moz-transition: " + textTransition,
+            "transition: " + textTransition,
+          ].join(";");
+          */
+        }
+
+        instance = {
+          setMaxValue: function(max) {
+            limit = max;
+          },
+          setValue: function(val) {
+            value = normalize(val, min, limit);
+            if (gaugeColor) {
+              setGaugeColor(value, 0);
+            }
+            updateGauge(value);
+          },
+          setValueAnimated: function(val, duration) {
+            var oldVal = value;
+            value = normalize(val, min, limit);
+            if (oldVal === value) {
+              return;
+            }
+
+            if (gaugeColor) {
+              setGaugeColor(value, duration);
+            }
+            Animation({
+              start: oldVal || 0,
+              end: value,
+              duration: duration || 1,
+              step: function(val, frame) {
+                updateGauge(val, frame);
+              }
+            });
+          },
+          getValue: function() {
+            return value;
+          }
+        };
+
+        initializeGauge(gaugeContainer);
+        instance.setValue(value);
+        return instance;
+      };
+    })();
+
+    return Gauge;
+  });
+
+  var startAnglePoint = 30;
+  var endAnglePoint = 150;
+  var maxSpeed = 35;
+
+  var gauge1 = Gauge(document.getElementById("gauge1"), {
+    max: maxSpeed,
+    dialStartAngle: startAnglePoint,
+    dialEndAngle: endAnglePoint,
+    value: 0,
+    label: function(item, value) {
+      while (item.firstChild) {
+        item.removeChild(item.firstChild);
+      }
+      var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan1.textContent=Math.round(value * 100)/100; // speed value from sc1
+      tspan1.setAttribute('x',50);
+      tspan1.setAttribute('y',48);
+      item.appendChild(tspan1);
+
+      var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan2.textContent="km/h";
+      tspan2.setAttribute('x',50);
+      tspan2.setAttribute('y',62);
+      item.appendChild(tspan2);
+
+      var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan3.textContent="S1 SPEED";
+      tspan3.setAttribute('font-size',5);
+      tspan3.setAttribute('x',50);
+      tspan3.setAttribute('y',30);
+      item.appendChild(tspan3);
     }
   });
 
-  // change mouse cursor when over marker
-  map_s1.on('pointermove', function(e) {
-    if (e.dragging) {
-      $(element).popover('destroy');
-      return;
+
+  var gauge2 = Gauge(document.getElementById("gauge2"), {
+    max: maxSpeed,
+    dialStartAngle: startAnglePoint,
+    dialEndAngle: endAnglePoint,
+    value: 0,
+    label: function(item,value) {
+
+      while (item.firstChild) {
+        item.removeChild(item.firstChild);
+      }
+
+      // var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      // tspan3.textContent="SPEED";
+      // item.appendChild(tspan3);
+
+      var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan1.textContent=Math.round(value * 100) / 100; // speed value from sc2
+      // tspan1.textContent=s2_groundSpeed; // speed value from sc2
+
+      tspan1.setAttribute('x',50);
+      tspan1.setAttribute('y',48);
+      item.appendChild(tspan1);
+
+      var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan2.textContent="km/h";
+      tspan2.setAttribute('x',50);
+      tspan2.setAttribute('y',62);
+      item.appendChild(tspan2);
+
+      var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan3.textContent="S2 SPEED";
+      tspan3.setAttribute('font-size',5);
+      tspan3.setAttribute('x',50);
+      tspan3.setAttribute('y',30);
+      item.appendChild(tspan3);
+
+      // return Math.round(value * 100) / 100;
     }
-    var pixel = map_s1.getEventPixel(e.originalEvent);
-    var hit = map_s1.hasFeatureAtPixel(pixel);
-    map_s1.getTarget().style.cursor = hit ? 'pointer' : '';
   });
 
+  (function loop() {
+    var value1 = Math.random() * 35,
+      value2 = Math.random() * 35;
+
+    // setValueAnimated(value, durationInSecs);
+    gauge1.setValueAnimated(value1, 1);
+    gauge2.setValueAnimated(value2, 1);
+
+    window.setTimeout(loop, 5000);
+  })();
+  }//end of animatingGauge
+  animatingGauge(); // start gauge
+
+
+
+    // var element = document.getElementById('popup');
+    //
+    // var popup = new ol.Overlay({
+    //   element: element,
+    //   positioning: 'bottom-center',
+    //   stopEvent: false,
+    //   offset: [0, 0]
+    // });
+    // map_s1.addOverlay(popup);
+    //
+    // // display popup on click
+    // map_s1.on('click', function(evt) {
+    //   var feature = map_s1.forEachFeatureAtPixel(evt.pixel,
+    //     function(feature) {
+    //       return feature;
+    //     });
+    //   if (feature) {
+    //     var coordinates = feature.getGeometry().getCoordinates();
+    //     popup.setPosition(coordinates);
+    //     $(element).popover({
+    //       placement: 'top',
+    //       html: true,
+    //       content: feature.get('name')
+    //     });
+    //     $(element).popover('show');
+    //   } else {
+    //     $(element).popover('destroy');
+    //   }
+    // });
+
+    // // change mouse cursor when over marker
+    // map_s1.on('pointermove', function(e) {
+    //   if (e.dragging) {
+    //     $(element).popover('destroy');
+    //     return;
+    //   }
+    //   var pixel = map_s1.getEventPixel(e.originalEvent);
+    //   var hit = map_s1.hasFeatureAtPixel(pixel);
+    //   map_s1.getTarget().style.cursor = hit ? 'pointer' : '';
+    // });
   </script>
-  </body>
+
+</body>
 </html>
