@@ -12,6 +12,8 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c79287add4.js" crossorigin="anonymous"></script>
+
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -19,6 +21,28 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 
   <style>
+  .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+.loaderNearby {
+border: 16px solid #6c6780; /* Light grey */
+border-top: 16px solid #dae024; /* Blue */
+border-radius: 50%;
+width: 20px;
+height: 20px;
+animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
   	body { margin: 0; padding: 0; }
     /* map window for Mapbox */
   	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
@@ -192,6 +216,18 @@ main.container {
         <a class="nav-link" href="index3.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Backtrack</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="geojson-line.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Geojson</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="animate-line.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Animate Geojson</span></a>
       </li>
 
 
@@ -603,28 +639,40 @@ main.container {
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
+              <!-- <div class="card border-left-primary shadow h-100 py-2"> -->
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client IP <span id="client-ip-tag" class="float-right">Loading</span></div>
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client MAC <span id="client-mac-tag" class="float-right">Loading</span></div>
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client UUID  <span id="client-uuid-tag" class="float-right">Loading</span></div>
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User UUID  <span id="user-uuid-tag" class="float-right">Loading</span></div>
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Idle Duration <span id="client-idle-tag" class="float-right">00 H : 00 M : 00 S</span></div>
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Use Duration <span id="client-active-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client Private IP <span id="client-private-ip-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client Public IP <span id="client-ip-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client MAC <span id="client-mac-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client UUID  <span id="client-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Last User UUID  <span id="last-user-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Current User UUID  <span id="user-uuid-tag" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Distance To User <span id="distanceToUser-tag" class="float-right">0000 KM</span></div>
+
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Idle Duration <span id="client-idle-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Use Duration <span id="client-active-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Start Use Time<span id="client-start-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Start Coordinate <span id="client-start-coord-tag" class="float-right">lon,lat</span></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Stop Use Time<span id="client-stop-tag" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">End Coordinate <span id="client-end-coord-tag" class="float-right">lon,lat</span></div>
+
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Distance Moved <span id="client-mileage-tag" class="float-right">0000 KM</span></div>
 
                       <a href="#" id="s1-alarm" class="btn btn-success btn-icon-split float-right">
                       <span class="icon text-white-50">
-                      <i id="s1-logo" class="fas fa-check"></i>
+                      <i id="s1-logo-alarm" class="fas fa-check"></i>
                       </span>
                       <span id="s1-alarm-status" class="text">Alarm Off</span>
                       </a>
                       <br>
                       <br>
-                      <a href="#" id="s1-alarm-disable" class="btn btn-warning btn-circle btn-lg float-right">
+                      <a href="#" id="s1-alarm-disable" class="btn btn-secondary btn-circle btn-lg float-right">
                       <span class="icon text-white-50">
-                      <i id="s1-logo" class="fas fa-exclamation-triangle"></i>
+                      <i class="fas fa-undo-alt"></i>
                       </span>
                       </a>
 
@@ -640,28 +688,41 @@ main.container {
 
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2">
+              <!-- <div class="card border-left-danger shadow h-100 py-2"> -->
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client IP <span id="client-ip-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client Private IP <span id="client-private-ip-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client Public IP <span id="client-ip-tag-2" class="float-right">Loading</span></div>
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client MAC <span id="client-mac-tag-2" class="float-right">Loading</span></div>
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Client UUID  <span id="client-uuid-tag-2" class="float-right">Loading</span></div>
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">User UUID  <span id="user-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Last User UUID  <span id="last-user-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Current User UUID  <span id="user-uuid-tag-2" class="float-right">Loading</span></div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Distance To User <span id="distanceToUser-tag" class="float-right">0000 KM</span></div>
+
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Idle Duration <span id="client-idle-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Use Duration <span id="client-active-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Start Use Time <span id="client-start-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Start Coordinate <span id="client-start-coord-tag-2" class="float-right">lon,lat</span></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Stop Use Time <span id="client-stop-tag-2" class="float-right">00 H : 00 M : 00 S</span></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">End Coordinate <span id="client-end-coord-tag-2" class="float-right">lon,lat</span></div>
+
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Distance Moved <span id="client-mileage-tag-2" class="float-right">0000 KM</span></div>
 
                       <a href="#" id="s2-alarm" class="btn btn-success btn-icon-split float-right" >
                       <span class="icon text-white-50">
-                      <i id="s2-logo" class="fas fa-check"></i>
+                      <i id="s2-logo-alarm" class="fas fa-check"></i>
                       </span>
                       <span id="s2-alarm-status" class="text">Alarm Off</span>
                       </a>
                       <br>
                       <br>
-                      <a href="#" id="s2-alarm-disable" class="btn btn-warning btn-circle btn-lg float-right">
+                      <a href="#" id="s2-alarm-disable" class="btn btn-secondary btn-circle btn-lg float-right">
                       <span class="icon text-white-50">
-                      <i id="s2-logo" class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-undo-alt"></i>
+
                       </span>
                       </a>
                       </div>
@@ -750,16 +811,12 @@ main.container {
                       </div>
 
                       <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div id="s1-alert-bg" class="icon-circle bg-warning">
-                          <i id="s1-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
-                          </div>
-                        </div>
+
 
                         <div class="col">
-                          <h4 class="small font-weight-bold">Scooter 1 Last Seen Location:
-                                  <a href="http://localhost:1234 ">link</a>
-                                  <iframe src="http://localhost:1234">OpenLayers Tracker</iframe>
+                          <div class="loader"></div>
+                                  <!-- <a href="http://localhost:1234 ">link</a>
+                                  <iframe src="http://localhost:1234">OpenLayers Tracker</iframe> -->
                             <div id="map_s1" class="map_s1"><div id="popup"></div></div>
 
                               <input id="s1-track-btn" type="button" class="btn btn-danger" value=" Track " />
@@ -767,9 +824,13 @@ main.container {
                                <br><br>
                               <label>
                               <input id="s1-track-mode" type="checkbox"  data-toggle="toggle" data-on="Auto-Track" data-off="Self-Track" data-onstyle="primary" data-offstyle="danger">
-                              AUTO
                               <!-- <span id="s1-track-status" class="text">None</span> -->
                               </label>
+                              <!-- <div class="col-auto">
+                                <div id="s1-alert-bg" class="icon-circle bg-warning">
+                                <i id="s1-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
+                                </div>
+                              </div> -->
                             <br><b> <span id="s1-last-seen-address" class="float-right">Init...</b></span></h4>
                           <br><br>
                           <h4 class="small font-weight-bold">Time:<br>
@@ -797,21 +858,23 @@ main.container {
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Tracker</div>
                       <div class="row no-gutters align-items-center">
-                          <div class="col-auto">
+                          <!-- <div class="col-auto">
                       <div id="s2-alert-bg" class="icon-circle bg-warning">
                       <i id="s2-alert-logo" class="fas fa-exclamation-triangle text-white"></i>
                     </div>
-                    </div>
+                    </div> -->
 
                   <div class="col">
-                    <h4 class="small font-weight-bold">Scooter 2 Last Seen Location:
+                    <div class="loader"></div>
                       <div id="map_s2" class="map_s2"><div id="popup2"></div></div>
                       <input id="s2-track-btn" type="button" class="btn btn-danger" value=" Track " />
+
                        <span id="s2-track" class="text">None</span>
-                       <br><br>
+                       <br>
+                      <br>
                       <label>
                       <input id="s2-track-mode" type="checkbox"  data-toggle="toggle" data-on="Auto-Track" data-off="Self-Track" data-onstyle="primary" data-offstyle="danger">
-                      AUTO
+
                       <!-- <span id="s1-track-status" class="text">None</span> -->
                       </label>
                       <br><b> <span id="s2-last-seen-address" class="float-right">Locating...</b></span></h4>
@@ -844,7 +907,8 @@ main.container {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">eScooter Nearby</h6>
+                  <div class="loaderNearby"></div>
+                  <h6 class="m-0 font-weight-bold text-primary">eScooter Nearby   </h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -861,7 +925,7 @@ main.container {
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
-                    <!-- <canvas id="myAreaChart"></canvas> -->
+                    <canvas id="myAreaChart"></canvas>
                     <div id="map"></div>
                     <div id="geocoder" class="geocoder"></div>
 
@@ -877,7 +941,6 @@ main.container {
 
                 <!-- Card Body -->
                 <div class="card-body">
-
 
                   <!-- <div class="card shadow mb-4"> -->
                     <div class="card-header py-3">
@@ -912,41 +975,96 @@ main.container {
                         <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </div>
-                  <!-- </div> -->
+
+
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Content Row -->
-          <div class="row">
 
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
 
-              <!-- Project Card Example -->
 
-                <!-- <div class="card-body"> -->
+            </div>
 
-                  <!-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                    <div class="dropdown no-arrow">
-                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right shadow animatedfade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+            <!-- <div class="col-lg-6 mb-4"> -->
+
+              <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Chart Area</h6>
+                </div>
+                <div class="card-body">
+
+                  <!-- Begin Page Content -->
+                  <div class="container-fluid">
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>User UUID</th>
+                                <th>Handshake Location</th>
+                                <th>Handshake Coordinate</th>
+                                <th>Start Riding</th>
+                                <th>Stop Riding</th>
+                                <th>Last Seen</th>
+                              </tr>
+                            </thead>
+                            <tfoot>
+                              <tr>
+                                <th>User UUID</th>
+                                <th>Handshake Location</th>
+                                <th>Handshake Coordinate</th>
+                                <th>Start Riding</th>
+                                <th>Stop Riding</th>
+                                <th>Last Seen</th>
+                              </tr>
+                            </tfoot>
+                            <tbody>
+                              <tr>
+                                <td>iPhone 12</td>
+                                <td>Cats FM</td>
+                                <td>1.588,110.388</td>
+                                <td>Wed Jun 17 2020 19:11:10</td>
+                                <td>Wed Jun 17 2020 20:11:10</td>
+                                <td>1.48,110.488</td>
+                              </tr>
+                              <tr>
+                                <td>iPhone 11</td>
+                                <td>Cats FM</td>
+                                <td>1.588,110.388</td>
+                                <td>Wed Jun 17 2020 19:11:10</td>
+                                <td>Wed Jun 17 2020 20:11:10</td>
+                                <td>1.48,110.488</td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
-                  </div> -->
 
-                  <!-- </div> -->
-                  <!-- <div class="mt-4 text-center small">
+                  </div>
+                  <!-- /.container-fluid -->
+
+                  <!-- <div class="text-center">
+                    <div class="chart-area">
+                      <canvas id="myAreaChart"></canvas>
+                    </div>
+                  </div> -->
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                  </div>
+                  <div class="mt-4 text-center small">
                     <span class="mr-2">
                       <i class="fas fa-circle text-primary"></i> Direct
                     </span>
@@ -956,94 +1074,12 @@ main.container {
                     <span class="mr-2">
                       <i class="fas fa-circle text-info"></i> Referral
                     </span>
-                </div> -->
-              <!-- </div> -->
-          </div>
-        </div>
+                  </div>
 
-              <!-- Color System -->
-              <!-- <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+              </div>
 
-            </div>
 
-            <!-- <div class="col-lg-6 mb-4"> -->
-
-              <!-- Illustrations -->
-              <!-- <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">eScooter GPS Tracking</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <canvas id="myAreaChart"></canvas>
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_scooter_aia8.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div> -->
-
-              <!-- Approach -->
-              <!-- <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div> -->
-
-            <!-- </div> -->
           </div>
 
         </div>
@@ -1096,6 +1132,9 @@ main.container {
   <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -1109,7 +1148,6 @@ main.container {
   <!-- ALLJS Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 
   <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.23.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -1194,12 +1232,16 @@ main.container {
     var s1_lon = 0.0;
     var s2_lat = 0.0;
     var s2_lon = 0.0;
-
+// 40.866667, 34.566667 center of earth
     var s1_last_seen// default to uitm samaraham
     var s2_last_seen// default to uitm samaraham
-    var default_location = [110.4451,1.4489]; //110.4451,1.4489
+    var s1_start_coordinate = null;
+    var s1_stop_coordinate = null;
+    var default_location = [34.566667,40.866667]; //110.4451,1.4489
     var s1_tracked = "";
     var s2_tracked = "";
+    var s1_alarm = false;
+    var s2_alarm = false;
 
     s1_last_seen = default_location;
     s2_last_seen = default_location;
@@ -1395,6 +1437,10 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               s1_moved = msg.s1_moved;
               s1_alarm = msg.s1_alarm;
               s1_last_seen = msg.s1_last_known;
+              s1_start_coordinate = msg.s1_start_coord;
+              s1_stop_coordinate = msg.s1_stop_coord;
+              s1_mileage = msg.s1_mileage;
+
               s1_idle_time = msg.s1_idle_time;
               s1_active_time = msg.s1_active_time;
               var idle_duration = convertSeconds(Math.floor(s1_idle_time));
@@ -1406,6 +1452,9 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               $("#client-idle-tag").text(idle_duration);
               $("#client-active-tag").text(active_duration);
               $("#client-alarm-tag").text(s1_alarm);
+              $("#client-start-coord-tag").text(s1_start_coordinate);
+              $("#client-end-coord-tag").text(s1_stop_coordinate);
+              $("#client-mileage-tag").text(s1_mileage.toFixed(3));
 
 
             }
@@ -1436,6 +1485,8 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               $("#client-active-tag-2").text(active_duration);
 
             }
+            console.log("s1_start_coord: "+ s1_start_coordinate);
+            console.log("s1_stop_coord: "+ s1_stop_coordinate);
             console.log("s1_last_seen: "+ s1_last_seen);
             console.log("u_act_from_API received from iPhone: "+ API_u_act);
 
@@ -1485,15 +1536,15 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               s1_lon = lon2
               */
               const R = 6371e3; // metres
-              // const φ1 = adminLat * Math.PI/180; // φ, λ in radians
-              // const φ2 = s1_lat * Math.PI/180;
-              // const Δφ = (s1_lat-adminLat) * Math.PI/180;
-              // const Δλ = (s1_lon-adminLon) * Math.PI/180;
-
               const φ1 = adminLat * Math.PI/180; // φ, λ in radians
-              const φ2 = run_lat * Math.PI/180;
-              const Δφ = (run_lat-adminLat) * Math.PI/180;
-              const Δλ = (run_lon-adminLon) * Math.PI/180;
+              const φ2 = s1_lat * Math.PI/180;
+              const Δφ = (s1_lat-adminLat) * Math.PI/180;
+              const Δλ = (s1_lon-adminLon) * Math.PI/180;
+
+              // const φ1 = adminLat * Math.PI/180; // φ, λ in radians
+              // const φ2 = run_lat * Math.PI/180;
+              // const Δφ = (run_lat-adminLat) * Math.PI/180;
+              // const Δλ = (run_lon-adminLon) * Math.PI/180;
 
               const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
               Math.cos(φ1) * Math.cos(φ2) *
@@ -1513,19 +1564,36 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                 });
 
 
-            // if(s1_alarm == true){
-            //     $("#s1-alarm-status").text("Alarm Engaged");
-            // }
-            // else{
-            //     $("#s1-alarm-status").text("Alarm Disengaged");
-            // }
+            if(s1_alarm == true){
+                $("#s1-alarm-status").text("Alarm Engaged");
+                $( "#s1-alarm" ).removeClass("btn btn-success btn-icon-split");
+                $( "#s1-logo-alarm" ).removeClass("fas fa-check");
+                $( "#s1-logo-alarm" ).addClass("fas fa-exclamation-triangle");
+                $( "#s1-alarm" ).addClass("btn btn-danger btn-icon-split");
+                //fas fa-exclamation-triangle
+            }
+            else{
+                $("#s1-alarm-status").text("Alarm Disengaged");
+                $( "#s1-alarm" ).removeClass("btn btn-danger btn-icon-split");
+                $( "#s1-logo-alarm" ).removeClass("fas fa-exclamation-triangle");
+                $( "#s1-logo-alarm" ).addClass("fas fa-check");
+                $( "#s1-alarm" ).addClass("btn btn-success btn-icon-split");
+            }
 
-            // if(s2_alarm == true){
-            //     $("#s2-alarm-status").text(s1_alarm);
-            // }
-            // else{
-            //     $("#s2-alarm-status").text(s1_alarm);
-            // }
+            if(s2_alarm == true){
+                $("#s2-alarm-status").text("Alarm Engaged");
+                $( "#s2-alarm" ).removeClass("btn btn-success btn-icon-split");
+                $( "#s2-logo-alarm" ).removeClass("fas fa-check");
+                $( "#s2-logo-alarm" ).addClass("fas fa-exclamation-triangle");
+                $( "#s2-alarm" ).addClass("btn btn-danger btn-icon-split");
+            }
+            else{
+                $("#s2-alarm-status").text("Alarm Disengaged");
+                $( "#s2-alarm" ).removeClass("btn btn-danger btn-icon-split");
+                $( "#s2-logo-alarm" ).removeClass("fas fa-exclamation-triangle");
+                $( "#s2-logo-alarm" ).addClass("fas fa-check");
+                $( "#s2-alarm" ).addClass("btn btn-success btn-icon-split");
+            }
 
             if(s1_last_seen==null || s2_last_seen==null){
               // console.log("UNDEFINED DETECTED");
@@ -1570,7 +1638,32 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
 
     //////////////////////////// END OF PUBNUB ///////////////////////////////////
-
+/* sample geojson linestring around Cats FM 
+    [
+       110.37651658058167,
+       1.5805272067294014
+     ],
+     [
+       110.37772357463837,
+       1.581916061938933
+     ],
+     [
+       110.3784853219986,
+       1.581926786685963
+     ],
+     [
+       110.37930607795715,
+       1.5808489493316793
+     ],
+     [
+       110.37890911102295,
+       1.5800606798675436
+     ],
+     [
+       110.37657558917999,
+       1.580580830499906
+     ]
+*/
     var accessTokenGlobal = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
   	mapboxgl.accessToken = accessTokenGlobal;
       var map = new mapboxgl.Map({
@@ -1578,6 +1671,34 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           style: 'mapbox://styles/mapbox/dark-v10', //dark-v10 or streets-v11
           center: [longitude,latitude],
           zoom: 15
+      });
+      map.on('load', function() {
+          map.addSource('route', {
+              'type': 'geojson',
+              'data': {
+                  'type': 'Feature',
+                  'properties': {},
+                  'geometry': {
+                      'type': 'LineString',
+                      'coordinates': [
+
+                      ]
+                  }
+              }
+          });
+          map.addLayer({
+              'id': 'route',
+              'type': 'line',
+              'source': 'route',
+              'layout': {
+                  'line-join': 'round',
+                  'line-cap': 'round'
+              },
+              'paint': {
+                  'line-color': '#888',
+                  'line-width': 8
+              }
+          });
       });
 
 
@@ -1674,6 +1795,8 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               'bottom-right'
 
           );
+
+
 
           var x = document.getElementById("getAdminCoordinate");
           var adminLat , adminLon;
@@ -1961,7 +2084,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
       var change = 0.001;
       var i; // count newMarkers
-      var previousMarkers=[];
+      var previousCoordS3=[];
       var newMarkers;
       var run_lon ;
       var run_lat ;
@@ -1974,9 +2097,15 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
       var el = document.createElement('div');
       el.id = 'marker';
 
+
       function animateMarker(timestamp) {
           run_lon = radius* Math.sin(timestamp / 5000) + longitude;
           run_lat = radius* Math.cos(timestamp / 5000) + latitude;
+
+          var counter  = Math.round(timestamp/1000)
+
+          $("#console").text(run_lat.toFixed(4)+ "," + run_lon.toFixed(4));
+
           // run_lon = radius* Math.sin(timestamp / 5000) + s1_lon;
           // run_lat = radius* Math.cos(timestamp / 5000) + s1_lat;
           s2_run_lon = radius* Math.sin(timestamp / 5000);
@@ -2013,6 +2142,10 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
       } // end of animateMarker
       // Start the animation.
       requestAnimationFrame(animateMarker);
+
+      $(document).ready( function () {
+          $('#dataTable').DataTable();
+      } );
 
   </script>
 
@@ -2237,7 +2370,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           instance;
 
         if (startAngle < endAngle) {
-          console.log("WARN! startAngle < endAngle, Swapping");
+          // console.log("WARN! startAngle < endAngle, Swapping");
           var tmp = startAngle;
           startAngle = endAngle;
           endAngle = tmp;
