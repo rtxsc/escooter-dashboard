@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+          <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+          type="text/javascript" charset="utf-8"></script>
+          <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+          type="text/javascript" charset="utf-8"></script>
+          <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
+          type="text/javascript" charset="utf-8"></script>
+          <link rel="stylesheet" type="text/css"
+          href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    </head>
+    <body>
+      <div style="width: 640px; height: 480px" id="mapContainer"></div>
+      <script>
+        // Initialize the platform object:
+        var platform = new H.service.Platform({
+          'apikey': '1w7KrAEr2RavjypuDQybLyUv87bDuCM2TQJsLfBvnfg'
+        });
+
+        // Obtain the default map types from the platform object
+        var maptypes = platform.createDefaultLayers();
+
+        // Instantiate (and display) a map object:
+        var map_s2 = new H.Map(
+          document.getElementById('mapContainer'),
+          maptypes.vector.normal.map,
+          {
+            zoom: 15,
+            center: { lng: 110.588, lat: 1.388 }
+          });
+
+          // Get an instance of the search service:
+          var service = platform.getSearchService();
+          // Create the default UI:
+          var ui = H.ui.UI.createDefault(map_s2, maptypes);
+        // Call the reverse geocode method with the geocoding parameters,
+          // the callback and an error callback function (called if a
+          // communication error occurs):
+
+          var s2_last_seen = '1.588,110.388';
+          service.reverseGeocode({
+            at: s2_last_seen
+          }, (result) => {
+            result.items.forEach((item) => {
+              // Assumption: ui is instantiated
+              // Create an InfoBubble at the returned location with
+              // the address as its contents:
+              ui.addBubble(new H.ui.InfoBubble(item.position, {
+                content: item.address.label
+              }));
+            });
+          }, alert);
+
+      </script>
+    </body>
+  </html>

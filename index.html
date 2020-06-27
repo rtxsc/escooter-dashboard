@@ -4,15 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+
   <title>eScooter Tracker Project</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <script src="https://kit.fontawesome.com/c79287add4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/3.32/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/css/esri.css">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -20,14 +24,36 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
+type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css"
+href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
   <style>
+
+  button {
+position: absolute;
+margin: 20px;
+}
+
+#pause::after {
+content: 'Pause';
+}
+
+#pause.pause::after {
+content: 'Play';
+}
   .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  animation: spin 1s linear infinite;
+  animation: spin 5s linear infinite;
 }
 .loaderNearby {
 border: 16px solid #6c6780; /* Light grey */
@@ -46,7 +72,50 @@ animation: spin 1s linear infinite;
   	body { margin: 0; padding: 0; }
     /* map window for Mapbox */
   	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    #header {
+      border: solid 2px #666;
+      color: #666;
+      font-family: sans-serif;
+      font-size: 1.1em;
+      height: auto;
+      margin: 5px;
+      overflow: hidden;
+      padding: 10px 0 10px 20px;
+      text-align:left;
+    }
+    .roundedCorners {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
 
+    #floating-panel {
+      position: absolute;
+      top: 10px;
+      left: 0%;
+      z-index: 5;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #999;
+      text-align: center;
+      font-family: 'Roboto','sans-serif';
+      line-height: 30px;
+      padding-left: 10px;
+    }
+    #floating-panel {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      margin-left: -180px;
+      width: 350px;
+      z-index: 5;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #999;
+    }
+    #latlng {
+      width: 225px;
+    }
     #map_s1 {
       width: 100%;
       height:200px;
@@ -235,6 +304,19 @@ main.container {
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Reverse Geocode Google</span></a>
       </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="arcgis.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>ArcGIS Reverse</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="hereReverse.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>HERE Reverse</span></a>
+      </li>
+
 
 
 
@@ -577,9 +659,11 @@ main.container {
                               </span>
                               <span id="s1-alarm-status" class="text">Anti-Theft Alarm</span>
                             </a>
+                           <div id="chart_div" class="float-right" style="width: 80px; height: 80px;"></div>
+
                           </div>
                         <br>
-                        <img src="/img/scooter-disconnected.png" width="60" height="60">
+                        <!-- <img src="/img/scooter-disconnected.png" width="60" height="60"> -->
                       <a href="#" id="s1-btn" class="btn btn-success btn-icon-split">
                           <span class="icon text-white-50">
                             <i id="s1-logo" class="fas fa-check"></i>
@@ -587,11 +671,11 @@ main.container {
                           <span id="s1-status" class="text">Activated</span>
                       </a>
 
-                      <a href="#" id="s1-alarm-disable" class="btn btn-secondary btn-circle btn-lg float-right">
+                      <!-- <a href="#" id="s1-alarm-disable" class="btn btn-secondary btn-circle btn-lg float-right">
                         <span class="icon text-white-50">
                         <i class="fas fa-undo-alt"></i>
                         </span>
-                      </a>
+                      </a> -->
 
                       <br><br>
 
@@ -616,9 +700,6 @@ main.container {
                       <button class="btn btn-info btn-circle" onclick="sendAck()">ACK</button>
                       <button class="btn btn-info btn-circle" onclick="toggleAlarm()">ARM</button>
 
-
-
-
                     </div>
 
                   </div>
@@ -639,10 +720,12 @@ main.container {
                         </span>
                         <span id="s2-alarm-status" class="text">Anti-Theft Alarm</span>
                         </a>
+                        <div id="chart_div2" class="float-right" style="width: 80px; height: 80px;"></div>
+
 
                       </div>
                       <br>
-                      <img src="/img/scooter-disconnected.png" width="60" height="60">
+                      <!-- <img src="/img/scooter-disconnected.png" width="60" height="60"> -->
 
                         <a href="#" id="s2-btn" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
@@ -652,9 +735,9 @@ main.container {
                     </a>
 
 
-                    <a href="#" id="s2-alarm-disable" class="btn btn-secondary btn-circle btn-lg float-right">
+                    <!-- <a href="#" id="s2-alarm-disable" class="btn btn-secondary btn-circle btn-lg float-right">
                     <span class="icon text-white-50">
-                      <i class="fas fa-undo-alt"></i>
+                      <i class="fas fa-undo-alt"></i> -->
 
                     </span>
                     </a>
@@ -663,14 +746,12 @@ main.container {
                     <label>
                       S Activation
                     <input id="s2-toggle" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
-                    <span id="s2-status-override" class="text">None</span>
+                    <!-- <span id="s2-status-override" class="text">None</span> -->
                     </label>
                     <label>
                     U Activation
                     <input id="s2-toggle-user" type="checkbox"  data-toggle="toggle" data-on="Enable" data-off="Disable" data-onstyle="primary" data-offstyle="danger">
-
-
-                    <span id="s2-status-override-user" class="text">None</span>
+                    <!-- <span id="s2-status-override-user" class="text">None</span> -->
                     </label>
 
                     <br>
@@ -695,8 +776,13 @@ main.container {
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-1 d-flex flex-row align-items-center justify-content-between">
-                  <div class="loaderNearby"></div>
-                  <h6 class="m-0 font-weight-bold text-primary">eScooter Nearby   </h6>
+                  <div class="loaderNearby float-right"></button></div>
+                  <h6 class="m-0 font-weight-bold text-primary">eScooter Nearby</h6>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <!-- <button type="button" class="btn btn-secondary">Left</button> -->
+                    <button type="button" id="pause" class="btn btn-secondary"></button>
+                    <button type="button" id="reset" class="btn btn-secondary">Reset</button>
+                  </div>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -767,16 +853,21 @@ main.container {
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Tracker
+                        <div class="loader float-right"></div>
+
                       </div>
 
                       <div class="row no-gutters align-items-center">
-
-
                         <div class="col">
-                          <div class="loader"></div>
                                   <!-- <a href="http://localhost:1234 ">link</a>
                                   <iframe src="http://localhost:1234">OpenLayers Tracker</iframe> -->
-                            <div id="map_s1" class="map_s1"><div id="popup"></div></div>
+                            <!-- <div id="map_s1" class="map_s1"><div id="popup"></div></div> -->
+
+                              <!-- <input id="latlng" type="text" value="1.588,110.388"> -->
+                              <!-- <input id="submit" type="button" value="Reverse Geocode"> -->
+
+                              <div id="map_s1"></div>
+                              <!-- <input id="submit" type="button" class="btn btn-danger" value=" Track " /> -->
 
                               <input id="s1-track-btn" type="button" class="btn btn-danger" value=" Track " />
                                <span id="s1-track" class="text">None</span>
@@ -815,7 +906,9 @@ main.container {
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Tracker</div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Tracker
+                        <div class="loader float-right"></div>
+                      </div>
                       <div class="row no-gutters align-items-center">
                           <!-- <div class="col-auto">
                       <div id="s2-alert-bg" class="icon-circle bg-warning">
@@ -824,8 +917,10 @@ main.container {
                     </div> -->
 
                   <div class="col">
-                    <div class="loader"></div>
-                      <div id="map_s2" class="map_s2"><div id="popup2"></div></div>
+                    <!-- <div id="map_s2"></div> -->
+                    <div id="map_s2"></div>
+
+
                       <input id="s2-track-btn" type="button" class="btn btn-danger" value=" Track " />
 
                        <span id="s2-track" class="text">None</span>
@@ -897,70 +992,10 @@ main.container {
 
   <!-- Content Row 1 -->
           <div class="row">
-
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scooter 1 Speed Over Ground</div>
-                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
-
-                      <div class="card-deck text-center">
-                      <div class="card mb-4 box-shadow bg-gradient">
-                           <div class="card-body gauge-container" id="gauge1">
-                           </div>
-                         </div>
-                       </div>
-
-                      <!-- <a href="#" id="s1-btn_" class="btn btn-success btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i id="s1-logo_" class="fas fa-check"></i>
-                        </span>
-                        <span id="s1-status_" class="text">Activated</span>
-                      </a> -->
-
-                    </div>
-
-                  </div>
-                </div>
-              </div>
             </div>
-
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Scooter 2 Speed Over Ground</div>
-                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">False</div> -->
-
-                      <div class="card mb-4 box-shadow">
-                       <div class="card-body gauge-container" id="gauge2">
-                       </div>
-                     </div>
-
-                      <!-- <a href="#" id="s2-btn_" class="btn btn-success btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i id="s2-logo_" class="fas fa-check"></i>
-                        </span>
-                        <span id="s2-status_" class="text">Activated</span>
-                      </a> -->
-
-                    </div>
-                    <!-- <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div> -->
-                  </div>
-                </div>
-              </div>
             </div>
-
-
-
-
           </div>
   <!-- Content Row 1 -->
 
@@ -1206,8 +1241,16 @@ main.container {
 
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPs0zyqafpz7bQ4tvqCIhtxaadZomWe78&callback=initMapS1">
+  </script>
+
+
 
   <script>
+
 
   var CHANNEL_ID = "robotronix";
   var fleet_size = 0;
@@ -1275,6 +1318,8 @@ main.container {
     var s1_lon = 0.0;
     var s2_lat = 0.0;
     var s2_lon = 0.0;
+    var s3_lat = latitude;
+    var s3_lon = longitude;
 // 40.866667, 34.566667 center of earth
     var s1_last_seen// default to uitm samaraham
     var s2_last_seen// default to uitm samaraham
@@ -1656,6 +1701,94 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             $("#s1-u_act-publisher").text(client_uuid);
 
 
+
+ //////////////////////////// ACTIVATION PAYLOAD TO CLIENT ////////////////////////////////
+
+            var s_act_payload;
+            var u_act_payload;
+
+   // below server activation for client-s1 only
+
+
+            $(function() {
+              $('#s1-toggle').change(function() {
+                $('#s1-status-override').html(""+$(this).prop('checked'))
+                if($(this).prop('checked')){
+                  s_act_payload = "s_act_1"
+                  // u_act_payload = API_u_act
+                }
+                else {
+                  s_act_payload = "s_act_0"
+                  // u_act_payload = API_u_act
+                }
+                // if(s1_last_seen==null)
+                //   s1_last_seen = 45,45;
+
+                var metaOnlyPublishTo = {
+                  "uuid": "client-s1"
+                }
+
+                var messagePayload = {
+                    uuid : pubnub.getUUID(),
+                    s_act: s_act_payload
+                }
+
+                var onResponse = function(status,response){
+                  // handle response here
+                }
+                pubnub.publish(
+                    {
+                        message: messagePayload,
+                        channel: CHANNEL_ID,
+                        meta: metaOnlyPublishTo
+                    },
+                    onResponse
+                )// end publish
+
+              })
+            }) // end of server activation block
+
+
+
+   ////////////////////////////////////////////////////////////////////////////
+   // below server activation for client-s2 only
+            $(function() {
+              $('#s2-toggle').change(function() {
+                $('#s2-status-override').html(""+$(this).prop('checked'))
+                if($(this).prop('checked')){
+                  s_act_payload = "s_act_1"
+                }
+                else {
+                  s_act_payload = "s_act_0"
+                }
+                // if(s1_last_seen==null)
+                //   s1_last_seen = 45,45;
+
+                var metaOnlyPublishTo = {
+                  "uuid": "client-s2"
+                }
+
+                var messagePayload = {
+                    uuid : pubnub.getUUID(),
+                    s_act: s_act_payload
+                }
+
+                var onResponse = function(status,response){
+                  // handle response here
+                }
+                pubnub.publish(
+                    {
+                        message: messagePayload,
+                        channel: CHANNEL_ID,
+                        meta: metaOnlyPublishTo
+                    },
+                    onResponse
+                )// end publish
+
+              })
+            }) // end of server activation block
+
+
             $(function() {
               $('#s1-toggle-user').change(function() {
                 $('#s1-status-override-user').html(""+$(this).prop('checked'))
@@ -1666,7 +1799,40 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                   u_act_payload = "u_act_0";
                 }
                 var metaOnlyPublishTo = {
-                  "uuid": "client-s1"
+                  "uuid": "client-s1" // only publish user_act to s1
+                }
+
+                var serverPayload = {
+                  uuid : pubnub.getUUID(),
+                  u_act_from_s: u_act_payload
+                }
+                var onResponse = function(status,response){
+                  // handle response here
+                }
+                pubnub.publish(
+                    {
+                        message: serverPayload,
+                        channel: CHANNEL_ID,
+                        meta: metaOnlyPublishTo
+                    },
+                    onResponse
+                )//end publish
+
+              })
+            }) // end of user activation block
+
+            $(function() {
+              $('#s2-toggle-user').change(function() {
+                $('#s2-status-override-user').html(""+$(this).prop('checked'))
+                if($(this).prop('checked')){
+                  u_act_payload = "u_act_1"
+                }
+                else {
+                  u_act_payload = "u_act_0"
+                }
+
+                var metaOnlyPublishTo = {
+                  "uuid": "client-s2" // only publish user_act to s2
                 }
 
                 var serverPayload = {
@@ -1730,7 +1896,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             if(s1_alarm == true){
                 $("#s1-alarm-status").text("Alarm Engaged");
                 $( "#s1-alarm" ).removeClass("btn btn-success btn-icon-split");
-                $( "#s1-logo-alarm" ).removeClass("fas fa-check");
+                $( "#s1-logo-alarm" ).removeClass("fa fa-bell");
                 $( "#s1-logo-alarm" ).addClass("fas fa-exclamation-triangle");
                 $( "#s1-alarm" ).addClass("btn btn-danger btn-icon-split");
                 //fas fa-exclamation-triangle
@@ -1739,14 +1905,14 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                 $("#s1-alarm-status").text("Alarm Disengaged");
                 $( "#s1-alarm" ).removeClass("btn btn-danger btn-icon-split");
                 $( "#s1-logo-alarm" ).removeClass("fas fa-exclamation-triangle");
-                $( "#s1-logo-alarm" ).addClass("fas fa-check");
+                $( "#s1-logo-alarm" ).addClass("fa fa-bell"); //<i class="far fa-bell"></i>
                 $( "#s1-alarm" ).addClass("btn btn-success btn-icon-split");
             }
 
             if(s2_alarm == true){
                 $("#s2-alarm-status").text("Alarm Engaged");
                 $( "#s2-alarm" ).removeClass("btn btn-success btn-icon-split");
-                $( "#s2-logo-alarm" ).removeClass("fas fa-check");
+                $( "#s2-logo-alarm" ).removeClass("fa fa-bell");
                 $( "#s2-logo-alarm" ).addClass("fas fa-exclamation-triangle");
                 $( "#s2-alarm" ).addClass("btn btn-danger btn-icon-split");
             }
@@ -1754,7 +1920,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
                 $("#s2-alarm-status").text("Alarm Disengaged");
                 $( "#s2-alarm" ).removeClass("btn btn-danger btn-icon-split");
                 $( "#s2-logo-alarm" ).removeClass("fas fa-exclamation-triangle");
-                $( "#s2-logo-alarm" ).addClass("fas fa-check");
+                $( "#s2-logo-alarm" ).addClass("fa fa-bell");
                 $( "#s2-alarm" ).addClass("btn btn-success btn-icon-split");
             }
 
@@ -1801,32 +1967,111 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
 
     //////////////////////////// END OF PUBNUB ///////////////////////////////////
-/* sample geojson linestring around Cats FM
-    [
-       110.37651658058167,
-       1.5805272067294014
-     ],
-     [
-       110.37772357463837,
-       1.581916061938933
-     ],
-     [
-       110.3784853219986,
-       1.581926786685963
-     ],
-     [
-       110.37930607795715,
-       1.5808489493316793
-     ],
-     [
-       110.37890911102295,
-       1.5800606798675436
-     ],
-     [
-       110.37657558917999,
-       1.580580830499906
-     ]
-*/
+    //////////////////////////// S1 Reverse Geocode ///////////////////////////////////
+
+    function initMapS1() {
+      var map_s1 = new google.maps.Map(document.getElementById('map_s1'), {
+        zoom: 10,
+        center: {lat: 1.388, lng: 110.588}
+      });
+      var geocoder = new google.maps.Geocoder;
+      var infowindow = new google.maps.InfoWindow;
+
+      document.getElementById('s1-track-btn').addEventListener('click', function() {
+        geocodeLatLng(geocoder, map_s1, infowindow);
+      });
+    }
+
+
+
+    function geocodeLatLng(geocoder, map_s1, infowindow) {
+      //https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBGvn5IKpL8dpo8DPl_kx-Xc4VGWIu86Dw&latlng=45.4215296%2C+-75.697193&sensor=false&language=
+      // example url for reverse geocoding 1.588,110.388
+      // https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBGvn5IKpL8dpo8DPl_kx-Xc4VGWIu86Dw&latlng=1.588%2C+110.388&sensor=false&language=
+      // console.log(document.getElementById('latlng').value);
+      // var input = document.getElementById('latlng').value;
+      var input = s1_last_seen.toString();
+      console.log(input);
+      var latlngStr = input.split(',', 2);
+      var latlng = {lat: parseFloat(latlngStr[1]), lng: parseFloat(latlngStr[0])};
+      geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === 'OK') {
+          if (results[0]) {
+            map_s1.setZoom(11);
+            var marker = new google.maps.Marker({
+              position: latlng,
+              map: map_s1
+            });
+            infowindow.setContent(results[0].formatted_address);
+            infowindow.open(map_s1, marker);
+            console.log(results[0].formatted_address);
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+    }
+
+    //////////////////////////// S2 Reverse Geocode ///////////////////////////////////
+    // Initialize the platform object:
+
+    var platform = new H.service.Platform({
+      'apikey': '1w7KrAEr2RavjypuDQybLyUv87bDuCM2TQJsLfBvnfg'
+    });
+
+    // Obtain the default map types from the platform object
+    var maptypes = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    var map_s2 = new H.Map(
+      document.getElementById('map_s2'),
+      maptypes.vector.normal.map,
+      {
+        zoom: 10,
+        center: { lng: 110.377947, lat: 1.581206 }
+      });
+
+    function reverseGeocodeS2(s2_last_seen){
+      var platform = new H.service.Platform({
+        'apikey': '1w7KrAEr2RavjypuDQybLyUv87bDuCM2TQJsLfBvnfg'
+      });
+
+      lat = s2_last_seen[1].toString();
+      lon = s2_last_seen[0].toString();
+      s2_locate = lat+','+lon
+      console.log(s2_locate);
+      // Obtain the default map types from the platform object
+      var maptypes = platform.createDefaultLayers();
+      // Instantiate (and display) a map object:
+
+        // Get an instance of the search service:
+        var service = platform.getSearchService();
+        // Create the default UI:
+        var ui = H.ui.UI.createDefault(map_s2, maptypes);
+      // Call the reverse geocode method with the geocoding parameters,
+        // the callback and an error callback function (called if a
+        // communication error occurs):
+      //  var latitude = 1.581206; // 1.581623,110.382395
+      //  var longitude = 110.377947;
+        // var s2_last_seen = '1.581206,110.377947';
+        service.reverseGeocode({
+          at: s2_locate
+        }, (result) => {
+          result.items.forEach((item) => {
+            // Assumption: ui is instantiated
+            // Create an InfoBubble at the returned location with
+            // the address as its contents:
+            ui.addBubble(new H.ui.InfoBubble(item.position, {
+              content: item.address.label
+            }));
+          });
+        }, alert);
+    }
+
+
+/////////////////////////////// MAPBOX GL JS /////////////////////////////////////////
     var accessTokenGlobal = 'pk.eyJ1IjoiemlkeiIsImEiOiJjazg2dWdma3UwNmF2M21zOTRlMm5xZWNoIn0.6yu8M14Qtb6bwSIuPjMSHA';
   	mapboxgl.accessToken = accessTokenGlobal;
       var map = new mapboxgl.Map({
@@ -1835,35 +2080,118 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           center: [longitude,latitude],
           zoom: 15
       });
-      map.on('load', function() {
-          map.addSource('route', {
-              'type': 'geojson',
-              'data': {
-                  'type': 'Feature',
-                  'properties': {},
-                  'geometry': {
-                      'type': 'LineString',
-                      'coordinates': [
 
-                      ]
-                  }
-              }
-          });
-          map.addLayer({
-              'id': 'route',
-              'type': 'line',
-              'source': 'route',
-              'layout': {
-                  'line-join': 'round',
-                  'line-cap': 'round'
-              },
-              'paint': {
-                  'line-color': '#888',
-                  'line-width': 8
-              }
-          });
+
+      // Create a GeoJSON source with an empty lineString.
+      var geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+          {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'LineString',
+          'coordinates': [[0, 0]]
+          }
+          }
+        ]
+      };
+
+      var speedFactor = 180; // number of frames per longitude degree (drawing duration in seconds)
+      var animation; // to store and cancel the animation
+      var startTime = 0;
+      var progress = 0; // progress = timestamp - startTime
+      var resetTime = false; // indicator of whether time reset is needed for the animation
+      var pauseButton = document.getElementById('pause');
+      var resetButton = document.getElementById('reset');
+
+      map.on('load', function() {
+      map.addSource('line', {
+      'type': 'geojson',
+      'data': geojson
       });
 
+      // add the line which will be modified in the animation
+      map.addLayer({
+      'id': 'line-animation',
+      'type': 'line',
+      'source': 'line',
+      'layout': {
+      'line-cap': 'round',
+      'line-join': 'round'
+      },
+      'paint': {
+      'line-color': '#FFFF00',
+      'line-width': 5,
+      'line-opacity': 0.8
+      }
+      });
+
+      startTime = performance.now();
+
+      // animateLine();
+      setInterval(animateLine(), 5000);
+
+      // click the button to pause or play
+      pauseButton.addEventListener('click', function() {
+      pauseButton.classList.toggle('pause');
+      if (pauseButton.classList.contains('pause')) {
+      cancelAnimationFrame(animation);
+      } else {
+      resetTime = true;
+      // animateLine();
+      setInterval(animateLine(), 5000);
+
+      }
+      });
+
+      // reset startTime and progress once the tab loses or gains focus
+      // requestAnimationFrame also pauses on hidden tabs by default
+      document.addEventListener('visibilitychange', function() {
+      resetTime = true;
+      });
+
+      resetButton.addEventListener('click', function() {
+        resetTime = true;
+        geojson.features[0].geometry.coordinates = [];
+      });
+
+        // animated in a circle as a sine wave along the map.
+      function animateLine(timestamp) {
+          if (resetTime) {
+          // resume previous progress
+          startTime = performance.now() - progress;
+          resetTime = false;
+          } else {
+          progress = timestamp - startTime;
+          // console.log(performance.now());
+          }
+          console.log(progress);
+
+          // restart if it finishes a loop
+          if (progress > speedFactor * 1000) {
+
+          startTime = timestamp;
+          geojson.features[0].geometry.coordinates = [];
+          } else {
+          // draw a sine wave with some math.
+          // var x = progress / speedFactor;
+          // var y = Math.sin((x * Math.PI) / 90) * 40;
+          var x  = run_lon;
+          var y = run_lat;
+          // console.log(x,y);
+          // append new coordinates to the lineString
+          geojson.features[0].geometry.coordinates.push([x, y]);
+          // console.log(geojson.features[0].geometry.coordinates.length);
+          // then update the map
+          map.getSource('line').setData(geojson);
+          }
+          // Request the next frame of the animation.
+          // animation = requestAnimationFrame(animateLine);
+          animation = window.setInterval(requestAnimationFrame(animateLine), 10000);
+          // console.log(animation);
+
+          }
+      });
 
       var radius = 0.001; // rotate radius for circle and marker3/scooter3
       /*
@@ -1985,28 +2313,16 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
               });
 
 
-
-
     var clickTime = 0;
     $(document).ready(function(){
-
-
           $("#s1-track-btn").click(function(){
           // console.log(s1_last_seen);
           // console.log("clicked! "+ clickTime++);
           $('#s1-track').html("Tracking...")
           $(this).button('loading').delay(1000).queue(function() {
-
-
                 locateS1(s1_last_seen);
                 $(this).dequeue();
                 $('#s1-track').html("Found "+s1_last_seen);
-
-              //   view.animate({
-              //   center: s1_last_seen,
-              //   duration: 2000
-              // });
-
             });
         });
     });
@@ -2014,26 +2330,14 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
 
     $(document).ready(function(){
           $("#s2-track-btn").click(function(){
-          // console.log(s2_last_seen);
-          // console.log("clicked!");
           $('#s2-track').html("Tracking...")
 
-          // pubnub.publish({
-          //         message: "s_act_69",
-          //         channel: CHANNEL_ID
-          //       });
-          // s1_last_seen = [110.3581,1.5906];
             $(this).button('loading').delay(1000).queue(function() {
-              if(s2_last_seen != 0,0){
-                  locateS2(s2_last_seen);
-                  $(this).dequeue();
-                  $('#s2-track').html("Found! "+s2_last_seen);
-              }
-              else{
-                $(this).dequeue();
-                $('#s2-track').html("Nothing found! Try again!")
-              }
-
+              // s2_last_seen = [110.3581,1.5906];
+              locateS2(s2_last_seen);
+              reverseGeocodeS2(s2_last_seen);
+              $(this).dequeue();
+              $('#s2-track').html("Found! "+s2_last_seen);
 
             });
         });
@@ -2112,126 +2416,8 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             }) // end of server activation block
           })
 
-          var s_act_payload;
-          var u_act_payload;
-
- // below payload activation for client-s1 only
 
 
-          $(function() {
-            $('#s1-toggle').change(function() {
-              $('#s1-status-override').html(""+$(this).prop('checked'))
-              if($(this).prop('checked')){
-                s_act_payload = "s_act_1"
-                // u_act_payload = API_u_act
-              }
-              else {
-                s_act_payload = "s_act_0"
-                // u_act_payload = API_u_act
-              }
-              // if(s1_last_seen==null)
-              //   s1_last_seen = 45,45;
-
-              var metaOnlyPublishTo = {
-                "uuid": "client-s1"
-              }
-
-              var messagePayload = {
-                  uuid : "web-dashboard",
-                  publisher: pubnub.uuid,
-                  s_act: s_act_payload
-              }
-
-              var onResponse = function(status,response){
-                // handle response here
-              }
-              pubnub.publish(
-                  {
-                      message: messagePayload,
-                      channel: CHANNEL_ID,
-                      meta: metaOnlyPublishTo
-                  },
-                  onResponse
-              )// end publish
-
-            })
-          }) // end of server activation block
-
-
-
- ////////////////////////////////////////////////////////////////////////////
- // below payload activation for client-s2 only
-          $(function() {
-            $('#s2-toggle').change(function() {
-              $('#s2-status-override').html(""+$(this).prop('checked'))
-              if($(this).prop('checked')){
-                s_act_payload = "s_act_1"
-              }
-              else {
-                s_act_payload = "s_act_0"
-              }
-              // if(s1_last_seen==null)
-              //   s1_last_seen = 45,45;
-
-              var metaOnlyPublishTo = {
-                "uuid": "client-s2"
-              }
-
-              var messagePayload = {
-                uuid : "web-dashboard",
-                  publisher: pubnub.uuid,
-                  s_act: s_act_payload
-              }
-
-              var onResponse = function(status,response){
-                // handle response here
-              }
-              pubnub.publish(
-                  {
-                      message: messagePayload,
-                      channel: CHANNEL_ID,
-                      meta: metaOnlyPublishTo
-                  },
-                  onResponse
-              )// end publish
-
-            })
-          }) // end of server activation block
-
-          $(function() {
-            $('#s2-toggle-user').change(function() {
-              $('#s2-status-override-user').html(""+$(this).prop('checked'))
-              if($(this).prop('checked')){
-                u_act_payload = "u_act_1"
-              }
-              else {
-                u_act_payload = "u_act_0"
-              }
-
-              var metaOnlyPublishTo = {
-                "uuid": "client-s2"
-              }
-
-              var serverPayload = {
-                uuid : "web-dashboard",
-                publisher: pubnub.uuid,
-                u_act: u_act_payload,
-                s2_last_seen: [0,0]
-              }
-              var onResponse = function(status,response){
-                // handle response here
-              }
-              pubnub.publish(
-                  {
-                      message: serverPayload,
-                      channel: CHANNEL_ID,
-                      meta: metaOnlyPublishTo
-                  },
-                  onResponse
-              )//end publish
-
-            })
-          }) // end of user activation block
 
 
       var scooter1 = new mapboxgl.Marker();
@@ -2273,8 +2459,8 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
             s2_lat= 0;
           }
 
-          run_lon = radius* Math.sin(timestamp / 5000) + s1_lon;
-          run_lat = radius* Math.cos(timestamp / 5000) + s1_lat;
+          run_lon = radius* Math.sin(timestamp / 5000) + s3_lon;
+          run_lat = radius* Math.cos(timestamp / 5000) + s3_lat;
           // console.log("Coordinate of s1="+s1_lon,s1_lat);
           // console.log("Coordinate of s2="+s2_lon+","+s2_lat);
           scooter1.setLngLat([s1_lon,s1_lat]);
@@ -2286,7 +2472,7 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           // Ensure it's added to the map. This is safe to call if it's already added.
           scooter1.addTo(map);
           scooter2.addTo(map);
-          // scooter3.addTo(map);
+          scooter3.addTo(map);
 
           // // create the marker
           // new mapboxgl.Marker(el)
@@ -2303,477 +2489,47 @@ curl "https://api.mapbox.com/geocoding/v5/mapbox.places/110.38827859999998,1.583
           $('#dataTable').DataTable();
       } );
 
+      //////////////////////////// SPEED GAUGE ////////////////////////////////
+
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['kmh', 0],
+        ]);
+
+        var options = {
+          min:0,max:35,
+          width: 400, height: 120,
+          redFrom: 25, redTo: 35,
+          yellowFrom:20, yellowTo: 24.9,
+          greenFrom:0, greenTo: 19.9,
+          minorTicks: 5, majorTicks:[0,5,10,15,20,25,30,35]
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        setInterval(function() {
+          // data.setValue(0, 1, 0 + Math.round(35 * Math.random()));
+          data.setValue(0, 1, s1_groundSpeed);
+          chart.draw(data, options);
+        }, 1000);
+
+        var chart2 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+        chart2.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, 0 + Math.round(35 * Math.random()));
+          chart2.draw(data, options);
+        }, 1000);
+      }
+
   </script>
 
-  <script type="text/javascript">
-
-  function animatingGauge(){
-    /* global window, define, module */
-  (function(global, factory) {
-    var Gauge = factory(global);
-    if (typeof define === "function" && define.amd) {
-      // AMD support
-      define(function() {
-        return Gauge;
-      });
-    } else if (typeof module === "object" && module.exports) {
-      // CommonJS support
-      module.exports = Gauge;
-    } else {
-      // We are probably running in the browser
-      global.Gauge = Gauge;
-    }
-  })(typeof window === "undefined" ? this : window, function(global, undefined) {
-    var document = global.document,
-      slice = Array.prototype.slice,
-      requestAnimationFrame =
-        global.requestAnimationFrame ||
-        global.mozRequestAnimationFrame ||
-        global.webkitRequestAnimationFrame ||
-        global.msRequestAnimationFrame ||
-        function(cb) {
-          return setTimeout(cb, 1000 / 60);
-        };
-
-    // EXPERIMENTAL!!
-    /**
-     * Simplistic animation function for animating the gauge. That's all!
-     * Options are:
-     * {
-     *  duration: 1,    // In seconds
-     *  start: 0,       // The start value
-     *  end: 100,       // The end value
-     *  step: function, // REQUIRED! The step function that will be passed the value and does something
-     *  easing: function // The easing function. Default is easeInOutCubic
-     * }
-     */
-    function Animation(options) {
-      var duration = options.duration,
-        currentIteration = 1,
-        iterations = 60 * duration,
-        start = options.start || 0,
-        end = options.end,
-        change = end - start,
-        step = options.step,
-        easing =
-          options.easing ||
-          function easeInOutCubic(pos) {
-            // https://github.com/danro/easing-js/blob/master/easing.js
-            if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 3);
-            return 0.5 * (Math.pow(pos - 2, 3) + 2);
-          };
-
-      function animate() {
-        var progress = currentIteration / iterations,
-          value = change * easing(progress) + start;
-        // console.log(progress + ", " + value);
-        step(value, currentIteration);
-        currentIteration += 1;
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      }
-      // start!
-      requestAnimationFrame(animate);
-    }
-
-    var Gauge = (function() {
-      var SVG_NS = "http://www.w3.org/2000/svg";
-
-      var GaugeDefaults = {
-        centerX: 50,
-        centerY: 50
-      };
-
-      var defaultOptions = {
-        dialRadius: 40,
-        dialStartAngle: 135,
-        dialEndAngle: 45,
-        value: 0,
-        max: 100,
-        min: 0,
-        valueDialClass: "value",
-        valueClass: "value-text",
-        dialClass: "dial",
-        gaugeClass: "gauge",
-        showValue: true,
-        gaugeColor: null,
-        label: function(val) {
-          return Math.round(val);
-        }
-      };
-
-      function shallowCopy(/* source, ...targets*/) {
-        var target = arguments[0],
-          sources = slice.call(arguments, 1);
-        sources.forEach(function(s) {
-          for (k in s) {
-            if (s.hasOwnProperty(k)) {
-              target[k] = s[k];
-            }
-          }
-        });
-        return target;
-      }
-
-      /**
-       * A utility function to create SVG dom tree
-       * @param {String} name The SVG element name
-       * @param {Object} attrs The attributes as they appear in DOM e.g. stroke-width and not strokeWidth
-       * @param {Array} children An array of children (can be created by this same function)
-       * @return The SVG element
-       */
-      function svg(name, attrs, children) {
-        var elem = document.createElementNS(SVG_NS, name);
-        for (var attrName in attrs) {
-          elem.setAttribute(attrName, attrs[attrName]);
-        }
-
-        if (children) {
-          children.forEach(function(c) {
-            elem.appendChild(c);
-          });
-        }
-        return elem;
-      }
-
-      /**
-       * Translates percentage value to angle. e.g. If gauge span angle is 180deg, then 50%
-       * will be 90deg
-       */
-      function getAngle(percentage, gaugeSpanAngle) {
-        return percentage * gaugeSpanAngle / 100;
-      }
-
-      function normalize(value, min, limit) {
-        var val = Number(value);
-        if (val > limit) return limit;
-        if (val < min) return min;
-        return val;
-      }
-
-      function getValueInPercentage(value, min, max) {
-        const newMax = max - min,
-          newVal = value - min;
-        return 100 * newVal / newMax;
-        // var absMin = Math.abs(min);
-        // return 100 * (absMin + value) / (max + absMin);
-      }
-
-      /**
-       * Gets cartesian co-ordinates for a specified radius and angle (in degrees)
-       * @param cx {Number} The center x co-oriinate
-       * @param cy {Number} The center y co-ordinate
-       * @param radius {Number} The radius of the circle
-       * @param angle {Number} The angle in degrees
-       * @return An object with x,y co-ordinates
-       */
-      function getCartesian(cx, cy, radius, angle) {
-        var rad = angle * Math.PI / 180;
-        return {
-          x: Math.round((cx + radius * Math.cos(rad)) * 1000) / 1000,
-          y: Math.round((cy + radius * Math.sin(rad)) * 1000) / 1000
-        };
-      }
-
-      // Returns start and end points for dial
-      // i.e. starts at 135deg ends at 45deg with large arc flag
-      // REMEMBER!! angle=0 starts on X axis and then increases clockwise
-      function getDialCoords(radius, startAngle, endAngle) {
-        var cx = GaugeDefaults.centerX,
-          cy = GaugeDefaults.centerY;
-        return {
-          end: getCartesian(cx, cy, radius, endAngle),
-          start: getCartesian(cx, cy, radius, startAngle)
-        };
-      }
-
-      /**
-       * Creates a Gauge object. This should be called without the 'new' operator. Various options
-       * can be passed for the gauge:
-       * {
-       *    dialStartAngle: The angle to start the dial. MUST be greater than dialEndAngle. Default 135deg
-       *    dialEndAngle: The angle to end the dial. Default 45deg
-       *    radius: The gauge's radius. Default 400
-       *    max: The maximum value of the gauge. Default 100
-       *    value: The starting value of the gauge. Default 0
-       *    label: The function on how to render the center label (Should return a value)
-       * }
-       * @param {Element} elem The DOM into which to render the gauge
-       * @param {Object} opts The gauge options
-       * @return a Gauge object
-       */
-      return function Gauge(elem, opts) {
-        opts = shallowCopy({}, defaultOptions, opts);
-        var gaugeContainer = elem,
-          limit = opts.max,
-          min = opts.min,
-          value = normalize(opts.value, min, limit),
-          radius = opts.dialRadius,
-          displayValue = opts.showValue,
-          startAngle = opts.dialStartAngle,
-          endAngle = opts.dialEndAngle,
-          valueDialClass = opts.valueDialClass,
-          valueTextClass = opts.valueClass,
-          valueLabelClass = opts.valueLabelClass,
-          dialClass = opts.dialClass,
-          gaugeClass = opts.gaugeClass,
-          gaugeColor = opts.color,
-          gaugeValueElem,
-          gaugeValuePath,
-          label = opts.label,
-          instance;
-
-        if (startAngle < endAngle) {
-          // console.log("WARN! startAngle < endAngle, Swapping");
-          var tmp = startAngle;
-          startAngle = endAngle;
-          endAngle = tmp;
-        }
-
-        function pathString(radius, startAngle, endAngle, largeArc) {
-          var coords = getDialCoords(radius, startAngle, endAngle),
-            start = coords.start,
-            end = coords.end,
-            largeArcFlag = typeof largeArc === "undefined" ? 1 : largeArc;
-
-          return [
-            "M",
-            start.x,
-            start.y,
-            "A",
-            radius,
-            radius,
-            0,
-            largeArcFlag,
-            1,
-            end.x,
-            end.y
-          ].join(" ");
-        }
-
-        function initializeGauge(elem) {
-          gaugeValueElem = svg("text", {
-            x: 50,
-            y: 50,
-            fill: "#999",
-            class: valueTextClass,
-            "font-size": "100%",
-            "font-family": "sans-serif",
-            "font-weight": "normal",
-            "text-anchor": "middle"
-          });
-
-          gaugeValuePath = svg("path", {
-            class: valueDialClass,
-            fill: "none",
-            stroke: "#666",
-            "stroke-width": 2.5,
-            d: pathString(radius, startAngle, startAngle) // value of 0
-          });
-
-          var angle = getAngle(100, 360 - Math.abs(startAngle - endAngle));
-          var flag = angle <= 180 ? 0 : 1;
-          var gaugeElement = svg(
-            "svg",
-            { viewBox: "0 0 100 100", class: gaugeClass },
-            [
-              svg("path", {
-                class: dialClass,
-                fill: "none",
-                stroke: "#eee",
-                "stroke-width": 2,
-                d: pathString(radius, startAngle, endAngle, flag)
-              }),
-              gaugeValueElem,
-              gaugeValuePath
-            ]
-          );
-          elem.appendChild(gaugeElement);
-        }
-
-        function updateGauge(theValue, frame) {
-          var val = getValueInPercentage(theValue, min, limit),
-            // angle = getAngle(val, 360 - Math.abs(endAngle - startAngle)),
-            angle = getAngle(val, 360 - Math.abs(startAngle - endAngle)),
-            // this is because we are using arc greater than 180deg
-            flag = angle <= 180 ? 0 : 1;
-          if (displayValue) {
-            if (label.length === 1) {
-              gaugeValueElem.textContent = label.call(opts, theValue);
-            } else {
-              label.call(opts, gaugeValueElem, theValue);
-            }
-          }
-          gaugeValuePath.setAttribute(
-            "d",
-            pathString(radius, startAngle, angle + startAngle, flag)
-          );
-        }
-
-        function setGaugeColor(value, duration) {
-          var c = gaugeColor(value),
-            dur = duration * 1000,
-            pathTransition = "stroke " + dur + "ms ease";
-          // textTransition = "fill " + dur + "ms ease";
-
-          gaugeValuePath.style = [
-            "stroke: " + c,
-            "-webkit-transition: " + pathTransition,
-            "-moz-transition: " + pathTransition,
-            "transition: " + pathTransition
-          ].join(";");
-          /*
-          gaugeValueElem.style = [
-            "fill: " + c,
-            "-webkit-transition: " + textTransition,
-            "-moz-transition: " + textTransition,
-            "transition: " + textTransition,
-          ].join(";");
-          */
-        }
-
-        instance = {
-          setMaxValue: function(max) {
-            limit = max;
-          },
-          setValue: function(val) {
-            value = normalize(val, min, limit);
-            if (gaugeColor) {
-              setGaugeColor(value, 0);
-            }
-            updateGauge(value);
-          },
-          setValueAnimated: function(val, duration) {
-            var oldVal = value;
-            value = normalize(val, min, limit);
-            if (oldVal === value) {
-              return;
-            }
-
-            if (gaugeColor) {
-              setGaugeColor(value, duration);
-            }
-            Animation({
-              start: oldVal || 0,
-              end: value,
-              duration: duration || 1,
-              step: function(val, frame) {
-                updateGauge(val, frame);
-              }
-            });
-          },
-          getValue: function() {
-            return value;
-          }
-        };
-
-        initializeGauge(gaugeContainer);
-        instance.setValue(value);
-        return instance;
-      };
-    })();
-
-    return Gauge;
-  });
-
-  var startAnglePoint = 30;
-  var endAnglePoint = 150;
-  var maxSpeed = 35;
-
-  var gauge1 = Gauge(document.getElementById("gauge1"), {
-    max: maxSpeed,
-    dialStartAngle: startAnglePoint,
-    dialEndAngle: endAnglePoint,
-    value: 0,
-    label: function(item, value) {
-      while (item.firstChild) {
-        item.removeChild(item.firstChild);
-      }
-      var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      // tspan1.textContent=Math.round(value * 100)/100; // speed value from sc1
-      tspan1.textContent=s1_groundSpeed; // speed value from sc1
-
-      tspan1.setAttribute('x',50);
-      tspan1.setAttribute('y',48);
-      item.appendChild(tspan1);
-
-      var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan2.textContent="km/h";
-      tspan2.setAttribute('x',50);
-      tspan2.setAttribute('y',62);
-      item.appendChild(tspan2);
-
-      var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan3.textContent="S1 SPEED";
-      tspan3.setAttribute('font-size',5);
-      tspan3.setAttribute('x',50);
-      tspan3.setAttribute('y',30);
-      item.appendChild(tspan3);
-    }
-  });
 
 
-  var gauge2 = Gauge(document.getElementById("gauge2"), {
-    max: maxSpeed,
-    dialStartAngle: startAnglePoint,
-    dialEndAngle: endAnglePoint,
-    value: 0,
-    label: function(item,value) {
-
-      while (item.firstChild) {
-        item.removeChild(item.firstChild);
-      }
-
-      // var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      // tspan3.textContent="SPEED";
-      // item.appendChild(tspan3);
-
-      var tspan1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan1.textContent=Math.round(value * 100) / 100; // speed value from sc2
-      // tspan1.textContent=s2_groundSpeed; // speed value from sc2
-
-      tspan1.setAttribute('x',50);
-      tspan1.setAttribute('y',48);
-      item.appendChild(tspan1);
-
-      var tspan2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan2.textContent="km/h";
-      tspan2.setAttribute('x',50);
-      tspan2.setAttribute('y',62);
-      item.appendChild(tspan2);
-
-      var tspan3 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan3.textContent="S2 SPEED";
-      tspan3.setAttribute('font-size',5);
-      tspan3.setAttribute('x',50);
-      tspan3.setAttribute('y',30);
-      item.appendChild(tspan3);
-
-      // return Math.round(value * 100) / 100;
-    }
-  });
-
-  (function loop() {
-    // var value1 = Math.random() * 35;
-    // console.log(value1);
-    var value1 = s1_groundSpeed;
-    // console.log(value1);
-
-    var value2 = Math.random() * 35;
-
-    // setValueAnimated(value, durationInSecs);
-    gauge1.setValueAnimated(value1, 1);
-    gauge2.setValueAnimated(value2, 1);
-
-    window.setTimeout(loop, 5000);
-  })();
-  }//end of animatingGauge
-  animatingGauge(); // start gauge
-
-
-  </script>
-  <!-- <script src="index.js"></script> -->
 </body>
 </html>
